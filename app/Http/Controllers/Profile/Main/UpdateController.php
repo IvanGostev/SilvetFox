@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Profile\Main;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Profile\Main\UpdateRequest;
+use App\Http\Requests\Profile\Main\StoreRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ReplenishmentForm;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class UpdateController extends Controller
 {
-    public function __invoke(UpdateRequest $request)
+    public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
         if (($data['old_password'] != null) and ($data['new_password'] != null) and ($data['repeat_password'] != null)) {

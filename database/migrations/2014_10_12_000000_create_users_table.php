@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('img')->nullable();
             $table->unsignedSmallInteger('role')->default(0);
             $table->text('pgp_key')->nullable();
-            $table->bigInteger('balance')->default(0);
+            $table->double('balance')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

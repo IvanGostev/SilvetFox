@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Chat extends Model
 {
     use HasFactory;
+    protected $table = "chats";
+    protected $guarded = false;
+
+    public function user() {
+        return $this->belongsTo(User::class, 'second_user_id','id');
+    }
 }

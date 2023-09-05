@@ -1,7 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-<div class="container">
+    <section class="page-banner m-top-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <span class="round-shape"></span>
+                    <h2 class="banner-title">Auth / Register</h2>
+                    <div class="bread-crumb"><a href="/">Home</a> / Register</div>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="container m-top-20">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -63,7 +74,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark">
                                     {{ __('Register') }}
                                 </button>
                             </div>
