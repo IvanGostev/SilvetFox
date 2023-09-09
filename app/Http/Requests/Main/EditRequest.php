@@ -27,13 +27,13 @@ class EditRequest extends FormRequest
             'deposit_store' => 'required|string',
             'rate_dollars' => 'required|string',
             'terms_of_service' => 'required|string',
-            'information' => 'required|string',
+//            'information' => 'required|string',
             'rules' => 'required|string',
             'escrow' => 'required|string',
             'privacy_policy' => 'required|string',
-            'address' => 'required|string',
-            'email' => 'required|string',
-            'phone' => 'required|string',
+//            'address' => 'required|string',
+//            'email' => 'required|string',
+//            'phone' => 'required|string',
         ];
     }
     public function messages()

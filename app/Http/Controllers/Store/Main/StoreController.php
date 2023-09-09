@@ -17,7 +17,7 @@ class StoreController extends Controller
         if (Store::where('user_id', auth()->user()->id)->count() == 0) {
             try {
                 DB::beginTransaction();
-                $data['status'] = 2;
+                $data['status'] = 1;
                 $data['user_id'] = auth()->user()->id;
 
                 if (isset($data['img'])) {

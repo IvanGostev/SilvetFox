@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Profile\Balance;
 
 use App\Http\Controllers\Controller;
+use App\Models\Main;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ReplenishmentForm;
@@ -15,6 +16,7 @@ class IndexController extends Controller
 {
   public function __invoke()
   {
+      $main = Main::first();
       if (ReplenishmentForm::where('user_id', auth()->user()->id)->count() >= 10) {
           $formsR = ReplenishmentForm::where('user_id', auth()->user()->id)
               ->latest()
@@ -59,6 +61,6 @@ class IndexController extends Controller
               }
           }
       }
-      return view('profile.balance.index', compact('forms'));
+      return view('profile.balance.index', compact('forms', 'main'));
   }
 }

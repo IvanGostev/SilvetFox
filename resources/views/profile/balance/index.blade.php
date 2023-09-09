@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12 m-top-45">
                     <span class="round-shape"></span>
-                    <h2 class="banner-title">Balance</h2>
+                    <h2 class="banner-title">Balance 1XMR = {{$main->rate_dollars}}$</h2>
                     <div class="bread-crumb"><a href="/">Home</a> / Balance</div>
                 </div>
             </div>

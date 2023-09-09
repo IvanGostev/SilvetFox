@@ -53,7 +53,7 @@
                                 <td class="product-total">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span>{{$product->balance}}<span class="woocommerce-Price-currencySymbol">&nbsp;XMR</span></span>
+                                                    <span>{{$product->price}}<span class="woocommerce-Price-currencySymbol">&nbsp;XMR</span></span>
                                                 </span>
                                     </div>
                                 </td>

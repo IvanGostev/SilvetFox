@@ -70,7 +70,7 @@
                 <ul class="metismenu list-unstyled" id="side-menu">
                     <li class="menu-title">Меню</li>
                     <li>
-                        <a href="{{ route('admin.user.index') }}" class="waves-effect">
+                        <a href="{{ route('admin.main.edit') }}" class="waves-effect">
                             <span>Основные настройки</span>
                         </a>
                     </li>
@@ -87,7 +87,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('admin.store.index') }}" class=" waves-effect">
+                        <a href="{{ route('admin.store.check') }}" class=" waves-effect">
                             <span>Магазины на проверки</span>
                         </a>
                     </li>
@@ -107,18 +107,38 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.product.index') }}" class=" waves-effect">
+                        <a href="{{ route('admin.balance.withdrawal.index') }}" class=" waves-effect">
                             <span>Заявки на вывод</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.product.index') }}" class="waves-effect">
+                        <a href="{{ route('admin.balance.replenishment.index') }}" class="waves-effect">
                             <span>Заявки на пополнение</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.product.index') }}" class="waves-effect">
+                            <span>Все заказы в доставке</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.product.index') }}" class="waves-effect">
                             <span>Все заказы</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.product.index') }}" class="waves-effect">
+                            <span>Подтвержденные заказы</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.categoryPost.index') }}" class=" waves-effect">
+                            <span>Категории новостей</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.news.index') }}" class="waves-effect">
+                            <span>Новости</span>
                         </a>
                     </li>
                 </ul>

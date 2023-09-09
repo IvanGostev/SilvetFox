@@ -16,13 +16,15 @@ class StoreController extends Controller
     {
 
         $data = $request->validated();
-
         if (Product::where('store_id', $data['store_id'])->count() < 3) {
             try {
                 DB::beginTransaction();
                 $data['status'] = 1;
                 if (isset($data['img'])) {
                     $data['img'] = Storage::disk('public')->put('/images', $data['img']);
+                }
+                if (isset($data['video'])) {
+                    $data['video'] = Storage::disk('public')->put('/images', $data['video']);
                 }
                 Product::create($data);
                 DB::commit();

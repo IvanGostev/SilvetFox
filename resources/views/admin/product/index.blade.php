@@ -17,7 +17,6 @@
                                     <table class="table table-centered table-nowrap mb-0">
                                         <thead>
                                         <tr>
-                                            <th scope="col" style="width: 60px;"></th>
                                             <th scope="col">ID &amp; Название</th>
                                             <th scope="col">Цена</th>
                                             <th scope="col">Статус</th>
@@ -43,10 +42,6 @@
 
                                                 ?>
                                             <tr>
-                                                <td>
-                                                    <img src="{{ asset('asset/images/users/avatar-2.jpg')}}" alt="user"
-                                                         class="avatar-xs rounded-circle">
-                                                </td>
                                                 <td>
                                                     <p class="mb-1 font-size-12">#{{$product->id}}</p>
                                                     <h5 class="font-size-15 mb-0">{{$product->title}}</h5>

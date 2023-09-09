@@ -22,7 +22,8 @@
                 <div class="col-lg-12 text-center">
                     <h2 class="sec-title">You don't have a store. Want to open it?</h2>
                     <p class="sec-desc">
-                        You don't have a store. Do you want to open it? To open a store, top up your balance.<br> $20 will be debited from your balance.
+                        You don't have a store. Do you want to open it? To open a store, top up your balance.<br>
+                        {{$deposit}} XMR will be debited from your balance.
                     </p>
                 </div>
             </div>

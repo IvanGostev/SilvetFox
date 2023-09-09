@@ -10,4 +10,11 @@ class Post extends Model
     use HasFactory;
     protected $table = "posts";
     protected $guarded = false;
+
+    public function category() {
+        return $this->belongsTo(PostCategory::class);
+    }
+    public function comments() {
+        return $this->hasMany(PostComment::class, 'post_id', 'id');
+    }
 }

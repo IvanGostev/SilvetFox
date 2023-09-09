@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Market\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductComment;
+use App\Models\ProductImage;
 use Illuminate\Http\Request;
 
 class ShowController extends Controller
@@ -28,7 +29,11 @@ class ShowController extends Controller
       $count = count($product->comments);
       function rating(array $arr, $count)
       {
-          return ((5 * $arr['5']) + (4 * $arr['4']) + (3 * $arr['3']) + (2 * $arr['2']) + (1 * $arr['1'])) / $count;
+          if ($count != 0) {
+              return ((5 * $arr['5']) + (4 * $arr['4']) + (3 * $arr['3']) + (2 * $arr['2']) + (1 * $arr['1'])) / $count;
+          }
+          return 0;
+
       }
 
       $rating = rating(['5' => $star5, '4' => $star4, '3' => $star3, '2' => $star2, '1' => $star1], $count);
@@ -73,7 +78,8 @@ class ShowController extends Controller
                                 <span><i class="twi-star"></i></span>
                             </div>';
         }
-      return view('market.product.show', compact('product', 'products', 'countComments', 'rating'));
+        $images = ProductImage::where('product_id', $product->id)->get();
+      return view('market.product.show', compact('product', 'products', 'countComments', 'rating', 'images'));
   }
 }
 

@@ -26,7 +26,7 @@ class FormsRequest extends FormRequest
         return [
             'number' => 'required|string',
             'message' => 'required|string',
-            'answer' => 'string',
+            'answer' => 'string|nullable',
         ];
     }
     public function messages()

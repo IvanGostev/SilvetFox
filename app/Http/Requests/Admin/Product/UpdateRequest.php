@@ -30,6 +30,7 @@ class UpdateRequest extends FormRequest
             'description' => 'required|string',
             'status' => 'required|integer',
             'price' => 'required|integer',
+            'dollars' => 'integer',
             'category_id' => 'required|integer',
         ];
     }

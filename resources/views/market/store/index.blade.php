@@ -25,27 +25,27 @@
                             @foreach($stores as $store)
                                 <tr>
                                     <th class="product-name-thumbnail">Store Name</th>
-                                    <th class="product-price">Date</th>
+                                    <th class="product-price">Description</th>
                                     <th class="product-remove">&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <tr class="cart-item">
                                 <td class="product-thumbnail-title">
-                                    <a href="#">
+                                    <a href="{{ route('market.category.storeProduct', $store->id ) }}">
                                         <img src="{{ asset('storage/' . $store->img) }}" alt="">
                                     </a>
-                                    <a class="product-name" href="#">{{$store->title}}</a>
+                                    <a class="product-name" href="{{ route('market.category.storeProduct', $store->id ) }}">{{$store->title}}</a>
                                 </td>
                                 <td class="product-unit-price">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span>{{$store->created_at}}</span>
+                                                    <span>{{$store->description}}</span>
                                                 </span>
                                     </div>
                                 </td>
                                 <td class="y">
-                                    <a href="#">Go over</a>
+                                    <a href="{{ route('market.category.storeProduct', $store->id ) }}">Go over</a>
                                 </td>
                             </tr>
                             @endforeach

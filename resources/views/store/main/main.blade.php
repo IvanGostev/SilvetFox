@@ -61,7 +61,7 @@
                                                 <td data-field="gender">Inactive</td>
                                             @endif
                                             @if($product->status == 1)
-                                                <td data-field="gender">Сheck</td>
+                                                <td data-field="gender">Check</td>
                                             @endif
                                             @if($product->status == 2)
                                                 <td data-field="gender">Active</td>
@@ -73,7 +73,7 @@
                                                 <td data-field="gender" class="text-success">YES</td>
                                             @endif
                                             <td style="width: 100px">
-                                                <a href="{{ route('store.product.active', $store->id) }}}" class="btn btn-outline-info waves-effect">Activate/Deactivate</a>
+                                                <a href="{{ route('store.product.active', $store->id) }}" class="btn btn-outline-info waves-effect">Activate/Deactivate</a>
                                             </td>
                                             <td style="width: 100px">
                                                 <a href="{{ route('store.product.image.index', $product->id) }}" class="btn btn-outline-success waves-effect">See</a>

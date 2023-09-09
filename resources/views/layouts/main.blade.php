@@ -67,7 +67,7 @@
         <div class="row">
             <div class="col-lg-2 col-md-2">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="/">
                         <img src="{{ asset('logo.jpg') }}" alt="SilvetFox"/>
                     </a>
                 </div>
@@ -79,7 +79,7 @@
                     <ul class="d-flex justify-content-between">
                         <li><a href="{{ route('market.product.index') }}">Products</a></li>
                         <li><a href="{{ route('market.stores.index') }}">Stores</a></li>
-                        <li><a href="#">News</a></li>
+                        <li><a href="{{ route('news.main.index') }}">News</a></li>
                        <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>
                         <li><a href="{{ route('main.escrow') }}">escrow</a></li>
                         <li><a href="{{ route('main.rules') }}">RULES</a></li>
@@ -92,7 +92,9 @@
                                     <li><a href="{{ route('order.main.index') }}">Orders</a></li>
                                     <li><a href="{{ route('profile.balance.index') }}">Balance history</a></li>
                                     <li><a href="{{ route('store.main.start') }}">My store</a></li>
+                                    @if(auth()->user()->role == 1) <li><a href="{{ route('store.order.index') }}">Orders from my store</a></li> @endif
                                     <li><a href="{{ route('profile.chat.index') }}">Chats</a></li>
+                                    @if(auth()->user()->role >= 2) <li><a href="{{ route('admin.user.index') }}">Admin panel</a></li> @endif
                                     <li>
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
@@ -121,7 +123,7 @@
             <div class="col-lg-3 col-md-4">
                 <aside class="widget about-widget">
                     <div class="foo-logo">
-                        <a href="index.html"><img width="150px" src="{{ asset('logo.jpg') }}" alt=""/></a>
+                        <a href="/"><img width="150px" src="{{ asset('logo.jpg') }}" alt=""/></a>
                     </div>
                     <p>
                         Sed ut perspiciatis unde omnis iste natus er sit voluptatem accusantium dolore.ea commo
@@ -130,19 +132,19 @@
                     </p>
                 </aside>
             </div>
-            <div class="col-lg-2 col-md-4 col-custome-1">
+            <div class="col-lg-3 col-md-4 col-custome-1">
                 <aside class="widget">
                     <h3 class="widget-title">Useful Links</h3>
                     <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Return Policy</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="{{ route('main.pp') }}">Privacy Policy</a></li>
+                        <li><a href="{{ route('news.main.index') }}">News</a></li>
+                        <li><a href="{{ route('order.main.index') }}">Orders</a></li>
+                        <li><a href="{{ route('market.product.index') }}">Products</a></li>
+                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>
                     </ul>
                 </aside>
             </div>
-            <div class="col-lg-2 col-md-4 col-custome-2">
+            <div class="col-lg-3 col-md-4 col-custome-2">
                 <aside class="widget">
                     <h3 class="widget-title">Account</h3>
                     <ul>
@@ -154,7 +156,7 @@
                     </ul>
                 </aside>
             </div>
-            <div class="col-lg-2 col-md-6 col-custome-3">
+            <div class="col-lg-3 col-md-6 col-custome-3">
                 <aside class="widget contact-widget">
                     <h3 class="widget-title">Contact & Address</h3>
                     <p>
@@ -167,16 +169,15 @@
                     </p>
                 </aside>
             </div>
-            <div class="col-lg-3 col-md-6 col-custome-4">
-                <aside class="widget">
-                    <h3 class="widget-title">Subscribe</h3>
-                    <form class="subscribe-form" action="#" method="post">
-                        <input type="email" name="email" placeholder="admin@mail.com">
-                        <button type="submit">Subscribe<i class="twi-long-arrow-alt-right"></i></button>
-                    </form>
-                </aside>
-            </div>
-        </div>
+{{--            <div class="col-lg-3 col-md-6 col-custome-4">--}}
+{{--                <aside class="widget">--}}
+{{--                    <h3 class="widget-title">Subscribe</h3>--}}
+{{--                    <form class="subscribe-form" action="#" method="post">--}}
+{{--                        <input type="email" name="email" placeholder="admin@mail.com">--}}
+{{--                        <button type="submit">Subscribe<i class="twi-long-arrow-alt-right"></i></button>--}}
+{{--                    </form>--}}
+{{--                </aside>            </div>--}}
+{{--        </div>--}}
     </div>
 </footer>
 <!-- Footer Ened -->
@@ -187,9 +188,9 @@
         <div class="row">
             <div class="col-lg-6 col-md-5">
                 <ul class="menu-link">
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="{{ route('main.pp') }}">Privacy Policy</a></li>
                     |
-                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="{{ route('main.tos') }}">Terms of Service</a></li>
                 </ul>
             </div>
             <div class="col-lg-6 col-md-7">

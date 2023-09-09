@@ -35,7 +35,7 @@
                             <tr class="cart-item">
                                 <td class="product-thumbnail-title">
                                     <a href="#">
-                                        <img src="{{ 'storage/' . $order->product->img }}" alt="">
+                                        <img src="{{ asset('storage/' . $order->product->img )}}" alt="">
                                     </a>
                                     <a class="product-name" href="#">{{$order->product->title}}</a>
                                 </td>
@@ -49,20 +49,20 @@
                                 <td class="product-unit-price">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span> {{   }}</span>
+                                                    <span> {{$order->staus == 0 ? 'Cancelled' : ($order->staus == 1 ? 'In processing' : ($order->staus == 2 ? 'In the assembly' : ($order->status == 3 ? 'shipped' : 'Receipt confirmed')))}}</span>
                                                 </span>
                                     </div>
                                 </td>
                                 <td class="product-total">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span>42.00<span
+                                                    <span>{{$order->product->price}}<span
                                                             class="woocommerce-Price-currencySymbol">&nbsp;XMR</span></span>
                                                 </span>
                                     </div>
                                 </td>
                                 <td class="y">
-                                    <a href="#">Gjlhj,yt</a>
+                                    <a href="{{ route('order.main.edit', $order->id) }}">More detailed</a>
                                 </td>
                             </tr>
                             @endforeach

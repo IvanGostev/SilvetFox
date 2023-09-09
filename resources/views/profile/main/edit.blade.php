@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <div class="woocommerce-billing-fields">
                         <h3>My Profile</h3>
-                        <form action="{{ route('profile.main.update') }}" method="post">
+                        <form action="{{ route('profile.main.update') }}" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 @csrf
                                 @method('patch')
@@ -39,6 +39,10 @@
                                 <p class="col-lg-6">
                                     <label>Repeat password</label>
                                     <input  name="repeat_password" type="password">
+                                </p>
+                                <p class="col-lg-12">
+                                    <label>Avatar</label>
+                                    <input type="file" name=img>
                                 </p>
                                 <p class="col-lg-12">
                                     <label>Public PGP key</label>

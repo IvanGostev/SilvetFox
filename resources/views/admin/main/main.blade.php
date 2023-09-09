@@ -11,10 +11,8 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Validation type</h4>
-                                <p class="card-title-desc">Parsley is a javascript form validation
-                                    library. It helps you provide your users with feedback on their form
-                                    submission before sending it to your server.</p>
+                                <h4 class="card-title">Основные настройки</h4>
+                                <p class="card-title-desc"></p>
 
                                 <form class="custom-validation" action="#" novalidate="">
                                     <div class="mb-3">
@@ -29,30 +27,30 @@
                                             <input parsley-type="url" type="text" class="form-control" required="" name="rate_dollars" value="{{$main->rate_dollars}}">
                                         </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Footer: Адрес</label>
-                                        <div>
-                                            <input data-parsley-type="digits" type="text" class="form-control" required="" name="address" value="{{$main->address}}">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Footer: Почта</label>
-                                        <div>
-                                            <input data-parsley-type="number" type="email" class="form-control" required="" name="email" value="{{$main->email}}" >
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Footer: Телефон</label>
-                                        <div>
-                                            <input data-parsley-type="alphanum" type="text" class="form-control" required="" name="phone" value="{{$main->phone}}">
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="form-label">Footer: информация</label>
-                                        <div>
-                                            <textarea required="" class="form-control" rows="5" name="information">{{$main->information}}</textarea>
-                                        </div>
-                                    </div>
+{{--                                    <div class="mb-3">--}}
+{{--                                        <label class="form-label">Footer: Адрес</label>--}}
+{{--                                        <div>--}}
+{{--                                            <input data-parsley-type="digits" type="text" class="form-control" required="" name="address" value="{{$main->address}}">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="mb-3">--}}
+{{--                                        <label class="form-label">Footer: Почта</label>--}}
+{{--                                        <div>--}}
+{{--                                            <input data-parsley-type="number" type="email" class="form-control" required="" name="email" value="{{$main->email}}" >--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="mb-3">--}}
+{{--                                        <label class="form-label">Footer: Телефон</label>--}}
+{{--                                        <div>--}}
+{{--                                            <input data-parsley-type="alphanum" type="text" class="form-control" required="" name="phone" value="{{$main->phone}}">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="mb-3">--}}
+{{--                                        <label class="form-label">Footer: информация</label>--}}
+{{--                                        <div>--}}
+{{--                                            <textarea required="" class="form-control" rows="5" name="information">{{$main->information}}</textarea>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="mb-3">
                                         <label class="form-label">Правила</label>
                                         <div>

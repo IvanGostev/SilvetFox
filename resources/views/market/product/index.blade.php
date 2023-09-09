@@ -1,10 +1,7 @@
 @extends('layouts.main')
 @section('content')
-    <!-- Banner End -->
 
-    <!-- Shop Section Start -->
-    <!-- Shop Section Start -->
-    <section class="shop-left-sidebar">
+    <section class="shop-left-sidebar backgrounf">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2">
@@ -20,20 +17,18 @@
                     </div>
                 </div>
                 <div class="col-lg-10 m-top-45">
-
-
-                        <div class="row">
-                            @foreach($products as $product)
+                    <div class="row">
+                        @foreach($products as $product)
                             <div class="col-lg-4 col-md-6">
                                 <div class="single-shop-product">
                                     <div class="sp-thumb">
-                                        <img src="{{asset('storage' . $product->img)}}" alt="" class="">
+                                        <img src="{{asset('storage/' . $product->img)}}" alt="" class="">
                                     </div>
                                     <div class="sp-details">
                                         <h4>{{$product->title}}</h4>
                                         <div class="product-price clearfix">
                                             <span class="price">
-                                                <ins><span><span class="woocommerce-Price-currencySymbol"></span>{{$product->price}}</span>$</ins>
+                                                <ins><span><span class="woocommerce-Price-currencySymbol"></span>{{$product->price}}</span>XMR</ins>
                                             </span>
                                         </div>
                                         <div class="sp-details-hover">
@@ -42,27 +37,25 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
-                        </div>
-
-                    <div class="row">
-                        <div class="col-lg-10 offset-lg-1 col-md-12 mt-20">
-                            <div class="goru-pagination text-center clearfix">
-                                <a class="prev" href="#"><i class="twi-long-arrow-alt-left"></i></a>
-                                <span class="current">1</span>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#">4</a>
-                                <a href="#">5</a>
-                                <a class="next" href="#"><i class="twi-long-arrow-alt-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                        @endforeach
+{{--                    </div>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-10 offset-lg-1 col-md-12 mt-20">--}}
+{{--                            <div class="goru-pagination text-center clearfix">--}}
+{{--                                <a class="prev" href="#"><i class="twi-long-arrow-alt-left"></i></a>--}}
+{{--                                <span class="current">1</span>--}}
+{{--                                <a href="#">2</a>--}}
+{{--                                <a href="#">3</a>--}}
+{{--                                <a href="#">4</a>--}}
+{{--                                <a href="#">5</a>--}}
+{{--                                <a class="next" href="#"><i class="twi-long-arrow-alt-right"></i></a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
-
-
             </div>
         </div>
     </section>
+
     <!-- Shop Section End -->
 @endsection

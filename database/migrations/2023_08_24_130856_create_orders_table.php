@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('product_id');
-            $table->string('track_number');
-            $table->string('delivery');
+            $table->string('track_number')->nullable();
+            $table->string('delivery')->nullable();
             $table->string('address');
-            $table->smallInteger('status');
+            $table->smallInteger('status')->default(1);
             $table->index('user_id', 'order_user_idx');
             $table->foreign('user_id', 'order_user_fk')->on('users')->references('id');
             $table->index('product_id', 'order_product_idx');

@@ -15,6 +15,9 @@ class UpdateController extends Controller
         if (isset($data['img'])) {
             $data['img'] = Storage::disk('public')->put('/images', $data['img']);
         }
+        if (isset($data['video'])) {
+            $data['video'] = Storage::disk('public')->put('/images', $data['video']);
+        }
         $store->update($data);
         return redirect()->route('store.main.start');
     }

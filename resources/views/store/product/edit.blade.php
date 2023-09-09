@@ -44,6 +44,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <label class="form-label" for="validationCustom02">Video</label>
+                                        <input type="file" class="form-control" id="validationCustom02" required=""
+                                               name="video">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="validationCustom01">Countries where goods are delivered</label>
+                                            <input type="text" class="form-control" id="validationCustom01"
+                                                   placeholder="Countries" required="" name="countries"
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="mb-3">
                                         <label class="form-label">Description</label>

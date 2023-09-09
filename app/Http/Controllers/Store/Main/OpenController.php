@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Store\Main;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\OpenRequest;
 use App\Models\History;
+use App\Models\Main;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -15,14 +16,15 @@ class OpenController extends Controller
     {
         $data = $request->validated();
         $user = auth()->user();
-        if ($user->balance >= 20) {
+        $deposit =  Main::first()->deposit_store;
+        if ($user->balance >= $deposit) {
             try {
                 DB::beginTransaction();
                 $user->role = 1;
-                $user->balance = $user->balance - 20;
+                $user->balance = $user->balance -  $deposit;
                 $user->update();
                 $data['type'] = 'deposit';
-                $data['number'] = 20;
+                $data['number'] =  $deposit;
                 History::create($data);
                 DB::commit();
             } catch (Exception $exception) {

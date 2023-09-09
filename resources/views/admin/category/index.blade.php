@@ -18,7 +18,6 @@
                                     <table class="table table-centered table-nowrap mb-0">
                                         <thead>
                                         <tr>
-                                            <th scope="col" style="width: 60px;"></th>
                                             <th scope="col">ID &amp; Название</th>
                                             <th scope="col">Действие</th>
                                         </tr>
@@ -26,10 +25,6 @@
                                         <tbody>
                                         @foreach($categories as $category)
                                             <tr>
-                                                <td>
-                                                    <img src="{{ asset('asset/images/categorys/avatar-2.jpg')}}" alt="category"
-                                                         class="avatar-xs rounded-circle">
-                                                </td>
                                                 <td>
                                                     <p class="mb-1 font-size-12">#{{$category->id}}</p>
                                                     <h5 class="font-size-15 mb-0">{{$category->title}}</h5>

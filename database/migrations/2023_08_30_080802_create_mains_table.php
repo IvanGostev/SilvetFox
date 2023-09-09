@@ -16,13 +16,13 @@ return new class extends Migration
             $table->double('rate_dollars');
             $table->double('deposit_store');
             $table->text('terms_of_service');
-            $table->text('information');
+//            $table->text('information');
             $table->text('rules');
             $table->text('escrow');
             $table->text('privacy_policy');
-            $table->string('address');
-            $table->string('email');
-            $table->string('phone');
+//            $table->string('address');
+//            $table->string('email');
+//            $table->string('phone');
 
             $table->timestamps();
         });

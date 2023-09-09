@@ -37,7 +37,7 @@
                                                 ?>
                                             <tr>
                                                 <td>
-                                                    <img src="{{ asset('asset/images/users/avatar-2.jpg')}}" alt="user"
+                                                    <img src="{{ asset('storage/' . $user->img)}}" alt="user"
                                                          class="avatar-xs rounded-circle">
                                                 </td>
                                                 <td>

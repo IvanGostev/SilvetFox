@@ -25,27 +25,15 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="ps-img">
-                                    <img src="{{ asset('assets/images/shop/single-product.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="ps-img">
-                                    <img src="{{ asset('assets/images/shop/single-product.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="ps-img">
-                                    <img src="{{ asset('assets/images/shop/single-product.jpg')}}" alt="">
+                                    <img src="{{ asset('storage/' . $product->img)}}" alt="">
                                 </div>
                             </div>
                         </div>
                         <ol class="carousel-indicators clearfix">
-                            <li data-target="#product-slider" data-slide-to="0" class="active"><img
-                                    src="{{ asset('assets/images/shop/s1.png')}}" alt=""></li>
-                            <li data-target="#product-slider" data-slide-to="1"><img
-                                    src="{{ asset('assets/images/shop/s2.png')}}" alt=""></li>
-                            <li data-target="#product-slider" data-slide-to="2"><img
-                                    src="{{ asset('assets/images/shop/s2.png')}}" alt=""></li>
+                            @foreach($images as $image)
+                                <li data-target="#product-slider" data-slide-to="0" class="active"><img
+                                        src="{{ asset('storage/' . $image->img)}}" alt=""></li>
+                            @endforeach
                         </ol>
                     </div>
                 </div>
@@ -98,9 +86,9 @@
                                         @foreach($product->comments as $comment)
                                             <li>
                                                 <div class="single-comment">
-                                                    <img src="{{ asset('assets/images/blog/c1.jpg')}}" alt="">
+                                                    <img src="{{ asset('storage/' . $comment->user->img)}}" alt="">
                                                     <h5>
-                                                        <a href="#">{{$comment->user->name}}</a><span>{{$comment->created_at}}</span>
+                                                        <a href="{{ route('profile.main.show', $comment->user->id) }}">{{$comment->user->name}}</a><span>{{$comment->created_at}}</span>
                                                     </h5>
                                                     <div class="comment">
                                                         <p>
@@ -138,10 +126,12 @@
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="product-speciality">
+                        <video href="{{'storage/' . $product->video}}"></video>
                         <h5>Specifications</h5>
                         <ul>
                             <li>Store: {{$product->store->title}}</li>
                             <li>Category: {{$product->category->title}}</li>
+                            <li>Countries to which the goods are delivered: {{$product->countries}}</li>
                             <li>Description: {{$product->description}}</li>
                         </ul>
                     </div>
