@@ -22,11 +22,18 @@
                         <ul class="list-unstyled chat-list mt-2 mb-0">
                             @foreach($chats as $chat)
                                 <li class="clearfix {{ $chat->user->id == $user->id ? 'active' : ''}}">
-                                    <img src="{{ asset('storage/' .  $chat->user->img) }}" alt="avatar">
-                                    <div class="about">
-                                        <div class="name">{{$chat->user->name}}</div>
-                                        <div class="status"><i class="fa fa-circle offline"></i> left 7 mins ago</div>
-                                    </div>
+                                    <a href="{{ route('profile.chat.show', $chat->user->id) }}">
+                                        <img src="{{ asset('storage/' .  $chat->user->img) }}" alt="avatar">
+                                        <div class="about">
+                                            <div class="name">{{$chat->user->name}}</div>
+                                            @if($chat->new == 1)
+                                                <span class="badge bg-danger">New message</span>
+                                            @endif
+
+                                            {{--                                        <div class="status"><i class="fa fa-circle offline"></i> left 7 mins ago</div>--}}
+                                        </div>
+                                    </a>
+
                                 </li>
                             @endforeach
                         </ul>
@@ -35,12 +42,12 @@
                         <div class="chat-header clearfix">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <a href="#" data-toggle="modal" data-target="#view_info">
+                                    <a href="/" data-toggle="modal" data-target="#view_info">
                                         <img src="{{ asset('storage/' . $user->img) }}" alt="avatar">
                                     </a>
                                     <div class="chat-about">
                                         <h6 class="m-b-0">{{$user->name}}</h6>
-                                        <small>Last seen: 2 hours ago</small>
+{{--                                        <small>Last seen: 2 hours ago</small>--}}
                                     </div>
                                 </div>
 

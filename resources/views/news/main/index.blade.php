@@ -15,7 +15,7 @@
     <!-- Banner End -->
 
     <!-- Blog Section Start -->
-    <section class="blog-section">
+    <section class="blog-section" style="background: -webkit-linear-gradient(90deg, #5e7078,#4a5559,#373a3a); background: linear-gradient(90deg, #5e7078,#4a5559,#373a3a);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-5">

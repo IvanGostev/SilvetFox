@@ -25,11 +25,14 @@
                                 @foreach($chats as $chat)
                                     <li class="clearfix">
 
-                                        <a href="{{ route('profile.chat.show', $chat->id) }}">
+                                        <a href="{{ route('profile.chat.show', $chat->user->id) }}">
                                             <img src="{{ asset('storage/' .  $chat->user->img) }}" alt="avatar">
                                             <div class="about">
                                                 <div class="name">{{$chat->user->name}}</div>
-                                                <div class="status"><i class="fa fa-circle offline"></i> left 7 mins ago</div>
+                                                @if($chat->new == 1)
+                                                    <span class="badge bg-danger">New message</span>
+                                                @endif
+{{--                                                <div class="status"><i class="fa fa-circle offline"></i> left 7 mins ago</div>--}}
                                             </div>
                                         </a>
 

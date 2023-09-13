@@ -13,13 +13,13 @@
     </section>
 
     <section class="h-100"
-             style="background: -webkit-linear-gradient(90deg, #cc7a5a,#914865,#382e55);background: linear-gradient(90deg, #cc7a5a,#914865,#382e55);">
+             style="background: -webkit-linear-gradient(90deg, #5e7078,#4a5559,#373a3a); background: linear-gradient(90deg, #5e7078,#4a5559,#373a3a);">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-lg-9 col-xl-7">
                     <div class="card">
                         <div class="rounded-top text-white d-flex flex-row"
-                             style="background-color: #1b1f2b; height:200px;">
+                             style="background: -webkit-linear-gradient(90deg, #5e7078,#4a5559,#373a3a); background: linear-gradient(90deg, #5e7078,#4a5559,#373a3a); height:200px;">
                             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
                                 <img src="{{ asset('storage/' . $user->img) }}"
                                      alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"

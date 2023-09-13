@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Goru – Ecommerce HTML5 Responsive Template</title>
+    <title>SilvetFox</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 
@@ -67,36 +67,40 @@
         <div class="row">
             <div class="col-lg-2 col-md-2">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="assets/images/logo.png" alt="Goru"/>
+                    <a href="/">
+                        <img src="{{ asset('logo.jpg') }}" alt="SilvetFox"/>
                     </a>
                 </div>
             </div>
             <div class="col-lg-10 col-md-10">
                 <nav class="mainmenu mobile-menu">
                     <div class="mobile-btn">
-                        <a href=""><span>Menu</span><i class="twi-bars"></i></a>
                     </div>
                     <ul class="d-flex justify-content-between">
-                        <li><a href="contact.html">Products</a></li>
-                        <li><a href="contact.html">Stores</a></li>
-                        <li><a href="contact.html">News</a></li>
-                        <li><a href="contact.html">ORDERS</a></li>
-                        <li><a href="contact.html">RULES</a></li>
+                        <li><a href="{{ route('market.product.index') }}">Products</a></li>
+                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>
+                        <li><a href="{{ route('news.main.index') }}">News</a></li>
+                        <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>
+                        <li><a href="{{ route('main.escrow') }}">escrow</a></li>
+                        <li><a href="{{ route('main.rules') }}">RULES</a></li>
                         @auth()
-                            <a class="select-currency" href="#">Your bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
+                            <a class="select-currency" href="{{ route('profile.balance.index') }}">Your bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
                             <li class="menu-item-has-children">
-                                <a class="user-login" href="#"><i class="twi-user-circle"></i><span>Account</span></a>
+                                <a class="user-login" href="{{ route('profile.main.show', auth()->user()->id) }}"><i class="twi-user-circle"></i><span>Account</span></a>
                                 <ul class="sub-menu">
-                                    <li><a href="shop-fullwidth.html">Orders</a></li>
-                                    <li><a href="shop-left-sidebar.html">Order history</a></li>
-                                    <li><a href="shop-right-sidebar.html">Balance history</a></li>
-                                    <li><a href="single-product.html">My store</a></li>
-                                    <li><a href="cart.html">Communication</a></li>
+                                    <li><a href="{{ route('profile.main.edit') }}">Edit profile</a></li>
+                                    <li><a href="{{ route('order.main.index') }}">Orders</a></li>
+                                    <li><a href="{{ route('profile.balance.index') }}">Balance history</a></li>
+                                    <li><a href="{{ route('store.main.start') }}">My store</a></li>
+                                    @if(auth()->user()->role == 1) <li><a href="{{ route('store.order.index') }}">Orders from my store</a></li> @endif
+                                    <li><a href="{{ route('profile.chat.index') }}">Chats</a></li>
+                                    @if(auth()->user()->role >= 2) <li><a href="{{ route('admin.user.index') }}">Admin panel</a></li> @endif
                                     <li>
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
-                                            <button style="display: inline-block;  font-weight: 600; font-size: 14px ; padding: 9px 20px; border: none; color: black; background-color: transparent;" type="submit">Logout
+                                            <button
+                                                style="display: inline-block;  font-weight: 600; font-size: 14px ; padding: 9px 20px; border: none; color: black; background-color: transparent;"
+                                                type="submit">Logout
                                             </button>
                                         </form>
                                     </li>

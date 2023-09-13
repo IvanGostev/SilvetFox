@@ -11,8 +11,9 @@ class ActiveController extends Controller
 {
     public function __invoke(Product $product)
     {
+        dd($product->store);
         if ($product->store->user_id == auth()->user()->id) {
-            $product->active == 1 ? $product->active = 0 : $product->active = 1;
+            $product->active = $product->active == 1 ? 0 : 1;
             $product->update();
         }
         return redirect()->route('store.main.start');

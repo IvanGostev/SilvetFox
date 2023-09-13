@@ -6,7 +6,7 @@ use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminMiddleware
+class SellerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role != 3) {
+        if (auth()->user()->role == 0) {
             return redirect()->route('market.product.index');
         }
 

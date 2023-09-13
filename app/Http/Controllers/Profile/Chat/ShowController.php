@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Profile\Chat;
 use App\Http\Controllers\Controller;
 use App\Models\Chat;
 use App\Models\Message;
+use App\Models\NewMessage;
 use App\Models\User;
 use Illuminate\Support\Carbon;
 
@@ -12,6 +13,9 @@ class ShowController extends Controller
 {
     public function __invoke(User $user)
     {
+        if ($user->id == auth()->user()->id) {
+            return redirect()->route('profile.chat.index');
+        }
         if (Chat::where('second_user_id', $user->id)->count() < 1) {
             Chat::firstOrCreate(['second_user_id' => $user->id, 'first_user_id' => auth()->user()->id]);
             Chat::firstOrCreate(['second_user_id' => auth()->user()->id, 'first_user_id' => $user->id]);
@@ -82,6 +86,19 @@ class ShowController extends Controller
                 unset($chats[$countChat]);
             }
             $countChat++;
+        }
+        if (NewMessage::where('second_user_id', auth()->user()->id)->where('first_user_id', $user->id)->count() > 0) {
+            $data = NewMessage::where('second_user_id', auth()->user()->id)->where('first_user_id', $user->id)->get();
+            foreach ($data as $message) {
+                $message->delete();
+            }
+        }
+        foreach ($chats as $chat) {
+            if (NewMessage::where('second_user_id', auth()->user()->id)->where('first_user_id', $chat->user->id)->count() > 0) {
+                $chat['new'] = 1;
+            } else {
+                $chat['new'] = 0;
+            }
         }
         return view('profile.chat.show', compact('messages', 'user', 'chats'));
     }

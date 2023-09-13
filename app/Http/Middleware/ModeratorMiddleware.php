@@ -18,7 +18,7 @@ class ModeratorMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (auth()->user()->role < 2) {
-            abort(401);
+            return redirect()->route('market.product.index');
         }
 
         return $next($request);

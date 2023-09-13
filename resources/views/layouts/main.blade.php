@@ -80,21 +80,38 @@
                         <li><a href="{{ route('market.product.index') }}">Products</a></li>
                         <li><a href="{{ route('market.stores.index') }}">Stores</a></li>
                         <li><a href="{{ route('news.main.index') }}">News</a></li>
-                       <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>
+                        <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>
                         <li><a href="{{ route('main.escrow') }}">escrow</a></li>
                         <li><a href="{{ route('main.rules') }}">RULES</a></li>
                         @auth()
-                            <a class="select-currency" href="{{ route('profile.balance.index') }}">Your bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
+                            @if(countNewMessages() > 0)
+                                <li><a href="{{ route('profile.chat.index') }}" class="text-dark">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                            <path
+                                                d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/>
+                                        </svg>
+                                        <span class="badge rounded-pill badge-notification bg-danger">{{countNewMessages()}}</span>
+                                    </a></li>
+                            @endif
+
+                            <a class="select-currency" href="{{ route('profile.balance.index') }}">Your
+                                bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
                             <li class="menu-item-has-children">
-                                <a class="user-login" href="{{ route('profile.main.show', auth()->user()->id) }}"><i class="twi-user-circle"></i><span>Account</span></a>
+                                <a class="user-login" href="{{ route('profile.main.show', auth()->user()->id) }}"><i
+                                        class="twi-user-circle"></i><span>Account</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('profile.main.edit') }}">Edit profile</a></li>
                                     <li><a href="{{ route('order.main.index') }}">Orders</a></li>
                                     <li><a href="{{ route('profile.balance.index') }}">Balance history</a></li>
                                     <li><a href="{{ route('store.main.start') }}">My store</a></li>
-                                    @if(auth()->user()->role == 1) <li><a href="{{ route('store.order.index') }}">Orders from my store</a></li> @endif
+                                    @if(auth()->user()->role == 1)
+                                        <li><a href="{{ route('store.order.index') }}">Orders from my store</a></li>
+                                    @endif
                                     <li><a href="{{ route('profile.chat.index') }}">Chats</a></li>
-                                    @if(auth()->user()->role >= 2) <li><a href="{{ route('admin.user.index') }}">Admin panel</a></li> @endif
+                                    @if(auth()->user()->role >= 2)
+                                        <li><a href="{{ route('admin.user.index') }}">Admin panel</a></li>
+                                    @endif
                                     <li>
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
@@ -106,6 +123,7 @@
                                     </li>
                                 </ul>
                             </li>
+
                         @else
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
@@ -169,16 +187,16 @@
                     </p>
                 </aside>
             </div>
-{{--            <div class="col-lg-3 col-md-6 col-custome-4">--}}
-{{--                <aside class="widget">--}}
-{{--                    <h3 class="widget-title">Subscribe</h3>--}}
-{{--                    <form class="subscribe-form" action="#" method="post">--}}
-{{--                        <input type="email" name="email" placeholder="admin@mail.com">--}}
-{{--                        <button type="submit">Subscribe<i class="twi-long-arrow-alt-right"></i></button>--}}
-{{--                    </form>--}}
-{{--                </aside>            </div>--}}
-{{--        </div>--}}
-    </div>
+            {{--            <div class="col-lg-3 col-md-6 col-custome-4">--}}
+            {{--                <aside class="widget">--}}
+            {{--                    <h3 class="widget-title">Subscribe</h3>--}}
+            {{--                    <form class="subscribe-form" action="#" method="post">--}}
+            {{--                        <input type="email" name="email" placeholder="admin@mail.com">--}}
+            {{--                        <button type="submit">Subscribe<i class="twi-long-arrow-alt-right"></i></button>--}}
+            {{--                    </form>--}}
+            {{--                </aside>            </div>--}}
+            {{--        </div>--}}
+        </div>
 </footer>
 <!-- Footer Ened -->
 

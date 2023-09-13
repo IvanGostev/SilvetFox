@@ -27,11 +27,12 @@ class OpenController extends Controller
                 $data['number'] =  $deposit;
                 History::create($data);
                 DB::commit();
+                return redirect()->route('store.main.create');
             } catch (Exception $exception) {
                 DB::rollBack();
                 abort(500);
             }
         }
-        return redirect()->route('store.main.create');
+        return redirect()->route('store.main.start');
     }
 }

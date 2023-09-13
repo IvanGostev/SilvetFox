@@ -15,7 +15,7 @@
     <!-- Banner End -->
 
     <!-- Cart Section Start -->
-    <section class="cart-section">
+    <section class="cart-section" style="background: -webkit-linear-gradient(90deg, #5e7078,#4a5559,#373a3a); background: linear-gradient(90deg, #5e7078,#4a5559,#373a3a);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">

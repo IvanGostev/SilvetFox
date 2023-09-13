@@ -1,4 +1,4 @@
-@extends('layouts.main')
+ @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
     <section class="page-banner m-top-20">

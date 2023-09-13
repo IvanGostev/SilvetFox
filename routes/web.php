@@ -116,7 +116,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Store', 'prefix' => 'store'],
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/start', 'StartController')->name('store.main.start');
         Route::post('/open', 'OpenController')->name('store.main.open');
-        Route::get('/create', 'CreateController')->name('store.main.create');
+        Route::get('/create', 'CreateController')->name('store.main.create')->middleware('seller');
         Route::post('/', 'StoreController')->name('store.main.store');
         Route::get('/{store}/edit', 'EditController')->name('store.main.edit');
         Route::patch('/{store}', 'UpdateController')->name('store.main.update');
