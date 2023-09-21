@@ -25,7 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'img' => 'nullable|file',
+            'img' => 'file|mimes:jpg,bmp,png|nullable',
             'pgp_key' => 'required|string',
             'old_password' => 'string|nullable',
             'new_password' => 'string|nullable',

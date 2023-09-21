@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner m-top-20">
+    <section class="page-banner m-top-20" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Editing a store</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / Store</div>
+                    <div class="bread-crumb"><a href="/">Home / Store</a></div>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Еditing a store</h4>
+                            <h4 class="card-title" style="color: black!important;" >Еditing a store</h4>
                             <p>If you don't want to update the photo, don't attach them.</p>
                             <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data" action="{{ route('store.main.update', $store->id) }}">
                                 @csrf
@@ -49,7 +49,7 @@
                                     </div>
                                 </div>
 
-                                <button class="btn btn-primary" type="submit">Edit</button>
+                                <button class="btn" style="background-color: #ee7926; color: white"  type="submit">Edit</button>
                             </form>
                         </div>
                     </div>

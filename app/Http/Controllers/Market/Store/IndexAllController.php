@@ -12,7 +12,7 @@ class IndexAllController extends Controller
 {
   public function __invoke()
   {
-      $stores = Store::where('status', 2)->where('active', 1)->get();
+      $stores = Store::where('status', 2)->where('active', 1)->paginate(6);
       return view('market.store.index', compact('stores'));
   }
 }

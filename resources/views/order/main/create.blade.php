@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner">
+    <section class="page-banner" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Order</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / Order</div>
+                    <div class="bread-crumb"><a href="/">Home / Order</a></div>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
     @csrf
     <input hidden="hidden" type="text" value="{{$product->id}}" name="product_id">
     <!-- Checkout Section Start -->
-    <section class="checkout-section" style="padding: 20px 0">
+    <section class="checkout-section" style="padding: 20px 0; background-color: #2d3037;">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -38,12 +38,12 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="woocommerce-checkout-review-order" id="order_review">
+                    <div class="woocommerce-checkout-review-order" id="order_review" style=" background-color: #2d3037;">
                         <h3>Your Order</h3>
                         <table class="check-table woocommerce-checkout-review-order-table">
                             <thead>
                             <tr>
-                                <th class="product-name">Product</th>
+                                <th class="product-name" style="color: white">Product</th>
                                 <th class="product-total"></th>
                             </tr>
                             </thead>
@@ -64,7 +64,7 @@
                             </tfoot>
                         </table>
                         <div class="place-order">
-                            <button type="submit" class="button">Buy</button>
+                            <button  style="background-color: #ee7926"  type="submit" class="button btn goru-btn">Buy</button>
                         </div>
                     </div>
                 </div>

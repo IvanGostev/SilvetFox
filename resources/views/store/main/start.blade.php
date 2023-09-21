@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner m-top-20">
+    <section class="page-banner m-top-20" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Application for opening a store</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / Store</div>
+                    <div class="bread-crumb"><a href="/">Home / Store</a></div>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
     <!-- Banner End -->
 
     <!-- History Section Start -->
-    <section class="contact-section">
+    <section class="contact-section"   style="background-color: #2d3037;">
         <div class="container">
 
             <div class="row">
@@ -34,7 +34,7 @@
                             @csrf
                             <input hidden="hidden" name="user_id" value="{{auth()->user()->id}}">
                             <div class="col-lg-12 col-md-12">
-                                <button type="submit" class="goru-btn">Open</button>
+                                <button type="submit"  class="goru-btn" style="background-color: #ee7926">Open</button>
                             </div>
                         </form>
                     </div>

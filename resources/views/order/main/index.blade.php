@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner">
+    <section class="page-banner" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <span class="round-shape"></span>
-                    <h2 class="banner-title">Cart</h2>
-                    <div class="bread-crumb"><a href="index.html">Home</a> / Cart</div>
+                    <h2 class="banner-title">Orders</h2>
+                    <div class="bread-crumb"><a href="/">Home / Orders</a></div>
                 </div>
             </div>
         </div>
@@ -22,16 +22,28 @@
                     <form class="woocommerce-cart-form" action="#">
                         <table class="cart-table">
                             <thead>
-                            @foreach($orders as $order)
                                 <tr>
-                                    <th class="product-name-thumbnail">Product Name</th>
-                                    <th class="product-price">Date</th>
-                                    <th class="product-price">Status</th>
-                                    <th class="product-total">Price</th>
-                                    <th class="product-remove">&nbsp;</th>
+                                    <th class="product-name-thumbnail" style="color: white"  >Product Name</th>
+                                    <th class="product-price" style="color: white" >Date</th>
+                                    <th class="product-price" style="color: white" >Status</th>
+                                    <th class="product-total" style="color: white" >Price</th>
+                                    <th class="product-remove" >&nbsp;</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            @foreach($orders as $order)
+                                    <?php $status = match ($order->status) {
+                                    "0" => 'Cancelled',
+                                    "1" => 'In processing',
+                                    "2" => 'In the assembly',
+                                    "3" => 'Shipped',
+                                    "4" => 'Receipt confirmed',
+                                    0 => 'Cancelled',
+                                    1 => 'In processing',
+                                    2 => 'In the assembly',
+                                    3 => 'Shipped',
+                                    4 => 'Receipt confirmed',
+                                } ?>
                             <tr class="cart-item">
                                 <td class="product-thumbnail-title">
                                     <a href="#">
@@ -42,21 +54,21 @@
                                 <td class="product-unit-price">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span>{{$order->product->created_at}}</span>
+                                                    <span style="color: white" >{{$order->product->created_at}}</span>
                                                 </span>
                                     </div>
                                 </td>
                                 <td class="product-unit-price">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span> {{$order->staus == 0 ? 'Cancelled' : ($order->staus == 1 ? 'In processing' : ($order->staus == 2 ? 'In the assembly' : ($order->status == 3 ? 'shipped' : 'Receipt confirmed')))}}</span>
+                                                    <span style="color: white" > {{ $status }}</span>
                                                 </span>
                                     </div>
                                 </td>
                                 <td class="product-total">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span>{{$order->product->price}}<span
+                                                    <span>{{$order->price}}<span
                                                             class="woocommerce-Price-currencySymbol">&nbsp;XMR</span></span>
                                                 </span>
                                     </div>

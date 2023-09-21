@@ -2,7 +2,7 @@
 @section('content')
 
     <section class="shop-left-sidebar"
-             style="background: -webkit-linear-gradient(90deg, #5e7078,#4a5559,#373a3a); background: linear-gradient(90deg, #5e7078,#4a5559,#373a3a);">
+             style="background-color: #2d3037;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2">
@@ -42,20 +42,21 @@
                                 </div>
                             </div>
                         @endforeach
-                        {{--                    </div>--}}
-                        {{--                    <div class="row">--}}
-                        {{--                        <div class="col-lg-10 offset-lg-1 col-md-12 mt-20">--}}
-                        {{--                            <div class="goru-pagination text-center clearfix">--}}
-                        {{--                                <a class="prev" href="#"><i class="twi-long-arrow-alt-left"></i></a>--}}
-                        {{--                                <span class="current">1</span>--}}
-                        {{--                                <a href="#">2</a>--}}
-                        {{--                                <a href="#">3</a>--}}
-                        {{--                                <a href="#">4</a>--}}
-                        {{--                                <a href="#">5</a>--}}
-                        {{--                                <a class="next" href="#"><i class="twi-long-arrow-alt-right"></i></a>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                    </div>--}}
+                                            </div>
+                                            <div class="row">
+                                                <div class="mx-auto">      {{$products->links()}}</div>
+
+{{--                                                <div class="col-lg-10 offset-lg-1 col-md-12 mt-20">--}}
+{{--              --}}
+{{--                                                    <div class="goru-pagination text-center clearfix">--}}
+
+{{--                                                        <a class="prev" href="{{$paginator->previousCursor()}}"><i class="twi-long-arrow-alt-left"></i></a>--}}
+{{--                                                        <span class="current">1</span>--}}
+{{--                                                        <a href="#">2</a>--}}
+{{--                                                        <a class="next" href="{{$paginator->nextCursor()}}"><i class="twi-long-arrow-alt-right"></i></a>--}}
+{{--                                                    </div>--}}
+                                                </div>
+                                            </div>
                     </div>
                 </div>
             </div>

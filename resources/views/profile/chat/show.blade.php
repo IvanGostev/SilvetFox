@@ -25,7 +25,7 @@
                                     <a href="{{ route('profile.chat.show', $chat->user->id) }}">
                                         <img src="{{ asset('storage/' .  $chat->user->img) }}" alt="avatar">
                                         <div class="about">
-                                            <div class="name">{{$chat->user->name}}</div>
+                                            <div class="name" style="color: black;">{{$chat->user->name}}</div>
                                             @if($chat->new == 1)
                                                 <span class="badge bg-danger">New message</span>
                                             @endif
@@ -46,7 +46,7 @@
                                         <img src="{{ asset('storage/' . $user->img) }}" alt="avatar">
                                     </a>
                                     <div class="chat-about">
-                                        <h6 class="m-b-0">{{$user->name}}</h6>
+                                        <h6 class="m-b-0" style="color: black!important;">{{$user->name}}</h6>
 {{--                                        <small>Last seen: 2 hours ago</small>--}}
                                     </div>
                                 </div>

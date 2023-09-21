@@ -16,7 +16,7 @@ IndexController extends Controller
         $products = Product::where('store_id', $store->id)->get();
         $orders = [];
         foreach ($products as $product) {
-            $temp = Order::where('product_id', $product->id)->get();
+            $temp = Order::where('product_id', $product->id)->where('status', '!=', 4)->get();
             if ($temp != null) {
                 foreach ($temp as $t) {
                     $orders[] = $t;

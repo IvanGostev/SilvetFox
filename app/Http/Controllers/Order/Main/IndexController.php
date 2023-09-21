@@ -13,7 +13,7 @@ class IndexController extends Controller
 {
   public function __invoke()
   {
-      $orders = Order::all();
+      $orders = Order::where('user_id', auth()->user()->id)->where('status', '!=', 4)->get();
       return view('order.main.index', compact('orders'));
   }
 }

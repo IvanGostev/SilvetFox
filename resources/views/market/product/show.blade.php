@@ -1,14 +1,13 @@
 @extends('layouts.main')
 @section('content')
-
-    <section class="page-banner">
+    <section class="page-banner" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 pt-4">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">{{$product->store->title}}</h2>
                     <div class="bread-crumb"><a href="/">Home</a> / <a
-                            href="index.html">{{$product->store->title}}</a> / {{$product->category->title}}</div>
+                            href="/">{{$product->store->title}} / {{$product->category->title}}</a></div>
                 </div>
             </div>
         </div>
@@ -51,6 +50,10 @@
                                     <span><span
                                             class="woocommerce-Price-currencySymbol"></span>{{ $product->price }}</span>&nbsp;XMR
                                 </span>
+                            <span class="price">
+                                    <span><span
+                                            class="woocommerce-Price-currencySymbol"></span>{{ $product->dollars }}</span>&nbsp;$
+                                </span>
                         </div>
                         <div class="pro-excerp">
                             <p>
@@ -58,7 +61,7 @@
                             </p>
                         </div>
                         <div class="product-cart-qty">
-                            <a href="{{ route('order.main.create', $product->id) }}" class="add-to-cart-btn">Buy</a>
+                            <a href="{{ route('order.main.create', $product->id) }}" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);" class="add-to-cart-btn">Buy</a>
                         </div>
                     </div>
                 </div>
@@ -73,7 +76,7 @@
                     <div class="product-tabarea">
                         <ul class="nav nav-tabs productTabs" id="productTab" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
+                                <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
                                    aria-controls="reviews" aria-selected="false">Reviews ({{$countComments}} )</a>
                             </li>
                         </ul>
@@ -114,7 +117,7 @@
                                             <input hidden="hidden" value="{{$product->id}}" name="product_id">
                                             <input hidden="hidden" value="{{auth()->user()->id}}" name="user_id">
                                             <div class="col-lg-9 col-md-9">
-                                                <input type="submit" name="submit" value="Submit Review">
+                                                <input type="submit"  class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " name="submit" value="Submit Review">
                                             </div>
 
                                         </form>
@@ -213,72 +216,29 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="owl-item active" style="width: 360px; margin-right: 30px;">
-                                        <div class="single-shop-product">
-                                            <div class="sp-thumb">
-                                                <img src="{{ asset('assets/images/shop/5.jpg')}}" alt="" class="">
-                                                <div class="pro-badge">
-                                                    <p class="sale">Sale</p>
+                                    @foreach($products as $productR)
+                                        <div class="owl-item active" style="width: 360px; margin-right: 30px;">
+                                            <div class="single-shop-product">
+                                                <div class="sp-thumb">
+                                                    <img src="{{ asset('storage/' . $productR->img)}}" alt="" class="">
                                                 </div>
-                                            </div>
-                                            <div class="sp-details">
-                                                <h4>VRBOX Gaming</h4>
-                                                <div class="product-price clearfix">
-                                            <span class="price">
-                                                <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
-                                                <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
-                                            </span>
-                                                </div>
-                                                <div class="sp-details-hover">
-                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
-                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item active" style="width: 360px; margin-right: 30px;">
-                                        <div class="single-shop-product">
-                                            <div class="sp-thumb">
-                                                <img src="{{ asset('assets/images/shop/1.jpg')}}" alt="" class="">
-                                                <div class="pro-badge">
-                                                    <p class="hot">Hot</p>
-                                                </div>
-                                            </div>
-                                            <div class="sp-details">
-                                                <h4>Gaming Mouse</h4>
-                                                <div class="product-price clearfix">
-                                            <span class="price">
-                                                <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
-                                                <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
-                                            </span>
-                                                </div>
-                                                <div class="sp-details-hover">
-                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
-                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item active" style="width: 360px; margin-right: 30px;">
-                                        <div class="single-shop-product">
-                                            <div class="sp-thumb">
-                                                <img src="{{ asset('assets/images/shop/8.jpg')}}" alt="" class="">
-                                            </div>
-                                            <div class="sp-details">
-                                                <h4>Wirless Headset</h4>
-                                                <div class="product-price clearfix">
+                                                <div class="sp-details">
+                                                    <h4>{{$productR->title}}</h4>
+                                                    <div class="product-price clearfix">
                                             <span class="price">
                                                 <span><span
-                                                        class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                                                        class="woocommerce-Price-currencySymbol">{{$productR->price}}</span>XMR</span>
                                             </span>
-                                                </div>
-                                                <div class="sp-details-hover">
-                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
-                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                                                    </div>
+                                                    <div class="sp-details-hover">
+                                                        <a class="sp-cart" href="{{ route('market.product.show', $productR->id) }}"><span>More detailed</span></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endforeach
+
+
                                 </div>
                             </div>
                             <div class="owl-nav disabled">

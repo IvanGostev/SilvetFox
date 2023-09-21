@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('content')
-    <section class="page-banner">
+    <section class="page-banner" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 m-top-45">
+                <div class="col-md-12 m-top-45" >
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Balance 1XMR = {{$main->rate_dollars}}$</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / Balance</div>
+                    <div class="bread-crumb"><a href="/">Home / Balance</a></div>
                 </div>
             </div>
         </div>
@@ -19,12 +19,16 @@
             <div class="row">
                 <div class="col-md-6" style="padding: 0 0 20px 0">
                     <div class="place-order">
-                        <a href="{{ route('profile.balance.replenishment', auth()->user()->id) }}" class="button">Application for replenishment of the balance</a>
+                        <form action="{{ route('profile.balance.replenishment', auth()->user()->id) }}">
+                            <button class="btn" style="background-color: #ee7926;" type="submit" >Application for replenishment of the balance</button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="place-order">
-                        <a href="{{ route('profile.balance.withdrawal', auth()->user()->id) }}" class="button">Request for withdrawal from the balance</a>
+                        <form action="{{ route('profile.balance.withdrawal', auth()->user()->id) }}">
+                            <button class="btn" style="background-color: #ee7926;" type="submit" >Request for withdrawal from the balance</button>
+                        </form>
                     </div>
                 </div>
             </div>

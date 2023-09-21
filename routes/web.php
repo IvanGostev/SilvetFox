@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/reload-captcha', [App\Http\Controllers\Auth\RegisterController::class, 'reloadCaptcha']);
 Route::get('/dashboard', function () {
     return redirect()->route('market.product.index');
 });
@@ -36,8 +38,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['namespace' => 'App\Http\Controllers\Market', 'prefix' => 'market'], function () {
     Route::group(['namespace' => 'Product', 'prefix' => 'products'], function () {
         Route::get('/', 'IndexController')->name('market.product.index');
-        Route::get('/{product}', 'ShowController')->name('market.product.show');
-        Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function () {
+        Route::get('/{product}', 'ShowController')->name('market.product.show')->middleware('auth');
+        Route::group(['namespace' => 'Comment', 'prefix' => 'comment', 'middleware' => 'auth'], function () {
             Route::post('/', 'StoreController')->name('market.product.comment.store');
         });
     });
@@ -111,6 +113,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::patch('/{post}', 'UpdateController')->name('admin.news.update');
         Route::delete('/{post}', 'DestroyController')->name('admin.news.destroy');
     });
+    Route::group(['namespace' => 'Order', 'prefix' => 'orders'], function () {
+        Route::get('/', 'IndexController')->name('admin.order.index');
+        Route::get('/completed', 'IndexCompletedController')->name('admin.order.completed');
+    });
 });
 Route::group(['namespace' => 'App\Http\Controllers\Store', 'prefix' => 'store'], function () {
     Route::group(['namespace' => 'Main'], function () {
@@ -124,12 +130,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Store', 'prefix' => 'store'],
         Route::get('/{store}/active', 'ActiveController')->name('store.main.active');
 //        Route::delete('/{store}', 'DestroyController')->name('store.main.destroy');
     });
-    Route::group(['namespace' => 'Order', 'prefix' => 'orders'], function () {
+    Route::group(['namespace' => 'Order', 'prefix' => 'orders', 'middleware' => 'auth'], function () {
         Route::get('/', 'IndexController')->name('store.order.index');
         Route::get('/{order}/status', 'EditController')->name('store.order.edit');
         Route::patch('/{order}', 'UpdateController')->name('store.order.update');
     });
-    Route::group(['namespace' => 'Product', 'prefix' => 'product'], function () {
+    Route::group(['namespace' => 'Product', 'prefix' => 'product', 'middleware' => 'auth'], function () {
         Route::get('/create', 'CreateController')->name('store.product.create');
         Route::post('/', 'StoreController')->name('store.product.store');
         Route::get('/{product}/edit', 'EditController')->name('store.product.edit');
@@ -144,7 +150,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Store', 'prefix' => 'store'],
     });
 });
 
-Route::group(['namespace' => 'App\Http\Controllers\Profile', 'prefix' => 'profile'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Profile', 'prefix' => 'profile', 'middleware' => 'auth'], function () {
     Route::group(['namespace' => 'Balance', 'prefix' => 'balance'], function () {
         Route::get('/', 'IndexController')->name('profile.balance.index');
         Route::get('/{user}/replenishment', 'ReplenishmentController')->name('profile.balance.replenishment');
@@ -167,7 +173,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Profile', 'prefix' => 'profil
 });
 
 
-Route::group(['namespace' => 'App\Http\Controllers\Order', 'prefix' => 'orders'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\Order', 'prefix' => 'orders', 'middleware' => 'auth'], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('order.main.index');
         Route::get('/{product}/create', 'CreateController')->name('order.main.create');
@@ -180,8 +186,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Order', 'prefix' => 'orders']
 Route::group(['namespace' => 'App\Http\Controllers\News', 'prefix' => 'news'], function () {
     Route::get('/', 'IndexController')->name('news.main.index');
     Route::get('/{category}/category', 'CategoryController')->name('news.main.category');
-    Route::get('/{post}/', 'ShowController')->name('news.main.show');
+    Route::get('/{post}/', 'ShowController')->name('news.main.show')->middleware('auth');
     Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function () {
-        Route::post('/', 'StoreController')->name('news.comment.store');
+        Route::post('/', 'StoreController')->name('news.comment.store')->middleware('auth');
     });
 });

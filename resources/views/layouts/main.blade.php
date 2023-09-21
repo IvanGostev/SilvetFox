@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SilvetFox</title>
+    <title>SilverFox</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.min.css')}}">
     <!-- Main CSS File -->
     <link rel="stylesheet" href="{{ asset('asset/css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/main.css')}}">
     <link rel="stylesheet" href="{{ asset('asset/css/plugins/owl-carousel/owl.carousel.css')}}">
     <link rel="stylesheet" href="{{ asset('asset/css/plugins/magnific-popup/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{ asset('asset/css/plugins/nouislider/nouislider.css')}}">
@@ -56,19 +57,19 @@
 
 
 </head>
-<body>
+<body style="background-color: #2d3037;">
 <!-- Preloader Start -->
 
 <!-- Preloader End -->
 
 <!-- Header Start -->
-<header class="header-01 fix-header sticky animated fadeIn">
+<header class="header-01 fix-header sticky animated fadeIn" style="background-color: #2d3037;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2 col-md-2">
                 <div class="logo">
                     <a href="/">
-                        <img src="{{ asset('logo.jpg') }}" alt="SilvetFox"/>
+                        <img src="{{ asset('logo.jpg') }}" alt="SilverFox"/>
                     </a>
                 </div>
             </div>
@@ -77,12 +78,19 @@
                     <div class="mobile-btn">
                     </div>
                     <ul class="d-flex justify-content-between">
-                        <li><a href="{{ route('market.product.index') }}">Products</a></li>
-                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>
-                        <li><a href="{{ route('news.main.index') }}">News</a></li>
-                        <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>
-                        <li><a href="{{ route('main.escrow') }}">escrow</a></li>
-                        <li><a href="{{ route('main.rules') }}">RULES</a></li>
+
+                        <li><form action="{{ route('market.product.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Products</button></form></li>
+                        <li> <form action="{{ route('market.stores.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Stores</button></form> </li>
+                        <li> <form action="{{ route('news.main.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">News</button></form> </li>
+                        <li> <form action="{{ route('order.main.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Orders</button></form> </li>
+                        <li> <form action="{{ route('main.escrow') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Escrow</button></form> </li>
+                        <li> <form action="{{ route('main.rules') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Rules</button></form> </li>
+                        {{--                        <li><a href="{{ route('market.product.index') }}">Products</a></li>--}}
+{{--                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>--}}
+{{--                        <li><a href="{{ route('news.main.index') }}">News</a></li>--}}
+{{--                        <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>--}}
+{{--                        <li><a href="{{ route('main.escrow') }}">escrow</a></li>--}}
+{{--                        <li><a href="{{ route('main.rules') }}">RULES</a></li>--}}
                         @auth()
                             @if(countNewMessages() > 0)
                                 <li><a href="{{ route('profile.chat.index') }}" class="text-dark">
@@ -116,7 +124,7 @@
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
                                             <button
-                                                style="display: inline-block;  font-weight: 600; font-size: 14px ; padding: 9px 20px; border: none; color: black; background-color: transparent;"
+                                                style="display: inline-block;  font-weight: 600; font-size: 14px ; padding: 9px 20px; border: none; color: white; background-color: transparent;"
                                                 type="submit">Logout
                                             </button>
                                         </form>
@@ -135,7 +143,7 @@
     </div>
 </header>
 @yield('content')
-<footer class="footer-01">
+<footer class="footer-01" style="background-color: #2d3037;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3 col-md-4">
@@ -197,11 +205,12 @@
             {{--                </aside>            </div>--}}
             {{--        </div>--}}
         </div>
+        </div>
 </footer>
 <!-- Footer Ened -->
 
 <!-- Coryight Start -->
-<section class="copyright-section">
+<section class="copyright-section" style="background-color: #2d3037;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 col-md-5">

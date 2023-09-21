@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner m-top-20">
+    <section class="page-banner m-top-20" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Add image</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / Store / Product</div>
+                    <div class="bread-crumb"><a href="/">Home / Store / Product</a></div>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Add image</h4>
+                            <h4 class="card-title" style="color: black!important;">Add image</h4>
                             <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data"
                                   action="{{ route('store.product.image.store') }}">
                                 @csrf
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <input type="text" hidden="hidden" value="{{$product->id}}" name="product_id">
-                                <button class="btn btn-dark" type="submit">Add</button>
+                                <button class="btn" style="background-color: #ee7926; color: white" type="submit">Add</button>
                             </form>
                         </div>
                     </div>

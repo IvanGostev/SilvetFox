@@ -12,7 +12,7 @@ class IndexController extends Controller
 {
   public function __invoke(ProductCategory $category)
   {
-      $products = Product::where('status', 2)->where('category_id', $category->id)->where('active', 1)->get();
+      $products = Product::where('status', 2)->where('category_id', $category->id)->where('active', 1)->paginate(9);
       $categories = ProductCategory::all();
       return view('market.product.index', compact('products', 'categories'));
   }

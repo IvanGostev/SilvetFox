@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>SilvetFox</title>
+    <title>SilverFox</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 
@@ -56,19 +56,19 @@
 
 
 </head>
-<body>
+<body style="background-color: #2d3037;">
 <!-- Preloader Start -->
 
 <!-- Preloader End -->
 
 <!-- Header Start -->
-<header class="header-01 fix-header sticky animated fadeIn">
+<header class="header-01 fix-header sticky animated fadeIn" style="background-color: #2d3037;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2 col-md-2">
                 <div class="logo">
                     <a href="/">
-                        <img src="{{ asset('logo.jpg') }}" alt="SilvetFox"/>
+                        <img src="{{ asset('logo.jpg') }}" alt="SilverFox"/>
                     </a>
                 </div>
             </div>
@@ -77,35 +77,60 @@
                     <div class="mobile-btn">
                     </div>
                     <ul class="d-flex justify-content-between">
-                        <li><a href="{{ route('market.product.index') }}">Products</a></li>
-                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>
-                        <li><a href="{{ route('news.main.index') }}">News</a></li>
-                        <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>
-                        <li><a href="{{ route('main.escrow') }}">escrow</a></li>
-                        <li><a href="{{ route('main.rules') }}">RULES</a></li>
+
+                        <li><form action="{{ route('market.product.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Products</button></form></li>
+                        <li> <form action="{{ route('market.stores.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Stores</button></form> </li>
+                        <li> <form action="{{ route('news.main.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">News</button></form> </li>
+                        <li> <form action="{{ route('order.main.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Orders</button></form> </li>
+                        <li> <form action="{{ route('main.escrow') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Escrow</button></form> </li>
+                        <li> <form action="{{ route('main.rules') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Rules</button></form> </li>
+                        {{--                        <li><a href="{{ route('market.product.index') }}">Products</a></li>--}}
+                        {{--                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>--}}
+                        {{--                        <li><a href="{{ route('news.main.index') }}">News</a></li>--}}
+                        {{--                        <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>--}}
+                        {{--                        <li><a href="{{ route('main.escrow') }}">escrow</a></li>--}}
+                        {{--                        <li><a href="{{ route('main.rules') }}">RULES</a></li>--}}
                         @auth()
-                            <a class="select-currency" href="{{ route('profile.balance.index') }}">Your bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
+                            @if(countNewMessages() > 0)
+                                <li><a href="{{ route('profile.chat.index') }}" class="text-dark">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                            <path
+                                                d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/>
+                                        </svg>
+                                        <span class="badge rounded-pill badge-notification bg-danger">{{countNewMessages()}}</span>
+                                    </a></li>
+                            @endif
+
+                            <a class="select-currency" href="{{ route('profile.balance.index') }}">Your
+                                bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
                             <li class="menu-item-has-children">
-                                <a class="user-login" href="{{ route('profile.main.show', auth()->user()->id) }}"><i class="twi-user-circle"></i><span>Account</span></a>
+                                <a class="user-login" href="{{ route('profile.main.show', auth()->user()->id) }}"><i
+                                        class="twi-user-circle"></i><span>Account</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('profile.main.edit') }}">Edit profile</a></li>
                                     <li><a href="{{ route('order.main.index') }}">Orders</a></li>
                                     <li><a href="{{ route('profile.balance.index') }}">Balance history</a></li>
                                     <li><a href="{{ route('store.main.start') }}">My store</a></li>
-                                    @if(auth()->user()->role == 1) <li><a href="{{ route('store.order.index') }}">Orders from my store</a></li> @endif
+                                    @if(auth()->user()->role == 1)
+                                        <li><a href="{{ route('store.order.index') }}">Orders from my store</a></li>
+                                    @endif
                                     <li><a href="{{ route('profile.chat.index') }}">Chats</a></li>
-                                    @if(auth()->user()->role >= 2) <li><a href="{{ route('admin.user.index') }}">Admin panel</a></li> @endif
+                                    @if(auth()->user()->role >= 2)
+                                        <li><a href="{{ route('admin.user.index') }}">Admin panel</a></li>
+                                    @endif
                                     <li>
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
                                             <button
-                                                style="display: inline-block;  font-weight: 600; font-size: 14px ; padding: 9px 20px; border: none; color: black; background-color: transparent;"
+                                                style="display: inline-block;  font-weight: 600; font-size: 14px ; padding: 9px 20px; border: none; color: white; background-color: transparent;"
                                                 type="submit">Logout
                                             </button>
                                         </form>
                                     </li>
                                 </ul>
                             </li>
+
                         @else
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>

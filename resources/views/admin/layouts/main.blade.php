@@ -2,7 +2,7 @@
 <html lang="en" style="direction: ltr;"><head>
 
     <meta charset="utf-8">
-    <title>SILVETFOX - Admin</title>
+    <title>SILVERFOX - Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin &amp; Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
@@ -102,7 +102,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.product.index') }}" class=" waves-effect">
+                        <a href="{{ route('admin.product.check') }}" class=" waves-effect">
                             <span>Товары на проверке</span>
                         </a>
                     </li>
@@ -117,18 +117,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.product.index') }}" class="waves-effect">
-                            <span>Все заказы в доставке</span>
+                        <a href="{{ route('admin.order.index') }}" class="waves-effect">
+                            <span>Все активные заказы</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.product.index') }}" class="waves-effect">
-                            <span>Все заказы</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('admin.product.index') }}" class="waves-effect">
-                            <span>Подтвержденные заказы</span>
+                        <a href="{{ route('admin.order.completed') }}" class="waves-effect">
+                            <span>Все выполненные заказы</span>
                         </a>
                     </li>
                     <li>

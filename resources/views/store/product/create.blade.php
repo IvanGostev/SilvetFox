@@ -1,13 +1,13 @@
  @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner m-top-20">
+    <section class="page-banner m-top-20" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Create product</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / Store / Product</div>
+                    <div class="bread-crumb"><a href="/">Home / Store / Product</a></div>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Create product</h4>
+                            <h4 class="card-title" style="color: #000!important;">Create product</h4>
                             <p>All fields are required!</p>
                             <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data"
                                   action="{{ route('store.product.store') }}">
@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                                 <input name="store_id" value="{{$store->id}}" hidden="hidden">
-                                <button class="btn btn-dark" type="submit">Create</button>
+                                <button class="btn" style="background-color: #ee7926; color: white"  type="submit">Create</button>
                             </form>
                         </div>
                     </div>

@@ -26,7 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'required|string',
             'description' => 'required|string',
-            'img' => 'file'
+            'img' => 'file|mimes:jpg,bmp,png|nullable'
         ];
     }
     public function messages()

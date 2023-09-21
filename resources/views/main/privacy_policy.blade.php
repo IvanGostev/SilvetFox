@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner">
+    <section class="page-banner" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Privacy Policy</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / Privacy Policy</div>
+                    <div class="bread-crumb"><a href="/">Home / Privacy Policy</a></div>
                 </div>
             </div>
         </div>

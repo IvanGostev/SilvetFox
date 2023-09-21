@@ -12,7 +12,11 @@ class ShowController extends Controller
 {
   public function __invoke(Product $product)
   {
-      $products =  Product::where('category_id', $product->category_id)->get();
+      if (Product::where('category_id', $product->category_id)->count() >= 3) {
+          $products =  Product::where('category_id', $product->category_id)->take(3)->get();
+      } else {
+          $products =  Product::where('category_id', $product->category_id)->get();
+      }
       $countComments = ProductComment::where('product_id', $product->id)->count();
       $star5 = 0;
       $star4 = 0;

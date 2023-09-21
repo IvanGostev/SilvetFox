@@ -136,7 +136,7 @@
             </div>
         </div>
     </div>
-
+{!! captcha_img() !!}
     <!-- shape -->
     <div class="couple-shape"><img src="{{ asset('assets/images/home/shape3.png')}}" alt=""></div>
 </section>

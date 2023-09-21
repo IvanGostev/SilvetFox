@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner">
+    <section class="page-banner" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">News</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / News</div>
+                    <div class="bread-crumb"><a href="/">Home / News</a> </div>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
     <!-- Banner End -->
 
     <!-- Blog Section Start -->
-    <section class="blog-section" style="background: -webkit-linear-gradient(90deg, #5e7078,#4a5559,#373a3a); background: linear-gradient(90deg, #5e7078,#4a5559,#373a3a);">
+    <section class="blog-section" style="background-color: #2d3037;"">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-5">
@@ -39,7 +39,7 @@
                                         <img src="{{ asset('storage/' . $post->img)}}" alt="">
                                     </div>
                                     <div class="news-details">
-                                        <span class="post-meta">By<a href="#"> Admin</a>, {{$post->created_at}}</span>
+                                        <span class="post-meta">By<a href="{{ route('profile.main.show', 1) }}"> Admin</a>, {{$post->created_at}}</span>
                                         <h4>
                                             <a href="{{ route('news.main.show', $post->id) }}">
                                                 {{$post->title}}

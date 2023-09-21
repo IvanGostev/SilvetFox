@@ -3,23 +3,30 @@
 namespace App\Http\Controllers\Order\Main;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Main\EditRequest;
 use App\Http\Requests\Order\StoreRequest;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\ProductCategory;
-use App\Models\ReplenishmentForm;
-use Illuminate\Http\Request;
-use Symfony\Component\HttpKernel\Profiler\Profile;
 
 class StoreController extends Controller
 {
   public function __invoke(StoreRequest $request)
   {
       $data = $request->validated();
-      $data['status'] = 1;
-      $data['user_id'] = auth()->user()->id;
-      Order::create($data);
-      return view('order.main.index');
+
+          $data['status'] = 1;
+          $data['user_id'] = auth()->user()->id;
+
+          $product = Product::where('id', $data['product_id'])->first();
+          $data['price'] = $product->price;
+      if (auth()->user()->balance >= $data['price']) {
+          Order::create($data);
+          $user = auth()->user();
+          $user->balance = $user->balance - $data['price'];
+          $user->update();
+          return redirect()->route('order.main.index');
+      } else {
+          return redirect()->route('profile.balance.index');
+      }
+
   }
 }

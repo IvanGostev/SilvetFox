@@ -30,20 +30,23 @@ body{
 }
 h1, h2, h3, h4, h5, h6{
     font-family: 'Poppins', sans-serif;
-    color: #000;
+    color: white!important;
+    /*edit*/
     font-weight: 700;
     letter-spacing: 0;
     margin: 0 0 15px;
     line-height: 1.2;
 }
 a{
-    color: #000;
+    color: white!important;
+    /*edit*/
     -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
 a:hover{
-    color: #3160d8;
+    color: #ee7926!important;
+    /*edit*/
     text-decoration: none;
 }
 a:focus{
@@ -73,7 +76,7 @@ input[type="number"]:focus {
     padding: 23px 36px;
     overflow: hidden;
     position: relative;
-    
+
    -webkit-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     transition: all 0.4s ease;

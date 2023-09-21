@@ -26,7 +26,8 @@ class UpdateRequest extends FormRequest
         return [
             'title' => 'required|string',
             'description' => 'required|string',
-            'img' => 'file',
+            'img' => 'file|nullable|mimes:jpg,bmp,png',
+            'video' => 'file|nullable|mimes:mp4',
             'price' => 'required|integer',
             'dollars' => 'required|integer',
             'category_id' => 'required|integer',

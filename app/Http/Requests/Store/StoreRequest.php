@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string',
             'description' => 'required|string',
-            'img' => 'required|file'
+            'img' => 'required|file|mimes:jpg,bmp,png'
         ];
     }
     public function messages()

@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner m-top-20">
+    <section class="page-banner m-top-20" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Add Images</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / Store / Product</div>
+                    <div class="bread-crumb"><a href="/">Home / Store / Product</a></div>
                 </div>
             </div>
         </div>
@@ -21,9 +21,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Images @if($countImages < 3)
+                            <h4 class="card-title" style="color: black!important;">Images @if($countImages < 3)
                                     <a href="{{ route('store.product.image.create', $product->id) }}"
-                                       class="btn btn-dark waves-effect waves-light">Create</a>
+                                       class="btn" style="background-color: #ee7926; color: white!important;" >Create</a>
                                 @endif
                             </h4>
 
@@ -41,7 +41,7 @@
                                                 <form action="{{ route('store.product.image.destroy', $image->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <button class="btn btn-outline-dark waves-effect">Delete</button>
+                                                    <button class="btn" style="background-color: #ee7926; color: white" >Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

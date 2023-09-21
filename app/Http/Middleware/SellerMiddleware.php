@@ -11,14 +11,19 @@ class SellerMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse) $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 0) {
-            return redirect()->route('market.product.index');
+
+        if (isset(auth()->user()->id)) {
+            if (auth()->user()->role == 0) {
+                return redirect()->route('market.product.index');
+            }
+        } else {
+            return redirect()->route('login');
         }
 
         return $next($request);

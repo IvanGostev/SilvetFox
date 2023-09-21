@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('content')
     <!-- Banner Start -->
-    <section class="page-banner">
+    <section class="page-banner" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Active order</h2>
-                    <div class="bread-crumb"><a href="/">Home</a> / Active order</div>
+                    <div class="bread-crumb"><a href="/">Home / Active order</a></div>
                 </div>
             </div>
         </div>
@@ -38,10 +38,10 @@
                                     }
                                     ?>
                                 <tr>
-                                    <th class="product-name-thumbnail">Product Name</th>
-                                    <th class="product-price">Date</th>
-                                    <th class="product-price">Status</th>
-                                    <th class="product-total">Price</th>
+                                    <th class="product-name-thumbnail" style="color: white!important;" >Product Name</th>
+                                    <th class="product-price" style="color: white!important;">Date</th>
+                                    <th class="product-price" style="color: white!important;">Status</th>
+                                    <th class="product-total" style="color: white!important;">Price</th>
                                     <th class="product-remove">&nbsp;</th>
                                 </tr>
                             </thead>
@@ -56,14 +56,14 @@
                                 <td class="product-unit-price">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span>{{$order->product->created_at}}</span>
+                                                    <span style="color: white!important;">{{$order->product->created_at}}</span>
                                                 </span>
                                     </div>
                                 </td>
                                 <td class="product-unit-price">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span>{{ $status }}</span>
+                                                    <span style="color: white!important;">{{ $status }}</span>
                                                 </span>
                                     </div>
                                 </td>
