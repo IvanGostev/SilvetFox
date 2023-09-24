@@ -15,6 +15,7 @@
                                     @csrf
                                     @method('patch')
                                     <h5 class="card-title">Сумма:&nbsp;{{$form->number}} &nbsp;XMR</h5>
+                                    <p style="color: white">{{$form->message}}</p>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mt-3">

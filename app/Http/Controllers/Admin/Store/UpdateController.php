@@ -14,8 +14,8 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
         $store->update($data);
-        $stores = Store::all();
-        return view('admin.store.index', compact('stores'));
+        return redirect()->route('admin.store.index');
+
     }
 }
 

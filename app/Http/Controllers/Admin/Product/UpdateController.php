@@ -15,8 +15,7 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
         $product->update($data);
-        $products = Product::all();
-        return view('admin.product.index', compact('products'));
+        return redirect()->route('admin.product.index');
     }
 }
 

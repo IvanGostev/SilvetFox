@@ -14,8 +14,7 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
         $user->update($data);
-        $users = User::all();
-        return view('admin.user.index', compact('users'));
+        return redirect()->route('admin.user.index');
     }
 }
 

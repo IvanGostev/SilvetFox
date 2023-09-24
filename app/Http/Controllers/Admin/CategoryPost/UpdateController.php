@@ -17,8 +17,7 @@ class UpdateController extends Controller
     {
         $data = $request->validated();
         $category->update($data);
-        $categories = PostCategory::all();
-        return view('admin.categoryPost.index', compact('categories'));
+        return redirect()->route('admin.categoryPost.index');
     }
 }
 

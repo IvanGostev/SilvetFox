@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Category;
 use App\Http\Requests\Admin\Category\StoreRequest;
 use App\Models\ProductCategory;
 use App\Models\User;
+use Exception;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin\Balance;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
+use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\ReplenishmentForm;
+use App\Models\Store;
 use App\Models\User;
 use App\Models\WithdrawalForm;
 use Carbon\Carbon;
@@ -14,6 +18,11 @@ class WithdrawalController extends Controller
     public function __invoke()
     {
         $forms = WithdrawalForm::where('status', 1)->get();
-        return view('admin.balance.withdrawal.index', compact('forms'));
+        $newStore = Store::where('status', 1)->count() > 0;
+        $newProduct =  Product::where('status', 1)->count() > 0;
+        $newW = WithdrawalForm::where('status', 1)->count() > 0;
+        $newR = ReplenishmentForm::where('status', 1)->count() > 0;
+        $newBanner = Banner::where('status', 1)->count() > 0;
+        return view('admin.balance.withdrawal.index', compact('forms', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
     }
 }

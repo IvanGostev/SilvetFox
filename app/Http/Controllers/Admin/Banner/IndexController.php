@@ -9,6 +9,8 @@ use App\Models\Main;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ReplenishmentForm;
+use App\Models\Store;
+use App\Models\WithdrawalForm;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
@@ -19,6 +21,11 @@ class IndexController extends Controller
     public function __invoke()
     {
         $banners = Banner::where('status', 1)->get();
-        return view('admin.banner.index', compact('banners', ));
+        $newStore = Store::where('status', 1)->count() > 0;
+        $newProduct =  Product::where('status', 1)->count() > 0;
+        $newW = WithdrawalForm::where('status', 1)->count() > 0;
+        $newR = ReplenishmentForm::where('status', 1)->count() > 0;
+        $newBanner = Banner::where('status', 1)->count() > 0;
+        return view('admin.banner.index', compact('banners', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
     }
 }

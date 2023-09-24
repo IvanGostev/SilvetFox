@@ -15,6 +15,9 @@ class IndexController extends Controller
   {
       $products = Product::where('status', 2)->where('category_id', $category->id)->where('active', 1)->paginate(9);
       $categories = ProductCategory::all();
+      foreach ($categories as $category) {
+          $category['count'] = Product::where('active', 1)->where('status', 2)->where('category_id', $category->id)->count();
+      }
       $banners = Banner::where('status', 2)->inRandomOrder()->limit(10)->get();
       return view('market.product.index', compact('products', 'categories', 'banners'));
   }

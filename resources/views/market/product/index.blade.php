@@ -12,7 +12,7 @@
                             <ul>
                                 @foreach($categories as $category)
                                     <li>
-                                        <a href="{{route('market.category.index', $category->id)}}">{{$category->title}}</a>
+                                        <a href="{{route('market.category.index', $category->id)}}">{{$category->title}} ({{$category['count']}})</a>
                                     </li>
                                 @endforeach
                             </ul>

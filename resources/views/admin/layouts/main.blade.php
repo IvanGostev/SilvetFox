@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" style="direction: ltr;"><head>
+<html lang="en" style="direction: ltr;">
+<head>
 
     <meta charset="utf-8">
     <title>SILVERFOX - Admin</title>
@@ -37,17 +38,21 @@
             <div class="d-flex">
 
                 <div class="dropdown d-inline-block d-lg-none ms-2">
-                    <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn header-item noti-icon waves-effect"
+                            id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                         <i class="ri-search-line"></i>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                         aria-labelledby="page-header-search-dropdown">
 
                         <form class="p-3">
                             <div class="mb-3 m-0">
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Search ...">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="submit"><i class="ri-search-line"></i></button>
+                                        <button class="btn btn-primary" type="submit"><i class="ri-search-line"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +93,9 @@
 
                     <li>
                         <a href="{{ route('admin.store.check') }}" class=" waves-effect">
-                            <span>Магазины на проверки</span>
+                            <span>Магазины на проверки</span> @if($newStore == true)
+                                <span class="badge bg-danger">New</span>
+                            @endif
                         </a>
                     </li>
                     <li>
@@ -103,17 +110,23 @@
                     </li>
                     <li>
                         <a href="{{ route('admin.product.check') }}" class=" waves-effect">
-                            <span>Товары на проверке</span>
+                            <span>Товары на проверке</span> @if($newProduct == true)
+                                <span class="badge bg-danger">New</span>
+                            @endif
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.balance.withdrawal.index') }}" class=" waves-effect">
-                            <span>Заявки на вывод</span>
+                            <span>Заявки на вывод</span> @if($newW == true)
+                                <span class="badge bg-danger">New</span>
+                            @endif
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.balance.replenishment.index') }}" class="waves-effect">
-                            <span>Заявки на пополнение</span>
+                            <span>Заявки на пополнение</span> @if($newR == true)
+                                <span class="badge bg-danger">New</span>
+                            @endif
                         </a>
                     </li>
                     <li>
@@ -138,7 +151,9 @@
                     </li>
                     <li>
                         <a href="{{ route('admin.banner.index') }}" class="waves-effect">
-                            <span>Баннеры на рассмотрение</span>
+                            <span>Баннеры на рассмотрение</span> @if($newBanner == true)
+                                <span class="badge bg-danger">New</span>
+                            @endif
                         </a>
                     </li>
                 </ul>
@@ -149,11 +164,10 @@
     <!-- Left Sidebar End -->
 
 
-
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
-@yield('content')
+    @yield('content')
     <!-- end main content-->
 
 </div>
@@ -189,7 +203,9 @@
                 <img src="{{ asset('asset/images/layouts/layout-2.png')}}" class="img-thumbnail" alt="layout-2">
             </div>
             <div class="form-check form-switch mb-3">
-                <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch" data-bsstyle="{{ asset('asset/css/bootstrap-dark.min.css')}}" data-appstyle="{{ asset('asset/css/app-dark.min.css')}}">
+                <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch"
+                       data-bsstyle="{{ asset('asset/css/bootstrap-dark.min.css')}}"
+                       data-appstyle="{{ asset('asset/css/app-dark.min.css')}}">
                 <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
             </div>
 
@@ -197,7 +213,8 @@
                 <img src="{{ asset('asset/images/layouts/layout-3.png')}}" class="img-thumbnail" alt="layout-3">
             </div>
             <div class="form-check form-switch mb-5">
-                <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch" data-appstyle="{{ asset('asset/css/app-rtl.min.css')}}">
+                <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch"
+                       data-appstyle="{{ asset('asset/css/app-rtl.min.css')}}">
                 <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
             </div>
 
@@ -217,7 +234,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
-                    Admin dashboard  by <a href="/" target="_blank">SILVETFOX</a>
+                    Admin dashboard by <a href="/" target="_blank">SILVETFOX</a>
                 </div>
             </div>
         </div>
@@ -225,4 +242,5 @@
 </footer>
 
 
-</body></html>
+</body>
+</html>
