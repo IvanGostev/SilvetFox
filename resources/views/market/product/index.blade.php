@@ -21,6 +21,12 @@
                 </div>
                 <div class="col-lg-10 m-top-45">
                     <div class="row">
+                        @foreach($banners as $banner)
+                            <div style="max-height: 60px; max-width: 468px; margin: 2px;"><img  src="{{ asset('storage/' . $banner->img) }}" ></div>
+
+                        @endforeach
+                    </div>
+                    <div class="row">
                         @foreach($products as $product)
                             <div class="col-lg-4 col-md-6">
                                 <div class="single-shop-product">

@@ -13,9 +13,9 @@ class ShowController extends Controller
   public function __invoke(Product $product)
   {
       if (Product::where('category_id', $product->category_id)->count() >= 3) {
-          $products =  Product::where('category_id', $product->category_id)->take(3)->get();
+          $products =  Product::where('category_id', $product->category_id)->where('status', '2')->take(3)->get();
       } else {
-          $products =  Product::where('category_id', $product->category_id)->get();
+          $products =  Product::where('category_id', $product->category_id)->where('status', '2')->get();
       }
       $countComments = ProductComment::where('product_id', $product->id)->count();
       $star5 = 0;
@@ -83,7 +83,8 @@ class ShowController extends Controller
                             </div>';
         }
         $images = ProductImage::where('product_id', $product->id)->get();
-      return view('market.product.show', compact('product', 'products', 'countComments', 'rating', 'images'));
+        $regions = explode(',', $product->regions);
+      return view('market.product.show', compact('product', 'products', 'regions', 'countComments', 'rating', 'images'));
   }
 }
 

@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->text('countries');
+            $table->text('regions')->nullable();
             $table->string('img');
-            $table->string('video');
+            $table->string('video')->nullable();
             $table->unsignedSmallInteger('status');
             $table->smallInteger('active')->default(0);
             $table->bigInteger('price');

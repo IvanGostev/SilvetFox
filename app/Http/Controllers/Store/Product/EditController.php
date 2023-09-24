@@ -12,7 +12,9 @@ class EditController extends Controller
     public function __invoke(Product $product)
     {
         $categories = ProductCategory::all();
-        return view('store.product.edit', compact('product', 'categories'));
+        $store = Store::where('user_id', auth()->user()->id)->first();
+        $regions = explode(',', $product->regions);
+        return view('store.product.edit', compact('product', 'categories', 'store', 'regions'));
     }
 }
 

@@ -136,6 +136,11 @@
                             <span>Новости</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.banner.index') }}" class="waves-effect">
+                            <span>Баннеры на рассмотрение</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- Sidebar -->

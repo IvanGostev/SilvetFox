@@ -31,9 +31,7 @@ class UpdateController extends Controller
         if (isset($data['img'])) {
             $data['img'] = Storage::disk('public')->put('/images', $data['img']);
         }
-        if ($data['img'] == null) {
-            unset($data['img']);
-        }
+
         auth()->user()->update($data);
         return redirect()->route('profile.main.edit');
     }

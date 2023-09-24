@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Store\Main;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\StoreRequest;
 use App\Models\Store;
+use App\Models\UserStoreCategory;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -19,7 +20,7 @@ class StoreController extends Controller
                 DB::beginTransaction();
                 $data['status'] = 1;
                 $data['user_id'] = auth()->user()->id;
-
+                $data['category_id'] = (UserStoreCategory::where('user_id', auth()->user()->id)->first())->category_id;
                 if (isset($data['img'])) {
                     $data['img'] = Storage::disk('public')->put('/images', $data['img']);
                 }

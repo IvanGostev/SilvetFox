@@ -11,30 +11,29 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title mb-4">Категории</h4> <h3><a href="{{ route('admin.category.create') }}"
-                                                                                  class="btn btn-outline-success btn-sm">Создать</a> 	</h3>
+                                <h4 class="card-title mb-4">Баннеры</h4>
 
                                 <div class="table-responsive">
                                     <table class="table table-centered table-nowrap mb-0">
                                         <thead>
                                         <tr>
-                                            <th scope="col">ID &amp; Название</th>
-                                            <th scope="col">Депозит</th>
+                                            <th scope="col">Баннер</th>
+                                            <th scope="col">Написать пользователю</th>
                                             <th scope="col">Действие</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($categories as $category)
+                                        @foreach($banners as $banner)
                                             <tr>
                                                 <td>
-                                                    <p class="mb-1 font-size-12">#{{$category->id}}</p>
-                                                    <h5 class="font-size-15 mb-0">{{$category->title}}</h5>
+                                                    <div style="max-height: 60px; max-width: 468px"><img  src="{{ asset('storage/' . $banner->img) }}" ></div>
                                                 </td>
-                                                <td>{{$category->deposit}} XMR</td>
+                                                <td> <a href="{{ route('profile.chat.show', $banner->user->id) }}"
+                                                        class="btn btn-outline-success btn-sm">Написать</a> 	&nbsp;</td>
                                                 <td class="d-flex">
-                                                    <a href="{{ route('admin.category.edit', $category->id) }}"
-                                                       class="btn btn-outline-success btn-sm">Редактировать</a> 	&nbsp;
-                                                <form class="" action="{{ route('admin.category.destroy', $category->id) }}" method="post">
+                                                    <a href="{{ route('admin.banner.active', $banner->id) }}"
+                                                       class="btn btn-outline-success btn-sm">Активировать</a> 	&nbsp;
+                                                <form class="" action="{{ route('admin.banner.destroy', $banner->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="btn btn-outline-danger btn-sm">

@@ -15,15 +15,16 @@
     <!-- Banner End -->
 
     <!-- History Section Start -->
-    <section class="contact-section"   style="background-color: #2d3037;">
+    <section class="contact-section" style="background-color: #2d3037;">
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="sec-title">You don't have a store. Want to open it?</h2>
                     <p class="sec-desc">
-                        You don't have a store. Do you want to open it? To open a store, top up your balance.<br>
-                        {{$deposit}} XMR will be debited from your balance.
+                        To open a store, top up your balance with the amount of the deposit. <br> The amount of the
+                        deposit depends on the category of the store. The store category applies to all products of the
+                        store.
                     </p>
                 </div>
             </div>
@@ -32,9 +33,22 @@
                     <div class="contact-form text-center">
                         <form action="{{ route('store.main.open') }}" method="post" id="contact-form" class="row">
                             @csrf
+                            <div class="mb-3 row">
+                                <label class="col-md-2 col-form-label" style="color: white;">Category</label>
+                                <div class="col-md-10">
+                                    <select class="form-select" required name="category_id">
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->id}}">
+                                                <span>{{$category->title}}</span>
+                                                <span>Deposit: {{$category->deposit}} XMR</span>
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <input hidden="hidden" name="user_id" value="{{auth()->user()->id}}">
                             <div class="col-lg-12 col-md-12">
-                                <button type="submit"  class="goru-btn" style="background-color: #ee7926">Open</button>
+                                <button type="submit" class="goru-btn" style="background-color: #ee7926">Open</button>
                             </div>
                         </form>
                     </div>

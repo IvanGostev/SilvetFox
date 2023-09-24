@@ -75,7 +75,7 @@
                                                 <td data-field="gender" class="text-success  font-weight-bolder">YES</td>
                                             @endif
                                             <td style="width: 100px" >
-                                                <a href="{{ route('store.product.active', $store->id) }}" class="btn" style="background-color: #ee7926; color: white!important;" >Activate/Deactivate</a>
+                                                <a href="{{ route('store.product.active', $product->id) }}" class="btn" style="background-color: #ee7926; color: white!important;" >Activate/Deactivate</a>
                                             </td>
                                             <td style="width: 100px">
                                                 <a href="{{ route('store.product.image.index', $product->id) }}" class="btn" style="background-color: #ee7926; color: white!important;" >See</a>

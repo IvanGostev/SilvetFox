@@ -24,8 +24,9 @@ class EditRequest extends FormRequest
     public function rules()
     {
         return [
-            'deposit_store' => 'required|string',
+            'score' => 'required|string',
             'rate_dollars' => 'required|string',
+            'advertisement' => 'required|string',
             'terms_of_service' => 'required|string',
 //            'information' => 'required|string',
             'rules' => 'required|string',

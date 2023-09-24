@@ -14,17 +14,25 @@
                                 <h4 class="card-title">Основные настройки</h4>
                                 <p class="card-title-desc"></p>
 
-                                <form class="custom-validation" action="#" novalidate="">
+                                <form class="custom-validation" action="{{ route('admin.main.update') }}" method="post">
+                                    @csrf
+                                    @method('patch')
                                     <div class="mb-3">
-                                        <label class="form-label">Депозит в XMR</label>
+                                        <label class="form-label">Счет</label>
                                         <div>
-                                            <input parsley-type="url" type="text" class="form-control" required="" name="deposit_store" value="{{$main->deposit_store}}">
+                                            <input  type="text" class="form-control" required="" name="score" value="{{$main->score}}">
                                         </div>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Курс XMR к $</label>
                                         <div>
-                                            <input parsley-type="url" type="text" class="form-control" required="" name="rate_dollars" value="{{$main->rate_dollars}}">
+                                            <input  type="text" class="form-control" required="" name="rate_dollars" value="{{$main->rate_dollars}}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Стоимость одного баннера на месяц</label>
+                                        <div>
+                                            <input  type="text" class="form-control" required="" name="advertisement" value="{{$main->advertisement}}">
                                         </div>
                                     </div>
 {{--                                    <div class="mb-3">--}}

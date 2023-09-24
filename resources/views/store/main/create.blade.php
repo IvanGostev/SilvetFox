@@ -21,7 +21,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Creating a store</h4>
+                            <h4 class="card-title" style="color: black!important;">Creating a store</h4>
                             <p class="card-title-desc">You have made a deposit. Fill in the fields and wait for the decision of the administration</p>
                             <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data" action="{{ route('store.main.store') }}">
                                 @csrf

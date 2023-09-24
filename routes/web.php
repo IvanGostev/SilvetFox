@@ -59,6 +59,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/edit', 'EditController')->name('admin.main.edit');
         Route::patch('/', 'UpdateController')->name('admin.main.update');
     });
+    Route::group(['namespace' => 'Banner', 'prefix' => 'banners', 'middleware' => 'auth'], function () {
+        Route::get('/', 'IndexController')->name('admin.banner.index');
+        Route::get('/{banner}/active', 'ActiveController')->name('admin.banner.active');
+        Route::delete('/{banner}/destroy', 'DestroyController')->name('admin.banner.destroy');
+    });
+
     Route::group(['namespace' => 'Balance', 'prefix' => 'balance'], function () {
         Route::get('/withdrawal', 'WithdrawalController')->name('admin.balance.withdrawal.index');
         Route::get('/{form}/withdrawal', 'WithdrawalShowController')->name('admin.balance.withdrawal.edit');
@@ -139,8 +145,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Store', 'prefix' => 'store'],
         Route::get('/create', 'CreateController')->name('store.product.create');
         Route::post('/', 'StoreController')->name('store.product.store');
         Route::get('/{product}/edit', 'EditController')->name('store.product.edit');
-        Route::patch('/{product}', 'UpdateController')->name('store.product.update');
         Route::get('/{product}/active', 'ActiveController')->name('store.product.active');
+        Route::patch('/{product}', 'UpdateController')->name('store.product.update');
+
         Route::group(['namespace' => 'Image', 'prefix' => 'images'], function () {
             Route::get('/{product}', 'IndexController')->name('store.product.image.index');
             Route::get('/{product}/create', 'CreateController')->name('store.product.image.create');
@@ -190,4 +197,8 @@ Route::group(['namespace' => 'App\Http\Controllers\News', 'prefix' => 'news'], f
     Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function () {
         Route::post('/', 'StoreController')->name('news.comment.store')->middleware('auth');
     });
+});
+Route::group(['namespace' => 'App\Http\Controllers\Banner', 'prefix' => 'banners', 'middleware' => 'auth'], function () {
+    Route::get('/create', 'CreateController')->name('banner.create');
+    Route::post('/', 'StoreController')->name('banner.store');
 });

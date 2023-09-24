@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Category;
+namespace App\Http\Requests\Banner;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,16 +24,13 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
-            'deposit' => 'required|string',
-
+            'user_id' => 'required|integer',
+            'img' => 'required|image|max:10000|mimes:gif|dimensions:min_width=468,min_height=60,max_width=468,max_height=60',
         ];
     }
     public function messages()
     {
         return [
-            'title.required' => 'Это поле необходимо заполнить',
-            'title.string' => 'Тип данных должен быть строкой',
         ];
     }
 }

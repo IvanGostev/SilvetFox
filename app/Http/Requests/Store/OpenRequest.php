@@ -25,6 +25,7 @@ class OpenRequest extends FormRequest
     {
         return [
             'user_id' => 'required|integer',
+            'category_id' => 'required|integer',
         ];
     }
     public function messages()

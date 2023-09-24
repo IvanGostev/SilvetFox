@@ -26,13 +26,19 @@ class StoreRequest extends FormRequest
         return [
             'title' => 'required|string',
             'description' => 'required|string',
-            'countries' => 'required|string',
             'img' => 'required|file|mimes:jpg,bmp,png',
             'video' => 'nullable|file|mimes:mp4',
             'price' => 'required|integer',
             'dollars' => 'required|integer',
             'category_id' => 'required|integer',
             'store_id' => 'required|integer',
+            'africa' => 'nullable|string',
+            'north_america' => 'nullable|string',
+            'caribbean' => 'nullable|string',
+            'asia' => 'nullable|string',
+            'australia' => 'nullable|string',
+            'europe' => 'nullable|string',
+            'russia' => 'nullable|string',
         ];
     }
     public function messages()

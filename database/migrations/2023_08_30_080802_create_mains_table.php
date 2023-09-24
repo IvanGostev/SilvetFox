@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('mains', function (Blueprint $table) {
             $table->id();
             $table->double('rate_dollars');
-            $table->double('deposit_store');
+            $table->text('score');
+//            $table->double('deposit_store');
             $table->text('terms_of_service');
 //            $table->text('information');
             $table->text('rules');
             $table->text('escrow');
             $table->text('privacy_policy');
+            $table->double('advertisement');
 //            $table->string('address');
 //            $table->string('email');
 //            $table->string('phone');

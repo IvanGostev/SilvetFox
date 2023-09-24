@@ -57,10 +57,6 @@ class DestroyController extends Controller
         foreach ($data as $temp ) {
             $temp->delete();
         }
-        $data = StoreForm::where('user_id', $user->id)->get();
-        foreach ($data as $temp ) {
-            $temp->delete();
-        }
         if (Store::where('user_id', $user->id)->count() > 0) {
             $store = Store::where('user_id', $user->id)->first();
             $data = Product::where('store_id', $store->id)->get();

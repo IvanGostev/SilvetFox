@@ -31,6 +31,13 @@ class UpdateRequest extends FormRequest
             'price' => 'required|integer',
             'dollars' => 'required|integer',
             'category_id' => 'required|integer',
+            'africa' => 'nullable|string',
+            'north_america' => 'nullable|string',
+            'caribbean' => 'nullable|string',
+            'asia' => 'nullable|string',
+            'australia' => 'nullable|string',
+            'europe' => 'nullable|string',
+            'russia' => 'nullable|string',
         ];
     }
     public function messages()

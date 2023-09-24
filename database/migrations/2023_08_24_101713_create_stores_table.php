@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('category_id');
             $table->string('title');
             $table->string('img')->nullable();
             $table->text('description')->nullable();
             $table->smallInteger('status')->default(0);
             $table->smallInteger('active')->default(0);
             $table->timestamps();
+            $table->index('category_id', 'stores_category_idx');
+            $table->foreign('category_id', 'stores_user_fk')->on('product_categories')->references('id');
             $table->index('user_id', 'store_user_idx');
             $table->foreign('user_id', 'store_user_fk')->on('users')->references('id');
         });

@@ -22,7 +22,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title" style="color: #000!important;">Create product</h4>
-                            <p>All fields are required!</p>
+                            <p style="text-transform: uppercase; color: red" >All fields are required!</p>
                             <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data"
                                   action="{{ route('store.product.store') }}">
                                 @csrf
@@ -53,10 +53,36 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="mb-3">
-                                            <label class="form-label" for="validationCustom01">Countries where goods are delivered</label>
-                                            <input type="text" class="form-control" id="validationCustom01"
-                                                   placeholder="Countries" required="" name="countries"
-                                            >
+                                            <label class="form-label" for="validationCustom01">Select the regions to which you are delivering the goods</label>
+                                            <br>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" name="africa" id="inlineCheckbox1">
+                                                <label class="form-check-label" for="inlineCheckbox1">Africa</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="north_america">
+                                                <label class="form-check-label" for="inlineCheckbox2">North America</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="caribbean">
+                                                <label class="form-check-label" for="inlineCheckbox2">Latin America and the Caribbean</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="asia">
+                                                <label class="form-check-label" for="inlineCheckbox2">Asia</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="australia">
+                                                <label class="form-check-label" for="inlineCheckbox2">Australia and Oceania</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"  name="europe">
+                                                <label class="form-check-label" for="inlineCheckbox2">Europe</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"  name="russia">
+                                                <label class="form-check-label" for="inlineCheckbox2">Russia</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -89,11 +115,12 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="validationCustom01">Category</label>
-                                            <select class="form-select" name="category_id" id="inlineFormSelectPref">
+                                            <input type="text" hidden="hidden" name="category_id" value="{{$store->category_id}}">
                                                 @foreach($categories as $category)
-                                                    <option value="{{$category->id}}">{{$category->title}}</option>
+                                                    @if($store->category_id == $category->id)
+                                                    <p class="form-p" for="validationCustom01">{{$category->title}}</p>
+                                                    @endif
                                                 @endforeach
-                                            </select>
                                         </div>
                                     </div>
                                 </div>

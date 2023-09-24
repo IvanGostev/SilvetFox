@@ -16,17 +16,29 @@
                                     @method('patch')
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="mb-3">
-                                                <label class="form-label" for="validationCustom01">Название</label>
-                                                <input type="text" class="form-control" id="validationCustom01"
-                                                       placeholder="Название" name="title" value="{{$category->title}}"
-                                                       required="">
-                                                <div class="valid-feedback">
+                                            <div class="mb-3 d-flex">
+                                                <div class="col-lg-9">
+                                                    <label class="form-label" for="validationCustom01">Название</label>
+                                                    <input type="text" class="form-control" id="validationCustom01"
+                                                           placeholder="Название" name="title" value="{{$category->title}}"
+                                                           required="">
+                                                    <div class="valid-feedback">
+                                                    </div>
                                                 </div>
+                                                <div class="col-lg-2" style="margin-left: 5px">
+                                                    <label class="form-label" for="validationCustom01">Депозит в XMR</label>
+                                                    <input type="number" class="form-control" id="validationCustom01"
+                                                           name="deposit"
+                                                           required="" value="{{$category->deposit}}">
+                                                    <div class="valid-feedback">
+                                                    </div>
+                                                </div>
+
                                             </div>
+
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary" type="submit">Создать</button>
+                                    <button class="btn btn-primary" type="submit">Изменить</button>
                                 </form>
                             </div>
                         </div>

@@ -23,15 +23,17 @@
                     <div id="product-slider" class="carousel slide product-slider" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <div class="ps-img">
-                                    <img src="{{ asset('storage/' . $product->img)}}" alt="">
+                                <div class="ps-img"><a href="{{ asset('storage/' . $product->img)}}">
+                                        <img src="{{ asset('storage/' . $product->img)}}" alt="">
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         <ol class="carousel-indicators clearfix">
                             @foreach($images as $image)
-                                <li data-target="#product-slider" data-slide-to="0" class="active"><img
-                                        src="{{ asset('storage/' . $image->img)}}" alt=""></li>
+                                <li data-target="#product-slider" data-slide-to="0" class="active"><a
+                                        href="{{ asset('storage/' . $image->img)}}"><img
+                                            src="{{ asset('storage/' . $image->img)}}" alt=""></a></li>
                             @endforeach
                         </ol>
                     </div>
@@ -61,7 +63,9 @@
                             </p>
                         </div>
                         <div class="product-cart-qty">
-                            <a href="{{ route('order.main.create', $product->id) }}" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);" class="add-to-cart-btn">Buy</a>
+                            <a href="{{ route('order.main.create', $product->id) }}"
+                               style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);"
+                               class="add-to-cart-btn">Buy</a>
                         </div>
                     </div>
                 </div>
@@ -117,7 +121,9 @@
                                             <input hidden="hidden" value="{{$product->id}}" name="product_id">
                                             <input hidden="hidden" value="{{auth()->user()->id}}" name="user_id">
                                             <div class="col-lg-9 col-md-9">
-                                                <input type="submit"  class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " name="submit" value="Submit Review">
+                                                <input type="submit" class="btn"
+                                                       style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
+                                                       name="submit" value="Submit Review">
                                             </div>
 
                                         </form>
@@ -129,12 +135,34 @@
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <div class="product-speciality">
-                        <video href="{{'storage/' . $product->video}}"></video>
+                        <video height="180px">
+                            <source src="{{ asset('storage/' . $product->video)}}">
+                        </video>
                         <h5>Specifications</h5>
                         <ul>
                             <li>Store: {{$product->store->title}}</li>
                             <li>Category: {{$product->category->title}}</li>
-                            <li>Countries to which the goods are delivered: {{$product->countries}}</li>
+                            <li>Regions to which the goods are delivered: {{$product->countries}}
+                                @foreach($regions as $region)
+                                        <?php
+                                          $result =  match ($region) {
+                                                '' => '',
+                                                '1' => 'Africa',
+                                                '2' => 'North America',
+                                                '3' => 'Latin America and the Caribbean',
+                                                '4' => 'Asia',
+                                                '5' => 'Australia and Oceania',
+                                                '6' => 'Europe',
+                                                '7' => 'Russia',
+                                            };
+                                        ?>
+                                    {{  $result . ', '}}
+
+
+                                @endforeach
+
+
+                            </li>
                             <li>Description: {{$product->description}}</li>
                         </ul>
                     </div>
@@ -231,7 +259,8 @@
                                             </span>
                                                     </div>
                                                     <div class="sp-details-hover">
-                                                        <a class="sp-cart" href="{{ route('market.product.show', $productR->id) }}"><span>More detailed</span></a>
+                                                        <a class="sp-cart"
+                                                           href="{{ route('market.product.show', $productR->id) }}"><span>More detailed</span></a>
                                                     </div>
                                                 </div>
                                             </div>

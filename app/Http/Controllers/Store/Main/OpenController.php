@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Store\OpenRequest;
 use App\Models\History;
 use App\Models\Main;
+use App\Models\ProductCategory;
 use App\Models\User;
+use App\Models\UserStoreCategory;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +18,7 @@ class OpenController extends Controller
     {
         $data = $request->validated();
         $user = auth()->user();
-        $deposit =  Main::first()->deposit_store;
+        $deposit = (ProductCategory::where('id', $data['category_id'])->first())->deposit;
         if ($user->balance >= $deposit) {
             try {
                 DB::beginTransaction();
@@ -25,6 +27,8 @@ class OpenController extends Controller
                 $user->update();
                 $data['type'] = 'deposit';
                 $data['number'] =  $deposit;
+                UserStoreCategory::create(['user_id' => auth()->user()->id,'category_id' => $data['category_id']]);
+                unset($data['category_id']);
                 History::create($data);
                 DB::commit();
                 return redirect()->route('store.main.create');

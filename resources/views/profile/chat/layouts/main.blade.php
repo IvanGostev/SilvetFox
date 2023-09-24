@@ -111,6 +111,7 @@
                                     <li><a href="{{ route('profile.main.edit') }}">Edit profile</a></li>
                                     <li><a href="{{ route('order.main.index') }}">Orders</a></li>
                                     <li><a href="{{ route('profile.balance.index') }}">Balance history</a></li>
+                                    <li><a href="{{ route('banner.create') }}">Banners</a></li>
                                     <li><a href="{{ route('store.main.start') }}">My store</a></li>
                                     @if(auth()->user()->role == 1)
                                         <li><a href="{{ route('store.order.index') }}">Orders from my store</a></li>
