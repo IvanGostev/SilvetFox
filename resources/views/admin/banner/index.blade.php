@@ -26,20 +26,25 @@
                                         @foreach($banners as $banner)
                                             <tr>
                                                 <td>
-                                                    <div style="max-height: 60px; max-width: 468px"><img  src="{{ asset('storage/' . $banner->img) }}" ></div>
+                                                    <div style="max-height: 60px; max-width: 468px"><a
+                                                            href="{{$banner->link}}"><img
+                                                                src="{{ asset('storage/' . $banner->img) }}"></a></div>
                                                 </td>
-                                                <td> <a href="{{ route('profile.chat.show', $banner->user->id) }}"
-                                                        class="btn btn-outline-success btn-sm">Написать</a> 	&nbsp;</td>
+                                                <td><a href="{{ route('profile.chat.show', $banner->user->id) }}"
+                                                       class="btn btn-outline-success btn-sm">Написать</a> &nbsp;
+                                                </td>
                                                 <td class="d-flex">
                                                     <a href="{{ route('admin.banner.active', $banner->id) }}"
-                                                       class="btn btn-outline-success btn-sm">Активировать</a> 	&nbsp;
-                                                <form class="" action="{{ route('admin.banner.destroy', $banner->id) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-outline-danger btn-sm">
-                                                        Удалить
-                                                    </button>
-                                                </form>
+                                                       class="btn btn-outline-success btn-sm">Активировать</a> &nbsp;
+                                                    <form class=""
+                                                          action="{{ route('admin.banner.destroy', $banner->id) }}"
+                                                          method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                                                            Удалить
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -25,6 +25,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'user_id' => 'required|integer',
+            'link' => 'required|string',
             'img' => 'required|image|max:10000|mimes:gif|dimensions:min_width=468,min_height=60,max_width=468,max_height=60',
         ];
     }

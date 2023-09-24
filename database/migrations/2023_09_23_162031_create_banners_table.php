@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('img');
+            $table->string('link');
             $table->smallInteger('status');
             $table->timestamps();
             $table->index('user_id', 'banner_user_idx');

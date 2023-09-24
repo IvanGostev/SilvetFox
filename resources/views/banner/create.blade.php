@@ -59,6 +59,11 @@
                                 <div class="col-md-10">
                                     <input type="file" name="img" required>
                                 </div>
+                                <div class="mb-3 row">
+                                    <label class="col-md-2 col-form-label" style="color: white;">Link</label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="link" required>
+                                    </div>
                             </div>
                             <input hidden="hidden" name="user_id" value="{{auth()->user()->id}}">
                             <div class="col-lg-12 col-md-12">

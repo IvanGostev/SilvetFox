@@ -22,7 +22,8 @@
                 <div class="col-lg-10 m-top-45">
                     <div class="row">
                         @foreach($banners as $banner)
-                            <div style="max-height: 60px; max-width: 468px; margin: 2px;"><img  src="{{ asset('storage/' . $banner->img) }}" ></div>
+                            <div style="max-height: 60px; max-width: 468px; margin: 2px;"><a href="{{$banner->link}}">
+                                    <img src="{{ asset('storage/' . $banner->img) }}"></a></div>
 
                         @endforeach
                     </div>
@@ -48,24 +49,24 @@
                                 </div>
                             </div>
                         @endforeach
-                                            </div>
-                                            <div class="row">
-                                                <div class="mx-auto">      {{$products->links()}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="mx-auto">      {{$products->links()}}</div>
 
-{{--                                                <div class="col-lg-10 offset-lg-1 col-md-12 mt-20">--}}
-{{--              --}}
-{{--                                                    <div class="goru-pagination text-center clearfix">--}}
+                        {{--                                                <div class="col-lg-10 offset-lg-1 col-md-12 mt-20">--}}
+                        {{--              --}}
+                        {{--                                                    <div class="goru-pagination text-center clearfix">--}}
 
-{{--                                                        <a class="prev" href="{{$paginator->previousCursor()}}"><i class="twi-long-arrow-alt-left"></i></a>--}}
-{{--                                                        <span class="current">1</span>--}}
-{{--                                                        <a href="#">2</a>--}}
-{{--                                                        <a class="next" href="{{$paginator->nextCursor()}}"><i class="twi-long-arrow-alt-right"></i></a>--}}
-{{--                                                    </div>--}}
-                                                </div>
-                                            </div>
+                        {{--                                                        <a class="prev" href="{{$paginator->previousCursor()}}"><i class="twi-long-arrow-alt-left"></i></a>--}}
+                        {{--                                                        <span class="current">1</span>--}}
+                        {{--                                                        <a href="#">2</a>--}}
+                        {{--                                                        <a class="next" href="{{$paginator->nextCursor()}}"><i class="twi-long-arrow-alt-right"></i></a>--}}
+                        {{--                                                    </div>--}}
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
     </section>
 
     <!-- Shop Section End -->
