@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\Chat;
 use App\Models\History;
 use App\Models\Message;
@@ -80,7 +81,10 @@ class DestroyController extends Controller
         foreach ($data as $temp ) {
             $temp->delete();
         }
-
+        $data = Banner::where('user_id', $user->id)->get();
+        foreach ($data as $temp ) {
+            $temp->delete();
+        }
         $user->delete();
         return redirect()->route('admin.user.index');
     }
