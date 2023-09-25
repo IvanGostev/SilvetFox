@@ -22,6 +22,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @if(auth()->user()->role == 3)
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="form-label" for="validationCustom02">Баланс</label>
@@ -31,6 +32,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @else
+                                            <input type="number" class="form-control" hidden="hidden" id="validationCustom02" placeholder="Баланс" name="balance" value="{{$user->balance}}" required="">
+                                        @endif
                                     </div>
 
                                     <div class="row">
@@ -40,8 +44,10 @@
                                                 <select class="form-select" name="role" id="inlineFormSelectPref">
                                                     <option {{ $user->role == 0 ? 'selected' : '' }}  value="0">Покупатель</option>
                                                     <option {{ $user->role == 1 ? 'selected' : '' }}  value="1">Продавец</option>
+                                                    @if(auth()->user()->role == 3)
                                                     <option {{ $user->role == 2 ? 'selected' : '' }}  value="2">Модератор</option>
                                                     <option {{ $user->role == 3 ? 'selected' : '' }}  value="3">Администратор</option>
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>

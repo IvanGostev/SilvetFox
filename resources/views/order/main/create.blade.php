@@ -33,6 +33,7 @@
                             <p class="col-lg-12">
                                 <label>Address</label>
                                 <input name="address" type="text">
+                                <input name="number" type="number" value="{{$number}}" hidden="hidden">
                             </p>
                         </div>
                     </div>
@@ -43,17 +44,18 @@
                         <table class="check-table woocommerce-checkout-review-order-table">
                             <thead>
                             <tr>
-                                <th class="product-name" style="color: white">Product</th>
+                                <th class="product-name" style="color: white">Product <span style="color: red">{{$number}}X</span> </th>
                                 <th class="product-total"></th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr class="cart-item">
                                 <td class="product-name">{{$product->title}}</td>
+{{--                                <td class="product-name">{{$number}}X</td>--}}
                                 <td class="product-total">
                                     <div class="product-price clearfix">
                                                 <span class="price">
-                                                    <span>{{$product->price}}<span class="woocommerce-Price-currencySymbol">&nbsp;XMR</span></span>
+                                                    <span>{{$price}}<span class="woocommerce-Price-currencySymbol">&nbsp;XMR</span></span>
                                                 </span>
                                     </div>
                                 </td>

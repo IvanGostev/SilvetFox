@@ -17,7 +17,7 @@ class StoreController extends Controller
           $data['user_id'] = auth()->user()->id;
 
           $product = Product::where('id', $data['product_id'])->first();
-          $data['price'] = $product->price;
+          $data['price'] = $product->price * $data['number'];
       if (auth()->user()->balance >= $data['price']) {
           Order::create($data);
           $user = auth()->user();

@@ -27,7 +27,7 @@
 
                         @endforeach
                     </div>
-                    <div class="row">
+                    <div class="row m-top-20">
                         @foreach($products as $product)
                             <div class="col-lg-4 col-md-6">
                                 <div class="single-shop-product">

@@ -79,18 +79,60 @@
                     </div>
                     <ul class="d-flex justify-content-between">
 
-                        <li><form action="{{ route('market.product.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Products</button></form></li>
-                        <li> <form action="{{ route('market.stores.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Stores</button></form> </li>
-                        <li> <form action="{{ route('news.main.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">News</button></form> </li>
-                        <li> <form action="{{ route('order.main.index') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Orders</button></form> </li>
-                        <li> <form action="{{ route('main.escrow') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Escrow</button></form> </li>
-                        <li> <form action="{{ route('main.rules') }}"><button type="submit" class="btn" style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); " href="{{ route('market.product.index') }}">Rules</button></form> </li>
+                        <li>
+                            <form action="{{ route('market.product.index') }}">
+                                <button type="submit" class="btn"
+                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
+                                        href="{{ route('market.product.index') }}">Products
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="{{ route('market.stores.index') }}">
+                                <button type="submit" class="btn"
+                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
+                                        href="{{ route('market.product.index') }}">Stores
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="{{ route('news.main.index') }}">
+                                <button type="submit" class="btn"
+                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
+                                        href="{{ route('market.product.index') }}">News
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="{{ route('order.main.index') }}">
+                                <button type="submit" class="btn"
+                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
+                                        href="{{ route('market.product.index') }}">Orders
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="{{ route('main.escrow') }}">
+                                <button type="submit" class="btn"
+                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
+                                        href="{{ route('market.product.index') }}">Escrow
+                                </button>
+                            </form>
+                        </li>
+                        <li>
+                            <form action="{{ route('main.rules') }}">
+                                <button type="submit" class="btn"
+                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
+                                        href="{{ route('market.product.index') }}">Rules
+                                </button>
+                            </form>
+                        </li>
                         {{--                        <li><a href="{{ route('market.product.index') }}">Products</a></li>--}}
-{{--                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>--}}
-{{--                        <li><a href="{{ route('news.main.index') }}">News</a></li>--}}
-{{--                        <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>--}}
-{{--                        <li><a href="{{ route('main.escrow') }}">escrow</a></li>--}}
-{{--                        <li><a href="{{ route('main.rules') }}">RULES</a></li>--}}
+                        {{--                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>--}}
+                        {{--                        <li><a href="{{ route('news.main.index') }}">News</a></li>--}}
+                        {{--                        <li><a href="{{ route('order.main.index') }}">ORDERS</a></li>--}}
+                        {{--                        <li><a href="{{ route('main.escrow') }}">escrow</a></li>--}}
+                        {{--                        <li><a href="{{ route('main.rules') }}">RULES</a></li>--}}
                         @auth()
                             @if(countNewMessages() > 0)
                                 <li><a href="{{ route('profile.chat.index') }}" class="text-dark">
@@ -99,10 +141,16 @@
                                             <path
                                                 d="M64 0C28.7 0 0 28.7 0 64V352c0 35.3 28.7 64 64 64h96v80c0 6.1 3.4 11.6 8.8 14.3s11.9 2.1 16.8-1.5L309.3 416H448c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64z"/>
                                         </svg>
-                                        <span class="badge rounded-pill badge-notification bg-danger">{{countNewMessages()}}</span>
+                                        <span
+                                            class="badge rounded-pill badge-notification bg-danger">{{countNewMessages()}}</span>
                                     </a></li>
                             @endif
-
+                            @if(auth()->user()->role > 0)
+                                @if(newOrders())
+                                    <a href="{{route('store.order.index')}}"><span
+                                            class="badge bg-danger">New Orders</span></a>
+                                @endif
+                            @endif
                             <a class="select-currency" href="{{ route('profile.balance.index') }}">Your
                                 bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
                             <li class="menu-item-has-children">
@@ -115,7 +163,11 @@
                                     <li><a href="{{ route('banner.create') }}">Banners</a></li>
                                     <li><a href="{{ route('store.main.start') }}">My store</a></li>
                                     @if(auth()->user()->role == 1)
-                                        <li><a href="{{ route('store.order.index') }}">Orders from my store</a></li>
+                                        <li> @if(newOrders())
+                                                <span class="badge bg-danger">New</span>
+                                            @endif <a href="{{ route('store.order.index') }}">Orders from my
+                                                store</a>
+                                        </li>
                                     @endif
                                     <li><a href="{{ route('profile.chat.index') }}">Chats</a></li>
                                     @if(auth()->user()->role >= 2)
@@ -206,7 +258,7 @@
             {{--                </aside>            </div>--}}
             {{--        </div>--}}
         </div>
-        </div>
+    </div>
 </footer>
 <!-- Footer Ened -->
 

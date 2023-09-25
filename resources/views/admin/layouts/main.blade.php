@@ -131,7 +131,9 @@
                     </li>
                     <li>
                         <a href="{{ route('admin.order.index') }}" class="waves-effect">
-                            <span>Все активные заказы</span>
+                            <span>Все активные заказы</span> @if($newOrders == true)
+                                <span class="badge bg-danger">New</span>
+                            @endif
                         </a>
                     </li>
                     <li>

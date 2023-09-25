@@ -22,6 +22,10 @@ class StoreController extends Controller
 
         try {
             DB::beginTransaction();
+            if (!isset($data['deposit'])) {
+                $data['deposit'] = 1;
+            }
+
             ProductCategory::firstOrCreate($data);
             DB::commit();
         } catch (Exception $exception) {

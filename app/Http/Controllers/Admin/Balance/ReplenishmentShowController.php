@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Balance;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ReplenishmentForm;
@@ -22,6 +23,7 @@ class ReplenishmentShowController extends Controller
         $newW = WithdrawalForm::where('status', 1)->count() > 0;
         $newR = ReplenishmentForm::where('status', 1)->count() > 0;
         $newBanner = Banner::where('status', 1)->count() > 0;
-        return view('admin.balance.replenishment.edit', compact('form', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
+        $newOrders = Order::where('status', '!=', '4')->count() > 0;
+        return view('admin.balance.replenishment.edit', compact('newOrders','form', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
     }
 }

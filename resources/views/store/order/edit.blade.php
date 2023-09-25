@@ -21,6 +21,7 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
+                            <h5 style="color: black!important;">Address: <p> {{$order->address}}</p></h5>
                             <h4 class="card-title" style="color: #000!important;">Order information and status</h4>
                             <p>If you don't want to update the images, don't attach them!</p>
                             <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data"
@@ -28,6 +29,7 @@
                                 @csrf
                                 @method('patch')
                                 <div class="row">
+
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <label class="form-label" for="validationCustom01">Link to the delivery

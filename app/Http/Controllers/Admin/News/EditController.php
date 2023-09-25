@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\News;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Order;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\Product;
@@ -23,6 +24,7 @@ class EditController extends Controller
         $newR = ReplenishmentForm::where('status', 1)->count() > 0;
         $newBanner = Banner::where('status', 1)->count() > 0;
         $categories = PostCategory::all();
-        return view('admin.news.edit', compact('post', 'categories', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
+        $newOrders = Order::where('status', '!=', '4')->count() > 0;
+        return view('admin.news.edit', compact('newOrders','post', 'categories', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
     }
 }

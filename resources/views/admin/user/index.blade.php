@@ -20,7 +20,7 @@
                                             <th scope="col" style="width: 60px;"></th>
                                             <th scope="col">ID &amp; Имя</th>
                                             <th scope="col">Роль</th>
-                                            <th scope="col">Баланс</th>
+                                                <th scope="col">Баланс</th>
                                             <th scope="col">Написать</th>
                                             <th scope="col">Действие</th>
                                         </tr>
@@ -45,19 +45,22 @@
                                                     <h5 class="font-size-15 mb-0">{{$user->name}}</h5>
                                                 </td>
                                                 <td>{{$user->role}}</td>
-                                                <td>{{$user->balance}}</td>
-                                                <td> <a href="{{ route('profile.chat.show', $user->id) }}"
-                                                        class="btn btn-outline-dark btn-sm">Написать</a> </td>
+                                                    <td>{{$user->balance}}</td>
+                                                <td><a href="{{ route('profile.chat.show', $user->id) }}"
+                                                       class="btn btn-outline-dark btn-sm">Написать</a></td>
                                                 <td class="d-flex ">
                                                     <a href="{{ route('admin.user.edit', $user->id) }}"
-                                                       class="btn btn-outline-success btn-sm">Редактировать</a> 	&nbsp;
-                                                <form class="mr-5" action="{{ route('admin.user.destroy', $user->id) }}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="ml-2 btn btn-outline-danger btn-sm">
-                                                        Удалить
-                                                    </button>
-                                                </form>
+                                                       class="btn btn-outline-success btn-sm">Редактировать</a> &nbsp;
+                                                    <form class="mr-5"
+                                                          action="{{ route('admin.user.destroy', $user->id) }}"
+                                                          method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit"
+                                                                class="ml-2 btn btn-outline-danger btn-sm">
+                                                            Удалить
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

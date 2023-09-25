@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address');
             $table->smallInteger('status')->default(1);
             $table->bigInteger('price');
+            $table->bigInteger('number');
             $table->index('user_id', 'order_user_idx');
             $table->foreign('user_id', 'order_user_fk')->on('users')->references('id');
             $table->index('product_id', 'order_product_idx');

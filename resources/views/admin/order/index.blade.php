@@ -17,7 +17,7 @@
                                     <table class="table table-centered table-nowrap mb-0">
                                         <thead>
                                         <tr>
-                                            <th scope="col">ID &amp; Название</th>
+                                            <th scope="col">ID &amp; Количество товаров</th>
                                             <th scope="col">Цена</th>
                                             <th scope="col">Статус</th>
                                             <th scope="col">Товар</th>
@@ -55,7 +55,7 @@
                                             <tr>
                                                 <td>
                                                     <p class="mb-1 font-size-12">#{{$order->id}}</p>
-                                                    <h5 class="font-size-15 mb-0">{{$order->title}}</h5>
+                                                    <h5 class="font-size-15 mb-0">{{$order->number}}</h5>
                                                 </td>
                                                 <td>{{$order->price}} XMR</td>
                                                 <td>{!! $state !!} {{$status}}</td>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Profile\Main\UpdateRequest;
 use App\Models\Banner;
 use App\Models\Main;
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ReplenishmentForm;
@@ -26,6 +27,7 @@ class IndexController extends Controller
         $newW = WithdrawalForm::where('status', 1)->count() > 0;
         $newR = ReplenishmentForm::where('status', 1)->count() > 0;
         $newBanner = Banner::where('status', 1)->count() > 0;
-        return view('admin.banner.index', compact('banners', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
+        $newOrders = Order::where('status', '!=', '4')->count() > 0;
+        return view('admin.banner.index', compact('newOrders','banners', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
     }
 }

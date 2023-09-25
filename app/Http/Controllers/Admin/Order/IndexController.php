@@ -22,6 +22,7 @@ class IndexController extends Controller
         $newW = WithdrawalForm::where('status', 1)->count() > 0;
         $newR = ReplenishmentForm::where('status', 1)->count() > 0;
         $newBanner = Banner::where('status', 1)->count() > 0;
-        return view('admin.order.index', compact('orders', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
+        $newOrders = Order::where('status', '!=', '4')->count() > 0;
+        return view('admin.order.index', compact('newOrders','orders', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct', 'newOrders'));
     }
 }

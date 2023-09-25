@@ -63,9 +63,14 @@
                             </p>
                         </div>
                         <div class="product-cart-qty">
-                            <a href="{{ route('order.main.create', $product->id) }}"
-                               style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);"
-                               class="add-to-cart-btn">Buy</a>
+                            <form action="{{ route('order.main.create', $product->id) }}" method="post" >
+                                @csrf
+{{--                                <label>Stars</label>--}}
+                                <input type="number" min="1" max="99" name="number" value="1">
+                                <button type="submit"
+                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);"
+                                        class="btn">Buy</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -134,7 +139,11 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4">
+
                     <div class="product-speciality">
+                        <a href="{{ route('profile.main.show', $product->store->user->id) }}" class="btn" style="background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);" >Profile seller</a> <br>
+                        <br>
+                        <a href="{{ asset('storage/' . $product->video)}}">Click if the video is not displayed</a>
                         <video height="180px">
                             <source src="{{ asset('storage/' . $product->video)}}">
                         </video>

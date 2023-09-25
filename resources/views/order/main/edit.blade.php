@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('content')
-    <section class="page-banner">
+    <section class="page-banner" style="background-color: rgb(49,96,216);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <span class="round-shape"></span>
                     <h2 class="banner-title">Order</h2>
-                    <div class="bread-crumb"><a href="">Home</a> / Order</div>
+                    <div class="bread-crumb"><a href="/">Home / Order</a></div>
                 </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
                             @csrf
                             @method('patch')
                             <input type="text" hidden="hidden" name="status" value="4">
-                            <button type="submit" class="goru-btn">Confirmation of receipt of the goods / Closing of the
+                            <button type="submit" style="background-color: #ee7926; color: white" class="goru-btn">Confirmation of receipt of the goods / Closing of the
                                 order
                             </button>
                         </form>

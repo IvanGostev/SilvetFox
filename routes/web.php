@@ -183,7 +183,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Profile', 'prefix' => 'profil
 Route::group(['namespace' => 'App\Http\Controllers\Order', 'prefix' => 'orders', 'middleware' => 'auth'], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('order.main.index');
-        Route::get('/{product}/create', 'CreateController')->name('order.main.create');
+        Route::post('/{product}/create', 'CreateController')->name('order.main.create');
         Route::get('/{order}/show', 'EditController')->name('order.main.edit');
         Route::patch('/{order}', 'UpdateController')->name('order.main.update');
         Route::post('/', 'StoreController')->name('order.main.store');

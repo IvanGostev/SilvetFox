@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\CategoryPost;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Order;
 use App\Models\PostCategory;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -21,6 +22,7 @@ class EditController extends Controller
         $newW = WithdrawalForm::where('status', 1)->count() > 0;
         $newR = ReplenishmentForm::where('status', 1)->count() > 0;
         $newBanner = Banner::where('status', 1)->count() > 0;
-        return view('admin.categoryPost.edit', compact('category', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
+        $newOrders = Order::where('status', '!=', '4')->count() > 0;
+        return view('admin.categoryPost.edit', compact('newOrders','category', 'newBanner', 'newW', 'newR', 'newStore', 'newProduct'));
     }
 }
