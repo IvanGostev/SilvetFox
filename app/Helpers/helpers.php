@@ -14,12 +14,18 @@ function countNewMessages(): int|bool
 
 function newOrders(): int|bool
 {
-    $store_id = (Store::where('user_id', auth()->user()->id)->first())->id;
-    $products = Product::where('store_id', $store_id)->get();
-    $result = false;
-    foreach ($products as $product) {
-        $result = Order::where('status', '!=', '4')->where('product_id', $product->id)->count() > 0;
+    if (isset(auth()->user()->id)) {
+        if (Store::where('user_id', auth()->user()->id)->count() > 0) {
+            $store = Store::where('user_id', auth()->user()->id)->first();
+            $products = Product::where('store_id', $store->id)->get();
+            $result = false;
+            foreach ($products as $product) {
+                $result = Order::where('status', '!=', '4')->where('product_id', $product->id)->count() > 0;
+            }
+            return $result;
+        }
+
     }
-    return $result;
+    return false;
 }
 

@@ -69,7 +69,7 @@
             <div class="col-lg-2 col-md-2">
                 <div class="logo">
                     <a href="/">
-                        <img src="{{ asset('logo.jpg') }}" alt="SilverFox"/>
+                        <img src="{{ asset('logo.png') }}" alt="SilverFox"/>
                     </a>
                 </div>
             </div>
@@ -145,12 +145,14 @@
                                             class="badge rounded-pill badge-notification bg-danger">{{countNewMessages()}}</span>
                                     </a></li>
                             @endif
-                            @if(auth()->user()->role > 0)
-                                @if(newOrders())
-                                    <a href="{{route('store.order.index')}}"><span
-                                            class="badge bg-danger">New Orders</span></a>
+                            @auth()
+                                @if(auth()->user()->role > 0)
+                                    @if(newOrders())
+                                        <a href="{{route('store.order.index')}}"><span
+                                                class="badge bg-danger">New Orders</span></a>
+                                    @endif
                                 @endif
-                            @endif
+                            @endauth
                             <a class="select-currency" href="{{ route('profile.balance.index') }}">Your
                                 bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
                             <li class="menu-item-has-children">
@@ -202,7 +204,7 @@
             <div class="col-lg-3 col-md-4">
                 <aside class="widget about-widget">
                     <div class="foo-logo">
-                        <a href="/"><img width="150px" src="{{ asset('logo.jpg') }}" alt=""/></a>
+                        <a href="/"><img width="150px" src="{{ asset('logo.png') }}" alt=""/></a>
                     </div>
                     <p>
                         Sed ut perspiciatis unde omnis iste natus er sit voluptatem accusantium dolore.ea commo

@@ -26,6 +26,7 @@
                                     <th class="product-name-thumbnail" style="color: white"  >Product Name</th>
                                     <th class="product-price" style="color: white" >Date</th>
                                     <th class="product-price" style="color: white" >Status</th>
+                                    <th class="product-price" style="color: white" >Number</th>
                                     <th class="product-total" style="color: white" >Price</th>
                                     <th class="product-remove" >&nbsp;</th>
                                 </tr>
@@ -62,6 +63,13 @@
                                     <div class="product-price clearfix">
                                                 <span class="price">
                                                     <span style="color: white" > {{ $status }}</span>
+                                                </span>
+                                    </div>
+                                </td>
+                                <td class="product-unit-price">
+                                    <div class="product-price clearfix">
+                                                <span class="price">
+                                                    <span style="color: white" > {{ $order->number }}</span>
                                                 </span>
                                     </div>
                                 </td>
