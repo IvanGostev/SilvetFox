@@ -51,6 +51,12 @@ License URI:
     width: auto;
     height: 45px;
 }
+@media (max-width: 1420px) {
+    .logo img{
+        width: auto;
+        height: 35px;
+    }
+}
 .mainmenu{
     position: relative;
 }

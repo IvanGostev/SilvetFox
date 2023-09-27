@@ -153,6 +153,12 @@
                                     @endif
                                 @endif
                             @endauth
+                            @auth()
+                                @if(newOrderNotifications())
+                                    <a href="{{route('order.main.index')}}"><span
+                                            class="badge bg-danger">New Order Notifications</span></a>
+                                @endif
+                            @endauth
                             <a class="select-currency" href="{{ route('profile.balance.index') }}">Your
                                 bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
                             <li class="menu-item-has-children">
@@ -160,7 +166,9 @@
                                         class="twi-user-circle"></i><span>Account</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('profile.main.edit') }}">Edit profile</a></li>
-                                    <li><a href="{{ route('order.main.index') }}">Orders</a></li>
+                                    <li>@if(newOrderNotifications())
+                                            <span class="badge bg-danger">New</span>
+                                        @endif <a href="{{ route('order.main.index') }}">Orders</a></li>
                                     <li><a href="{{ route('profile.balance.index') }}">Balance history</a></li>
                                     <li><a href="{{ route('banner.create') }}">Banners</a></li>
                                     <li><a href="{{ route('store.main.start') }}">My store</a></li>

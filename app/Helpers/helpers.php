@@ -29,3 +29,11 @@ function newOrders(): int|bool
     return false;
 }
 
+function newOrderNotifications(): int|bool
+{
+    if (isset(auth()->user()->id)) {
+        return Order::where('user_id', auth()->user()->id)->where('status', '>', '2')->where('status', '<', '4')->count() > 0;
+
+    }
+    return false;
+}

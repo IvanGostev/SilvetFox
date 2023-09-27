@@ -20,19 +20,28 @@
                     <div class="card">
                         <div class="rounded-top text-white d-flex flex-row"
                              style="background-color: #2d3037; height:200px;">
-                            <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
+                            <div class="ms-4 mt-1 d-flex flex-column" style="width: 150px;">
                                 <img src="{{ asset('storage/' . $user->img) }}"
                                      alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
-                                     style="width: 150px; z-index: 1">
+                                     style="width: 150px; height: 165px; z-index: 1">
                             </div>
                             <div class="ms-3 " style="margin-top: 130px;">
                                 <h5 style='color: white ;'>{{$user->name}}</h5>
-                                @if($user->id != auth()->user()->id)
-                                    <div class="">
-                                        <a href="{{ route('profile.chat.show', $user->id) }}" class="btn" style="background-color: #ee7926">Chat</a>
-                                    </div>
-                                @endif
+                                <div class="d-flex">
+                                    @if($user->id != auth()->user()->id)
+                                        <div style="margin-right: 5px;" >
+                                            <a href="{{ route('profile.chat.show', $user->id) }}" class="btn" style="background-color: #ee7926">Chat</a>
+                                        </div>
+                                    @endif
+                                    @if($user->role == 1)
+                                        <div class="">
+                                            <a href="{{ route('market.category.storeProduct', $user->store->id) }}" class="btn" style="background-color: #ee7926">Seller's goods</a>
+                                        </div>
+                                    @endif
+                                </div>
+
                             </div>
+
                         </div>
                         <div class="card-body p-4 text-black">
                             <div class="mb-5">

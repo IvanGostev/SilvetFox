@@ -35,7 +35,12 @@
                                     <a href="{{ route('market.category.storeProduct', $store->id ) }}">
                                         <img src="{{ asset('storage/' . $store->img) }}" alt="">
                                     </a>
-                                    <a class="product-name" href="{{ route('market.category.storeProduct', $store->id ) }}">{{$store->title}}</a>
+
+                                        <a class="product-name" href="{{ route('market.category.storeProduct', $store->id ) }}">{{$store->title}}</a>
+
+
+
+
                                 </td>
                                 <td class="product-unit-price">
                                     <div class="product-price clearfix">
@@ -45,7 +50,12 @@
                                     </div>
                                 </td>
                                 <td class="y">
-                                    <a href="{{ route('market.category.storeProduct', $store->id ) }}">Go over</a>
+                                    <form action="{{ route('market.category.storeProduct', $store->id ) }}" method="get">
+                                        @csrf
+                                        @method('get')
+                                        <a type="submit" href="{{ route('market.category.storeProduct', $store->id ) }}" class="btn" style="color: white; background: linear-gradient(90deg, #f08323,#e86028);">Products of this store</a>
+                                    </form>
+
                                 </td>
                             </tr>
                             @endforeach

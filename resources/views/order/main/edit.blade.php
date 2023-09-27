@@ -24,7 +24,7 @@
                         <h5>Link to the delivery service: <p><a href="{{$order->delivery}}">{{$order->delivery}}</a></p>
                         </h5>
                         <h5>Track number: <p> {{$order->track_number}}</p></h5>
-                        <h5>Social:
+                        <h5>Deal with:
                             <a href="{{ route('profile.main.show', $order->product->store->user->id) }}"><i
                                     class="twi-user"></i> &nbsp; Seller</a>
                         </h5>
@@ -45,7 +45,7 @@
                 "4" => 'Receipt confirmed',
                 0 => 'Cancelled',
                 1 => 'In processing',
-                2 => 'In the assembly',
+                2 => 'Preparing for shipment',
                 3 => 'Shipped',
                 4 => 'Receipt confirmed',
             }

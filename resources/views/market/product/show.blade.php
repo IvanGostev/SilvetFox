@@ -49,6 +49,10 @@
                         </div>
                         <div class="product-price clearfix">
                                 <span class="price">
+
+                                    <span style="color: yellow!important;">
+                                           PRICE</span>
+                                </span>
                                     <span><span
                                             class="woocommerce-Price-currencySymbol"></span>{{ $product->price }}</span>&nbsp;XMR
                                 </span>

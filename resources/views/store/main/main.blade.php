@@ -21,16 +21,21 @@
             <div class="row">
                 <div class="col-4">
                     <div class="card">
+                        <div class="card-body">
+
+                            <label>{!!  $store->active == 1 ? ' <span class="text-success ">Activated</span>' : '<span class="text-danger">Deactivated</span>'!!}</label>
+                            <br>
+                            <a href="{{ route('store.main.active', $store->id) }}"
+                                                    class="btn" style="background-color: #ee7926; color: white!important;" >Activate/Deactivate Store</a>
+                            <a href="{{ route('store.main.edit', $store->id) }}"
+                               class="btn" style="background-color: #ee7926; color: white!important;" >Edit</a></div>
                         <img class="card-img-top img-fluid" src="{{ asset('storage/' . $store->img) }}"
                              alt="Card image cap">
                         <div class="card-body">
                             <h4 class="card-title " style="color: black!important;">{{$store->title}}</h4>
                             <p class="card-text">{{$store->description}}</p>
-                            <label>{!!  $store->active == 1 ? ' <span class="text-success ">Activated</span>' : '<span class="text-danger">Deactivated</span>'!!}</label>
-                            <a href="{{ route('store.main.active', $store->id) }}"
-                               class="btn" style="background-color: #ee7926; color: white!important;" >Activate/Deactivate</a>
-                            <a href="{{ route('store.main.edit', $store->id) }}"
-                               class="btn" style="background-color: #ee7926; color: white!important;" >Edit</a>
+
+
                         </div>
                     </div>
                 </div> <!-- end col -->
@@ -75,7 +80,7 @@
                                                 <td data-field="gender" class="text-success  font-weight-bolder">YES</td>
                                             @endif
                                             <td style="width: 100px" >
-                                                <a href="{{ route('store.product.active', $product->id) }}" class="btn" style="background-color: #ee7926; color: white!important;" >Activate/Deactivate</a>
+                                                <a href="{{ route('store.product.active', $product->id) }}" class="btn" style="background-color: #ee7926; color: white!important;" >Activate/Deactivate Product</a>
                                             </td>
                                             <td style="width: 100px">
                                                 <a href="{{ route('store.product.image.index', $product->id) }}" class="btn" style="background-color: #ee7926; color: white!important;" >See</a>

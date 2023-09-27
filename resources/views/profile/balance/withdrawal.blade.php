@@ -21,13 +21,14 @@
                             <h3>Request for withdrawal</h3>
                             <div class="row">
                                 <p class="col-lg-6">
-                                    <label>The amount you specify will be deducted from your account. In case of refusal, it will be returned to the account. </label>
+                                    <label>The amount you specify will be deducted from your account.</label>
+                                    <label>In case of refusal, it will be returned to the account. </label>
                                     <input placeholder="XMR" name="number" step="0.0001" type="number" required>
 
                                 </p>
                                 <p class="col-lg-12">
                                     <label>Message</label>
-                                    <textarea name="message" required></textarea>
+                                    <textarea name="message" required placeholder="Indicate the wallet number to which you want to withdraw money"></textarea>
                                 </p>
                                 <p class="col-lg-6">
                                 <div class="place-order">

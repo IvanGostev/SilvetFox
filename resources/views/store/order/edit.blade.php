@@ -52,7 +52,7 @@
                                     <div class="mb-3">
                                         <label class="form-label" for="validationCustom01">Status</label>
                                         <select class="form-select" name="status" id="inlineFormSelectPref">
-                                            <option {{ $order->status == 2 ? 'selected' : ' '}} value="2">{{'In the assembly'}}</option>
+                                            <option {{ $order->status == 2 ? 'selected' : ' '}} value="2">{{'Preparing for shipment'}}</option>
                                             <option {{ $order->status == 3 ? 'selected' : ' '}} value="3">{{'Shipped'}}</option>
                                         </select>
                                     </div>
