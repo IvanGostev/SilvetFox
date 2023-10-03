@@ -38,8 +38,7 @@ for ($i = 0; $i < $count; $i++) {
 $captcha = strtolower(implode("", $captcha));
 
 header("Content-type: image/gif");
-$_SESSION["captcha"] =
-    ($captcha);
+$_SESSION["captcha"] = $captcha;
 imagegif($img);
 
 

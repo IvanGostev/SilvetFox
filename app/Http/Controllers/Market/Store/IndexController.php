@@ -19,6 +19,8 @@ class IndexController extends Controller
       foreach ($categories as $category) {
           $category['count'] = Product::where('active', 1)->where('status', 2)->where('category_id', $category->id)->count();
       }
+
+
       return view('market.product.index', compact('products', 'categories', 'banners'));
   }
 }

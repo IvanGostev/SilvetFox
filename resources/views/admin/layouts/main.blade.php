@@ -158,6 +158,18 @@
                             @endif
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.banner.indexAll') }}" class="waves-effect">
+                            <span>Баннеры</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.claim.new') }}" class="waves-effect">
+                            <span>Жалобы</span> @if(newClaim() == true)
+                                <span class="badge bg-danger">New</span>
+                            @endif
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- Sidebar -->

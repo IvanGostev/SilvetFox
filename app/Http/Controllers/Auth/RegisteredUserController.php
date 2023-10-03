@@ -33,12 +33,11 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'captcha' => ['required', 'string'],
-            'email' => ['required', 'string', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-dd($_SESSION['captcha']);
-        if ($request->captcha ==  $_SESSION['captcha']) {
+        if ($request->captcha === $_SESSION['captcha']) {
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,

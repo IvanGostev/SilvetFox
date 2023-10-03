@@ -10,9 +10,77 @@ use Illuminate\Http\Request;
 
 class IndexAllController extends Controller
 {
-  public function __invoke()
-  {
-      $stores = Store::where('status', 2)->where('active', 1)->paginate(6);
-      return view('market.store.index', compact('stores'));
-  }
+    public function __invoke()
+    {
+        $stores = Store::where('status', 2)->where('active', 1)->paginate(12);
+
+        foreach ($stores as $store) {
+            $star5 = 0;
+            $star4 = 0;
+            $star3 = 0;
+            $star2 = 0;
+            $star1 = 0;
+            $count = 0;
+            $products = Product::where('store_id', $store->id)->get();
+            foreach ($products as $product) {
+
+                foreach ($product->comments as $comment) {
+                    $comment->rating == 5 ? $star5++ : 0;
+                    $comment->rating == 4 ? $star4++ : 0;
+                    $comment->rating == 3 ? $star3++ : 0;
+                    $comment->rating == 2 ? $star2++ : 0;
+                    $comment->rating == 1 ? $star1++ : 0;
+                }
+                $count += count($product->comments);
+
+            }
+            function rating(array $arr, $count)
+            {
+                if ($count != 0) {
+                    return ((5 * $arr['5']) + (4 * $arr['4']) + (3 * $arr['3']) + (2 * $arr['2']) + (1 * $arr['1'])) / $count;
+                }
+                return 0;
+
+            }
+
+            $rating = rating(['5' => $star5, '4' => $star4, '3' => $star3, '2' => $star2, '1' => $star1], $count);
+            if ($rating >= 4.50) {
+                $rating = '<div class="star-rating">
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+                            </div>';
+            } elseif ($rating >= 3.50) {
+                $rating = '<div class="star-rating">
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+                            </div>';
+            } elseif ($rating >= 2.50) {
+                $rating = '<div class="star-rating">
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+
+                            </div>';
+            } elseif ($rating >= 1.50) {
+                $rating = '<div class="star-rating">
+                                <i class="twi-star"></i>
+                                <i class="twi-star"></i>
+
+                            </div>';
+            } else {
+                $rating = '<div class="star-rating">
+                                <i class="twi-star"></i>
+
+                            </div>';
+            }
+            $store['rating'] = $rating;
+        }
+
+        return view('market.store.index', compact('stores'));
+    }
 }

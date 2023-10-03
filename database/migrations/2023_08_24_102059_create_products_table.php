@@ -24,6 +24,7 @@ return new class extends Migration
             $table->bigInteger('dollars');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('store_id');
+            $table->softDeletes();
             $table->timestamps();
             $table->index('category_id', 'product_category_idx');
             $table->foreign('category_id', 'product_user_fk')->on('product_categories')->references('id');

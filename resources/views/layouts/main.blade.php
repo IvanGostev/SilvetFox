@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
 
-
     {{--    Products--}}
 
 
@@ -54,7 +53,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/ignore_in_wp.css')}}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/theme.css')}}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/responsive.css')}}"/>
-
 
 </head>
 <body style="background-color: #2d3037;">
@@ -120,6 +118,14 @@
                             </form>
                         </li>
                         <li>
+                            <form action="{{ route('claim.index') }}">
+                                <button type="submit" class="btn"
+                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
+                                        >Complaints
+                                </button>
+                            </form>
+                        </li>
+                        <li>
                             <form action="{{ route('main.rules') }}">
                                 <button type="submit" class="btn"
                                         style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
@@ -127,6 +133,7 @@
                                 </button>
                             </form>
                         </li>
+
                         {{--                        <li><a href="{{ route('market.product.index') }}">Products</a></li>--}}
                         {{--                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>--}}
                         {{--                        <li><a href="{{ route('news.main.index') }}">News</a></li>--}}
@@ -159,8 +166,8 @@
                                             class="badge bg-danger">New Order Notifications</span></a>
                                 @endif
                             @endauth
-                            <a class="select-currency" href="{{ route('profile.balance.index') }}">Your
-                                bill&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
+                            <a class="select-currency" href="{{ route('profile.balance.index') }}">
+                               YOUr Balance&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a> &nbsp; &nbsp;
                             <li class="menu-item-has-children">
                                 <a class="user-login" href="{{ route('profile.main.show', auth()->user()->id) }}"><i
                                         class="twi-user-circle"></i><span>Account</span></a>

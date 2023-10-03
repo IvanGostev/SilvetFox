@@ -45,7 +45,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Market', 'prefix' => 'market'
     });
     Route::group(['namespace' => 'Store', 'prefix' => 'store'], function () {
         Route::get('/', 'IndexAllController')->name('market.stores.index');
+        Route::get('/{store}/show', 'ShowController')->name('market.store.show');
+        Route::get('/{store}/about', 'AboutController')->name('market.store.about');
+        Route::get('/{store}/comments', 'CommentsController')->name('market.store.comments');
         Route::get('/{store}', 'IndexController')->name('market.store.index');
+
     });
     Route::group(['namespace' => 'Category', 'prefix' => 'category'], function () {
         Route::get('/{category}', 'IndexController')->name('market.category.index');
@@ -60,7 +64,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::patch('/', 'UpdateController')->name('admin.main.update');
     });
     Route::group(['namespace' => 'Banner', 'prefix' => 'banners', 'middleware' => 'auth'], function () {
-        Route::get('/', 'IndexController')->name('admin.banner.index');
+        Route::get('/check', 'IndexController')->name('admin.banner.index');
+        Route::get('/', 'IndexAllController')->name('admin.banner.indexAll');
         Route::get('/{banner}/active', 'ActiveController')->name('admin.banner.active');
         Route::delete('/{banner}/destroy', 'DestroyController')->name('admin.banner.destroy');
     });
@@ -123,6 +128,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::get('/', 'IndexController')->name('admin.order.index');
         Route::get('/completed', 'IndexCompletedController')->name('admin.order.completed');
     });
+    Route::group(['namespace' => 'Claim', 'prefix' => 'claims'], function () {
+        Route::get('/', 'IndexController')->name('admin.claim.index');
+        Route::get('/new', 'NewController')->name('admin.claim.new');
+        Route::patch('/{claim}/update', 'UpdateController')->name('admin.claim.update');
+    });
+
 });
 Route::group(['namespace' => 'App\Http\Controllers\Store', 'prefix' => 'store'], function () {
     Route::group(['namespace' => 'Main'], function () {
@@ -152,7 +163,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Store', 'prefix' => 'store'],
             Route::get('/{product}', 'IndexController')->name('store.product.image.index');
             Route::get('/{product}/create', 'CreateController')->name('store.product.image.create');
             Route::post('/', 'StoreController')->name('store.product.image.store');
-            Route::delete('/{image}/update', 'DestroyController')->name('store.product.image.destroy');
+            Route::delete('/{image}/destroy', 'DestroyController')->name('store.product.image.destroy');
         });
     });
 });
@@ -201,4 +212,9 @@ Route::group(['namespace' => 'App\Http\Controllers\News', 'prefix' => 'news'], f
 Route::group(['namespace' => 'App\Http\Controllers\Banner', 'prefix' => 'banners', 'middleware' => 'auth'], function () {
     Route::get('/create', 'CreateController')->name('banner.create');
     Route::post('/', 'StoreController')->name('banner.store');
+});
+Route::group(['namespace' => 'App\Http\Controllers\Claim', 'prefix' => 'claims', 'middleware' => 'auth'], function () {
+    Route::get('/', 'IndexController')->name('claim.index');
+    Route::get('/create', 'CreateController')->name('claim.create');
+    Route::post('/', 'StoreController')->name('claim.store');
 });

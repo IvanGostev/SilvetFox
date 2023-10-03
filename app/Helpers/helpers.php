@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Models\Claim;
 use App\Models\NewMessage;
 use App\Models\Order;
 use App\Models\Product;
@@ -33,6 +34,15 @@ function newOrderNotifications(): int|bool
 {
     if (isset(auth()->user()->id)) {
         return Order::where('user_id', auth()->user()->id)->where('status', '>', '2')->where('status', '<', '4')->count() > 0;
+
+    }
+    return false;
+}
+
+function newClaim(): int|bool
+{
+    if (isset(auth()->user()->id)) {
+        return Claim::where('status', '1')->count() > 0;
 
     }
     return false;

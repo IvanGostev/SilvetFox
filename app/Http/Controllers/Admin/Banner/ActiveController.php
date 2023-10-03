@@ -18,7 +18,12 @@ class ActiveController extends Controller
 {
     public function __invoke(Banner $banner)
     {
-        $banner->status = 2;
+        if ($banner->status == 1) {
+            $banner->status = 2;
+        } else {
+            $banner->status = 1;
+        }
+
         $banner->update();
         return redirect()->route('admin.banner.index');
     }

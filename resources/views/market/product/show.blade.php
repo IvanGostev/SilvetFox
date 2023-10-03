@@ -43,7 +43,7 @@
                         <h3>{{$product->title}}</h3>
                         <div class="woocommerce-product-rating">
                             {!! $rating !!}
-                            <a href="#" class="woocommerce-review-link"><span class="count">{{$countComments}}</span>
+                            <a href="#customer" class="woocommerce-review-link"><span class="count">{{$countComments}}</span>
                                 customer reviews
                             </a>
                         </div>
@@ -84,7 +84,7 @@
                     <div class="divider"></div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="customer">
                 <div class="col-lg-8 col-md-8">
                     <div class="product-tabarea">
                         <ul class="nav nav-tabs productTabs" id="productTab" role="tablist">
@@ -155,7 +155,7 @@
                         <ul>
                             <li>Store: {{$product->store->title}}</li>
                             <li>Category: {{$product->category->title}}</li>
-                            <li>Regions to which the goods are delivered: {{$product->countries}}
+                            <li>Regions to which the goods are delivered:
                                 @foreach($regions as $region)
                                         <?php
                                           $result =  match ($region) {

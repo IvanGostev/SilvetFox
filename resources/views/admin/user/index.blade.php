@@ -51,16 +51,19 @@
                                                 <td class="d-flex ">
                                                     <a href="{{ route('admin.user.edit', $user->id) }}"
                                                        class="btn btn-outline-success btn-sm">Редактировать</a> &nbsp;
-                                                    <form class="mr-5"
-                                                          action="{{ route('admin.user.destroy', $user->id) }}"
-                                                          method="post">
-                                                        @csrf
-                                                        @method('delete')
-                                                        <button type="submit"
-                                                                class="ml-2 btn btn-outline-danger btn-sm">
-                                                            Удалить
-                                                        </button>
-                                                    </form>
+                                                    @if($user->id != auth()->user()->id)
+                                                        <form class="mr-5"
+                                                              action="{{ route('admin.user.destroy', $user->id) }}"
+                                                              method="post">
+                                                            @csrf
+                                                            @method('delete')
+                                                            <button type="submit"
+                                                                    class="ml-2 btn btn-outline-danger btn-sm">
+                                                                Удалить
+                                                            </button>
+                                                        </form>
+                                                    @endif
+
                                                 </td>
                                             </tr>
                                         @endforeach
