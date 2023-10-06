@@ -38,6 +38,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['namespace' => 'App\Http\Controllers\Market', 'prefix' => 'market'], function () {
     Route::group(['namespace' => 'Product', 'prefix' => 'products'], function () {
         Route::get('/', 'IndexController')->name('market.product.index');
+        Route::get('/{product}/favorite', 'FavoriteController')->name('market.product.favorite');
         Route::get('/{product}', 'ShowController')->name('market.product.show')->middleware('auth');
         Route::group(['namespace' => 'Comment', 'prefix' => 'comment', 'middleware' => 'auth'], function () {
             Route::post('/', 'StoreController')->name('market.product.comment.store');
@@ -116,6 +117,14 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
         Route::patch('/{product}', 'UpdateController')->name('admin.product.update');
         Route::delete('/{product}', 'DestroyController')->name('admin.product.destroy');
     });
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+        Route::get('/', 'IndexController')->name('admin.comment.index');
+        Route::delete('/{comment}', 'DestroyController')->name('admin.comment.destroy');
+    });
+    Route::group(['namespace' => 'CommentPost', 'prefix' => 'post-comments'], function () {
+        Route::get('/', 'IndexController')->name('admin.commentPost.index');
+        Route::delete('/{comment}', 'DestroyController')->name('admin.commentPost.destroy');
+    });
     Route::group(['namespace' => 'News', 'prefix' => 'news'], function () {
         Route::get('/', 'IndexController')->name('admin.news.index');
         Route::get('/create', 'CreateController')->name('admin.news.create');
@@ -126,6 +135,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
     });
     Route::group(['namespace' => 'Order', 'prefix' => 'orders'], function () {
         Route::get('/', 'IndexController')->name('admin.order.index');
+        Route::get('/{order}/confirm', 'ConfirmController')->name('admin.order.confirm');
         Route::get('/completed', 'IndexCompletedController')->name('admin.order.completed');
     });
     Route::group(['namespace' => 'Claim', 'prefix' => 'claims'], function () {
@@ -180,6 +190,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Profile', 'prefix' => 'profil
         Route::get('/{user}/show', 'ShowController')->name('profile.main.show');
         Route::get('/edit', 'EditController')->name('profile.main.edit');
         Route::patch('/update', 'UpdateController')->name('profile.main.update');
+    });
+    Route::group(['namespace' => 'Product', 'prefix' => 'favorite'], function () {
+        Route::get('/', 'FavoriteController')->name('profile.product.favorite');
     });
     Route::group(['namespace' => 'Chat', 'prefix' => 'chats'], function () {
         Route::get('/', 'IndexController')->name('profile.chat.index');

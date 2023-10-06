@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->smallInteger('status')->default(0);
             $table->smallInteger('active')->default(0);
+            $table->softDeletes();
             $table->timestamps();
             $table->index('category_id', 'stores_category_idx');
             $table->foreign('category_id', 'stores_user_fk')->on('product_categories')->references('id');

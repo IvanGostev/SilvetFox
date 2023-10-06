@@ -44,9 +44,11 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    protected array $message = ['email.unique' => 'Such a nickname already exists'];
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -54,13 +56,13 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'captcha' => ['required', 'string'],
-        ]);
+        ], $this->message);
     }
 
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\Models\User
      */
     protected function create(array $data)

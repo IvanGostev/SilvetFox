@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-7">
-                    <h3 class="sec-title">Your order</h3>
+                    <h3 class="sec-title" style="font-size: 20px">Your order</h3>
                     <div class="info-contact">
                         <h5>Address: <p> {{$order->address}}</p></h5>
                         <h5>Link to the delivery service: <p><a href="{{$order->delivery}}">{{$order->delivery}}</a></p>
@@ -52,7 +52,7 @@
             ?>
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="sec-title">Status: {{$status}}</h2>
+                    <h2 class="sec-title"  style="font-size: 30px">Status: {{$status}}</h2>
                     @if($order->status != 4)
                     <p class="sec-desc">
                         After receiving the goods, you must click on the button!

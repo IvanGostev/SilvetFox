@@ -28,7 +28,7 @@
                                         <tbody>
                                         @foreach($users as $user)
                                                 <?php
-                                                $user['role'] = match ($user['role']) {
+                                                $role = match ($user['role']) {
                                                     0 => 'Пользователь',
                                                     1 => 'Продавец',
                                                     2 => 'Модератор',
@@ -44,14 +44,19 @@
                                                     <p class="mb-1 font-size-12">#{{$user->id}}</p>
                                                     <h5 class="font-size-15 mb-0">{{$user->name}}</h5>
                                                 </td>
-                                                <td>{{$user->role}}</td>
+                                                <td>{{$role}}</td>
                                                     <td>{{$user->balance}}</td>
                                                 <td><a href="{{ route('profile.chat.show', $user->id) }}"
                                                        class="btn btn-outline-dark btn-sm">Написать</a></td>
-                                                <td class="d-flex ">
-                                                    <a href="{{ route('admin.user.edit', $user->id) }}"
-                                                       class="btn btn-outline-success btn-sm">Редактировать</a> &nbsp;
-                                                    @if($user->id != auth()->user()->id)
+
+
+
+                                                    <td class="d-flex ">
+                                                        @if($user->role < auth()->user()->role || ($user->role == 3 and auth()->user()->role == 3))
+                                                        <a href="{{ route('admin.user.edit', $user->id) }}"
+                                                           class="btn btn-outline-success btn-sm">Редактировать</a> &nbsp;
+                                                        @endif
+                                                        @if($user->id != auth()->user()->id && ($user->role < auth()->user()->role))
                                                         <form class="mr-5"
                                                               action="{{ route('admin.user.destroy', $user->id) }}"
                                                               method="post">
@@ -62,9 +67,11 @@
                                                                 Удалить
                                                             </button>
                                                         </form>
-                                                    @endif
+                                                        @endif
+                                                    </td>
 
-                                                </td>
+
+
                                             </tr>
                                         @endforeach
                                         </tbody>

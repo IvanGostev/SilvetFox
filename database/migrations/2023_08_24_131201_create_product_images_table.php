@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('img');
             $table->timestamps();
+            $table->softDeletes();
             $table->index('product_id', 'product_image_product_idx');
             $table->foreign('product_id', 'product_image_product_fk')->on('products')->references('id');
         });

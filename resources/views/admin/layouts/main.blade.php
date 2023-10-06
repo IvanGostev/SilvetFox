@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" style="direction: ltr;">
 <head>
+    <style>
 
+        @media (max-width: 992px) {
+            .vertical-menu {
+                display: block!important;
+            }
+
+            .main-content {
+              padding-left:  20%;
+                font-size: 12px!important;
+                width: 80%!important;
+            }
+
+
+            .vertical-menu {
+                display: block;
+                width: 20%!important;
+                overflow: scroll;
+            }
+        }
+
+
+    </style>
     <meta charset="utf-8">
     <title>SILVERFOX - Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +87,7 @@
     </header>
 
     <!-- ========== Left Sidebar Start ========== -->
-    <div class="vertical-menu">
+    <div class="vertical-menu" style="overflow-y: scroll!important;">
 
         <div data-simplebar="" class="h-100">
 
@@ -168,6 +190,16 @@
                             <span>Жалобы</span> @if(newClaim() == true)
                                 <span class="badge bg-danger">New</span>
                             @endif
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.comment.index') }}" class="waves-effect">
+                            <span>Отзывы о товарах</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.commentPost.index') }}" class="waves-effect">
+                            <span>Комментарии постов</span>
                         </a>
                     </li>
                 </ul>

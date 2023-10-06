@@ -77,7 +77,7 @@
                             <div class="row panel-group tile__list" id="shop_list_main" role="tablist"
                                  aria-multiselectable="true">
                                 @foreach($stores as $store)
-                                    <div class="col-xs-6 col-sm-3 tile__item panel market_main">
+                                    <div class="col-xs-6 col-sm-3 tile__item panel market_main" style="margin: 10px">
                                         <a class="collapsed" role="button"
                                            href="{{ route('market.store.show', $store->id) }}"
                                            aria-expanded="false">
@@ -88,7 +88,7 @@
 
                                             <div class="title over">
 
-                                                Smile Store
+                                                {{ $store->title }}
                                             </div>
                                             <div class="rating_star " title="Оценка 0">
                                                 <div class="rating_star_yellow">

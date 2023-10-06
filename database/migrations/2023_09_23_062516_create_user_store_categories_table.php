@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
-
+            $table->softDeletes();
             $table->index('category_id', 'usc_category_idx');
             $table->foreign('category_id', 'usc_category_fk')->on('product_categories')->references('id');
             $table->index('user_id', 'usc_user_idx');

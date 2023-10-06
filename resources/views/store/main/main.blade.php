@@ -83,7 +83,7 @@
                                                 <a href="{{ route('store.product.active', $product->id) }}" class="btn" style="background-color: #ee7926; color: white!important;" >Activate/Deactivate Product</a>
                                             </td>
                                             <td style="width: 100px">
-                                                <a href="{{ route('store.product.image.index', $product->id) }}" class="btn" style="background-color: #ee7926; color: white!important;" >See</a>
+                                                <a href="{{ route('store.product.image.index', $product->id) }}" class="btn" style="background-color: #ee7926; color: white!important;" >Add</a>
                                             </td>
                                             <td style="width: 100px">
                                                 <a  href="{{ route('store.product.edit', $product->id) }}"

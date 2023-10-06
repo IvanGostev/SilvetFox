@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->text('message');
             $table->smallInteger('rating');
+            $table->softDeletes();
             $table->index('user_id', 'product_comment_user_idx');
             $table->foreign('user_id', 'product_comment_user_fk')->on('users')->references('id');
             $table->index('product_id', 'product_comment_product_idx');

@@ -24,6 +24,7 @@
                                             <th scope="col">Магазин</th>
                                             <th scope="col">Продавец</th>
                                             <th scope="col">Покупатель</th>
+                                            <th scope="col">Потвердеть</th>
 {{--                                            <th scope="col">Действие</th>--}}
 
                                         </tr>
@@ -70,6 +71,9 @@
                                                 </td>
                                                 <td><a href="{{ route('profile.chat.show', $order->user_id) }}"
                                                        class="btn btn-outline-info btn-sm">Написать</a> &nbsp;
+                                                </td>
+                                                <td><a href="{{ route('admin.order.confirm', $order->id) }}"
+                                                       class="btn btn-outline-info btn-sm">Подтвердить</a> &nbsp;
                                                 </td>
 {{--                                                <td class="d-flex ">--}}
 {{--                                                    <a href="{{ route('admin.product.edit', $order->id) }}"--}}

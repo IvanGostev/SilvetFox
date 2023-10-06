@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('link');
             $table->smallInteger('status');
             $table->timestamps();
+            $table->softDeletes();
             $table->index('user_id', 'banner_user_idx');
             $table->foreign('user_id', 'banner_user_fk')->on('users')->references('id');
         });

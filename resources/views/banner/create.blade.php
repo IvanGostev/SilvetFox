@@ -41,9 +41,11 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="sec-title">Creating a banner</h2>
-                    <p class="sec-desc">
+                    <p class="sec-desc" style="color: yellow">
+                        To order a banner need to have money on your balance <br>
                         After purchase, the banner will be on the site for 30 days, the cost of one
                         banner {{$main->advertisement}} XMR
+
                     </p>
                 </div>
             </div>

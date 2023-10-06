@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Market\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductComment;
+use App\Models\ProductFavorite;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 
@@ -84,7 +85,8 @@ class ShowController extends Controller
         }
         $images = ProductImage::where('product_id', $product->id)->get();
         $regions = explode(',', $product->regions);
-      return view('market.product.show', compact('product', 'products', 'regions', 'countComments', 'rating', 'images'));
+        $favorite = ProductFavorite::where('user_id', auth()->user()->id)->where('product_id', $product->id)->count() > 0;
+      return view('market.product.show', compact('product', 'products', 'regions', 'countComments', 'rating', 'images', 'favorite'));
   }
 }
 

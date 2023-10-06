@@ -91,14 +91,7 @@
                                 </button>
                             </form>
                         </li>
-                        <li>
-                            <form action="{{ route('news.main.index') }}">
-                                <button type="submit" class="btn"
-                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
-                                        href="{{ route('market.product.index') }}">News
-                                </button>
-                            </form>
-                        </li>
+
                         <li>
                             <form action="{{ route('order.main.index') }}">
                                 <button type="submit" class="btn"
@@ -112,14 +105,6 @@
                                 <button type="submit" class="btn"
                                         style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
                                         href="{{ route('market.product.index') }}">Escrow
-                                </button>
-                            </form>
-                        </li>
-                        <li>
-                            <form action="{{ route('claim.index') }}">
-                                <button type="submit" class="btn"
-                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
-                                >Complaints
                                 </button>
                             </form>
                         </li>
@@ -149,33 +134,39 @@
                                             class="badge rounded-pill badge-notification bg-danger">{{countNewMessages()}}</span>
                                     </a></li>
                             @endif
-                            @auth()
-                                @if(auth()->user()->role > 0)
-                                    @if(newOrders())
-                                        <a href="{{route('store.order.index')}}"><span
-                                                class="badge bg-danger">New Orders</span></a>
-                                    @endif
-                                @endif
-                            @endauth
-                            @auth()
-                                @if(newOrderNotifications())
-                                    <a href="{{route('order.main.index')}}"><span
-                                            class="badge bg-danger">New Order Notifications</span></a>
-                                @endif
-                            @endauth
-                            <a class="select-currency" href="{{ route('profile.balance.index') }}">Your
-                                balance&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
+                                @if(auth()->user()->role != 2)
+                                    <a class="select-currency" href="{{ route('profile.balance.index') }}">
+                                        balance&nbsp; <span style=" color: #f08323;">{{auth()->user()->balance}}</span>  &nbsp;XMR</a>@endif
                             <li class="menu-item-has-children">
+                                @auth()
+                                    @if(auth()->user()->role > 0)
+                                        @if(newOrders())
+                                            <span class="round-shape" style="background: red!important;"></span>
+                                        @endif
+                                    @endif
+                                @endauth
+                                @auth()
+                                    @if(newOrderNotifications())
+                                        <span class="round-shape" style="background: red!important;"></span>
+                                    @endif
+                                @endauth
+
                                 <a class="user-login" href="{{ route('profile.main.show', auth()->user()->id) }}"><i
                                         class="twi-user-circle"></i><span>Account</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('profile.main.edit') }}">Edit profile</a></li>
-                                    <li>@if(newOrderNotifications())
-                                            <span class="badge bg-danger">New</span>
-                                        @endif <a href="{{ route('order.main.index') }}">Orders</a></li>
-                                    <li><a href="{{ route('profile.balance.index') }}">Balance history</a></li>
-                                    <li><a href="{{ route('banner.create') }}">Banners</a></li>
-                                    <li><a href="{{ route('store.main.start') }}">My store</a></li>
+                                    <li><a href="{{ route('news.main.index') }}">News</a></li>
+                                    @if(auth()->user()->role != 2)
+                                        <li>@if(newOrderNotifications())
+                                                <span class="badge bg-danger">New</span>
+                                            @endif<a href="{{ route('order.main.index') }}">Orders</a></li>
+                                        <li><a href="{{ route('profile.product.favorite') }}">Saved goods <span style=" color: #f08323;">{{countFavorites()}}</span></a></li>
+                                        <li><a href="{{ route('claim.index') }}">Complaints</a></li>
+                                        <li><a href="{{ route('profile.balance.index') }}">Balance history</a></li>
+                                        <li><a href="{{ route('banner.create') }}">Banners</a></li>
+                                        <li><a href="{{ route('store.main.start') }}">My store</a></li>
+
+                                    @endif
                                     @if(auth()->user()->role == 1)
                                         <li> @if(newOrders())
                                                 <span class="badge bg-danger">New</span>
@@ -245,7 +236,6 @@
                         <li><a href="{{ route('login') }}">Log in</a></li>
                         <li><a href="{{ route('register') }}">Sign Up</a></li>
                         <li><a href="{{ route('profile.chat.index') }}">Chats</a></li>
-                        <li><a href="{{ route('order.main.index') }}">Orders</a></li>
                     </ul>
                 </aside>
             </div>

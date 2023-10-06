@@ -20,27 +20,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 col-md-12">
-                    <div id="product-slider" class="carousel slide product-slider" data-ride="carousel">
+                    <div id="product-slider" class="carousel slide product-slider" data-ride="carousel" style="padding-left: 0!important;">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="ps-img"><a href="{{ asset('storage/' . $product->img)}}">
-                                        <img src="{{ asset('storage/' . $product->img)}}" alt="">
+                                        <img width="600px" height="600px" src="{{ asset('storage/' . $product->img)}}" alt="">
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <ol class="carousel-indicators clearfix">
-                            @foreach($images as $image)
-                                <li data-target="#product-slider" data-slide-to="0" class="active"><a
-                                        href="{{ asset('storage/' . $image->img)}}"><img
-                                            src="{{ asset('storage/' . $image->img)}}" alt=""></a></li>
-                            @endforeach
-                        </ol>
+{{--                        <ol class="carousel-indicators clearfix">--}}
+{{--                            @foreach($images as $image)--}}
+{{--                                <li data-target="#product-slider" data-slide-to="0" class="active"><a--}}
+{{--                                        href="{{ asset('storage/' . $image->img)}}"><img width="200px" height="200px"--}}
+{{--                                            src="{{ asset('storage/' . $image->img)}}" alt=""></a></li>--}}
+{{--                            @endforeach--}}
+{{--                        </ol>--}}
                     </div>
+                    <div style="display: flex" id="imgVideo">
+                        @foreach($images as $image)
+                            <li data-target="#product-slider" data-slide-to="0" class=""><a
+                                    href="{{ asset('storage/' . $image->img)}}"><img width="200px" height="200px"
+                                                                                     src="{{ asset('storage/' . $image->img)}}" alt=""></a></li>
+                        @endforeach
+                        <li data-target="#product-slider" data-slide-to="0" class=""> </li>
+                    </div>
+
+                    <style>
+                        #imgVideo li {
+                            padding-left: 10px;
+                        }
+                        li {
+                            list-style-type: none;
+                            /* Убираем маркеры */
+                        }
+                    </style>
                 </div>
                 <div class="col-lg-5 col-md-12">
                     <div class="sin-product-details">
-                        <h3>{{$product->title}}</h3>
+
+                        <h3 style="font-size: 20px"> {{$product->title}}</h3>
                         <div class="woocommerce-product-rating">
                             {!! $rating !!}
                             <a href="#customer" class="woocommerce-review-link"><span class="count">{{$countComments}}</span>
@@ -62,9 +81,7 @@
                                 </span>
                         </div>
                         <div class="pro-excerp">
-                            <p>
-                                {{$product->description}}
-                            </p>
+
                         </div>
                         <div class="product-cart-qty">
                             <form action="{{ route('order.main.create', $product->id) }}" method="post" >
@@ -74,19 +91,64 @@
                                 <button type="submit"
                                         style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);"
                                         class="btn">Buy</button>
+
                             </form>
+                          &nbsp; <a href="{{ route('market.product.favorite', $product->id) }}" ><i class="bi bi-heart-fill" style=" {{ $favorite == true ? "color: red; " : ' ' }}font-size: 15px"></i></a>
+                        </div>
+                        <div class="product-speciality">
+                            <a href="{{ route('profile.main.show', $product->store->user->id) }}" class="btn" style="background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);" >Profile seller</a> <br>
+                            <br>
+
+                            <video height="180px">
+                                <source src="{{ asset('storage/' . $product->video)}}">
+                            </video>
+                            <br>
+                            <a href="{{ asset('storage/' . $product->video)}}">Click if the video is not displayed</a>
+
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="divider"></div>
+
+                    <div class="divider">
+                        <h6 style="padding-top: 20px">Description</h6>
+                        <p >
+                            {{$product->description}}
+                        </p></div>
                 </div>
+                <h5 style="color: yellow!important; font-size: 18px">Specifications</h5>
+                <ul>
+                    <li style="color: yellow!important; font-size: 15px">Store: {{$product->store->title}}</li>
+                    <li style="color: yellow!important; font-size: 15px">Category: {{$product->category->title}}</li>
+                    <li style="color: yellow!important; font-size: 15px">Regions to which the goods are delivered:
+                        @foreach($regions as $region)
+                                <?php
+                                $result =  match ($region) {
+                                    '' => '',
+                                    '1' => 'Africa',
+                                    '2' => 'North America',
+                                    '3' => 'Latin America and the Caribbean',
+                                    '4' => 'Asia',
+                                    '5' => 'Australia and Oceania',
+                                    '6' => 'Europe',
+                                    '7' => 'Russia',
+                                };
+                                ?>
+                            {{  $result . ', '}}
+
+
+                        @endforeach
+
+
+                    </li>
+                </ul>
             </div>
             <div class="row" id="customer">
-                <div class="col-lg-8 col-md-8">
-                    <div class="product-tabarea">
+                <div class="col-lg-12 col-md-12">
+                    <div class="">
                         <ul class="nav nav-tabs productTabs" id="productTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
@@ -142,49 +204,48 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
+{{--                <div class="col-lg-4 col-md-4">--}}
 
-                    <div class="product-speciality">
-                        <a href="{{ route('profile.main.show', $product->store->user->id) }}" class="btn" style="background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);" >Profile seller</a> <br>
-                        <br>
-                        <a href="{{ asset('storage/' . $product->video)}}">Click if the video is not displayed</a>
-                        <video height="180px">
-                            <source src="{{ asset('storage/' . $product->video)}}">
-                        </video>
-                        <h5>Specifications</h5>
-                        <ul>
-                            <li>Store: {{$product->store->title}}</li>
-                            <li>Category: {{$product->category->title}}</li>
-                            <li>Regions to which the goods are delivered:
-                                @foreach($regions as $region)
-                                        <?php
-                                          $result =  match ($region) {
-                                                '' => '',
-                                                '1' => 'Africa',
-                                                '2' => 'North America',
-                                                '3' => 'Latin America and the Caribbean',
-                                                '4' => 'Asia',
-                                                '5' => 'Australia and Oceania',
-                                                '6' => 'Europe',
-                                                '7' => 'Russia',
-                                            };
-                                        ?>
-                                    {{  $result . ', '}}
-
-
-                                @endforeach
+{{--                    <div class="product-speciality">--}}
+{{--                        <a href="{{ route('profile.main.show', $product->store->user->id) }}" class="btn" style="background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);" >Profile seller</a> <br>--}}
+{{--                        <br>--}}
+{{--                        <a href="{{ asset('storage/' . $product->video)}}">Click if the video is not displayed</a>--}}
+{{--                        <video height="180px">--}}
+{{--                            <source src="{{ asset('storage/' . $product->video)}}">--}}
+{{--                        </video>--}}
+{{--                        <h5>Specifications</h5>--}}
+{{--                        <ul>--}}
+{{--                            <li>Store: {{$product->store->title}}</li>--}}
+{{--                            <li>Category: {{$product->category->title}}</li>--}}
+{{--                            <li>Regions to which the goods are delivered:--}}
+{{--                                @foreach($regions as $region)--}}
+{{--                                        <?php--}}
+{{--                                          $result =  match ($region) {--}}
+{{--                                                '' => '',--}}
+{{--                                                '1' => 'Africa',--}}
+{{--                                                '2' => 'North America',--}}
+{{--                                                '3' => 'Latin America and the Caribbean',--}}
+{{--                                                '4' => 'Asia',--}}
+{{--                                                '5' => 'Australia and Oceania',--}}
+{{--                                                '6' => 'Europe',--}}
+{{--                                                '7' => 'Russia',--}}
+{{--                                            };--}}
+{{--                                        ?>--}}
+{{--                                    {{  $result . ', '}}--}}
 
 
-                            </li>
-                            <li>Description: {{$product->description}}</li>
-                        </ul>
-                    </div>
-                </div>
+{{--                                @endforeach--}}
+
+
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="related-product-area">
-                        <h3>Related Products</h3>
+                        <h3  style="font-size: 25px">Related Products</h3>
                         <div class="related-slider owl-carousel owl-loaded owl-drag">
 
 
@@ -245,7 +306,7 @@
                                             <div class="sp-details">
                                                 <h4>Wirless Headset</h4>
                                                 <div class="product-price clearfix">
-                                            <span class="price">
+                                            <span class="price" style="font-size: 20px">
                                                 <span><span
                                                         class="woocommerce-Price-currencySymbol">$</span>122.00</span>
                                             </span>
@@ -258,22 +319,22 @@
                                         </div>
                                     </div>
                                     @foreach($products as $productR)
-                                        <div class="owl-item active" style="width: 360px; margin-right: 30px;">
+                                        <div class="owl-item active" style="width: 180px; margin-right: 30px;">
                                             <div class="single-shop-product">
                                                 <div class="sp-thumb">
                                                     <img src="{{ asset('storage/' . $productR->img)}}" alt="" class="">
                                                 </div>
                                                 <div class="sp-details">
-                                                    <h4>{{$productR->title}}</h4>
+                                                    <h4  style="font-size: 15px">{{$productR->title}}</h4>
                                                     <div class="product-price clearfix">
                                             <span class="price">
-                                                <span><span
+                                                <span><span  style="font-size: 15px"
                                                         class="woocommerce-Price-currencySymbol">{{$productR->price}}</span>XMR</span>
                                             </span>
                                                     </div>
                                                     <div class="sp-details-hover">
                                                         <a class="sp-cart"
-                                                           href="{{ route('market.product.show', $productR->id) }}"><span>More detailed</span></a>
+                                                           href="{{ route('market.product.show', $productR->id) }}"><span  style="font-size: 15px">More detailed</span></a>
                                                     </div>
                                                 </div>
                                             </div>

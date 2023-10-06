@@ -19,6 +19,7 @@ return new class extends Migration
             $table->index('user_id', 'history_user_idx');
             $table->foreign('user_id', 'history_user_fk')->on('users')->references('id');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

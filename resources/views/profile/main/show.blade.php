@@ -35,7 +35,7 @@
                                     @endif
                                     @if($user->role == 1)
                                         <div class="">
-                                            <a href="{{ route('market.category.storeProduct', $user->store->id) }}" class="btn" style="background-color: #ee7926">Seller's goods</a>
+                                            <a href="{{ route('market.store.show', $user->store->id) }}" class="btn" style="background-color: #ee7926">Seller's goods</a>
                                         </div>
                                     @endif
                                 </div>

@@ -41,7 +41,7 @@
                             <div class="row tile__list tileitems_filter pad15 tileproduct__list">
                                 @foreach($products as $product)
 
-                                    <div class="catalog_item ">
+                                    <div class="catalog_item "  >
                                         <div class="photo">
                                             <a href="{{ route('market.product.show', $product->id) }}">
                                                 <img width="200px" height="200px"
@@ -64,7 +64,7 @@
                                                 <i class="i_crown"></i>
                                                 <a href="{{ route('market.product.show', $product->id) }}"> {{$product->store->title}}</a>
                                             </div>
-                                            <div class="text">{{$product->description}}
+                                            <div class="text"  style="max-height: 40px; overflow: hidden">{{$product->description}}
                                             </div>
                                             <div class="info">
                                                 <ul class="text-muted">

@@ -27,7 +27,7 @@
                                 </p>
                                 <p class="col-lg-12">
                                     <label>Message</label>
-                                    <textarea name="message" required></textarea>
+                                    <textarea name="message" required placeholder="Indicate the wallet number from which you sent money"></textarea>
                                 </p>
                                 <p class="col-lg-6">
                                 <div class="place-order">

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('first_user_id');
             $table->unsignedBigInteger('second_user_id');
             $table->timestamps();
-
+            $table->softDeletes();
             $table->index('first_user_id', 'chat_first_user_idx');
             $table->foreign('first_user_id', 'chat_first_user_fk')->on('users')->references('id');
 
