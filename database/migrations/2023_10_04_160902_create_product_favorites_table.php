@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('histories', function (Blueprint $table) {
+        Schema::create('product_favorites', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('number');
-            $table->string('type');
             $table->unsignedBigInteger('user_id');
-            $table->index('user_id', 'history_user_idx');
-            $table->foreign('user_id', 'history_user_fk')->on('users')->references('id');
+            $table->unsignedBigInteger('product_id');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('histories');
+        Schema::dropIfExists('product_favorites');
     }
 };

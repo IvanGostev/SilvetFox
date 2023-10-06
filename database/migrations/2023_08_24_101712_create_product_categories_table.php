@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->double('deposit');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -24,7 +24,7 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="ps-img"><a href="{{ asset('storage/' . $product->img)}}">
-                                        <img src="{{ asset('storage/' . $product->img)}}" alt="">
+                                        <img width="600px" height="600px" src="{{ asset('storage/' . $product->img)}}" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                         <ol class="carousel-indicators clearfix">
                             @foreach($images as $image)
                                 <li data-target="#product-slider" data-slide-to="0" class="active"><a
-                                        href="{{ asset('storage/' . $image->img)}}"><img
+                                        href="{{ asset('storage/' . $image->img)}}"><img width="200px" height="200px"
                                             src="{{ asset('storage/' . $image->img)}}" alt=""></a></li>
                             @endforeach
                         </ol>
@@ -40,7 +40,8 @@
                 </div>
                 <div class="col-lg-5 col-md-12">
                     <div class="sin-product-details">
-                        <h3>{{$product->title}}</h3>
+
+                        <h3> {{$product->title}}</h3>
                         <div class="woocommerce-product-rating">
                             {!! $rating !!}
                             <a href="#customer" class="woocommerce-review-link"><span class="count">{{$countComments}}</span>
@@ -62,9 +63,7 @@
                                 </span>
                         </div>
                         <div class="pro-excerp">
-                            <p>
-                                {{$product->description}}
-                            </p>
+
                         </div>
                         <div class="product-cart-qty">
                             <form action="{{ route('order.main.create', $product->id) }}" method="post" >
@@ -74,14 +73,21 @@
                                 <button type="submit"
                                         style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028);"
                                         class="btn">Buy</button>
+
                             </form>
+                          &nbsp; <a href="{{ route('market.product.favorite', $product->id) }}" ><i class="bi bi-heart-fill" style=" {{ $favorite == true ? "color: red; " : ' ' }}font-size: 30px"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="divider"></div>
+
+                    <div class="divider">
+                        <h6 style="padding-top: 20px">Description</h6>
+                        <p >
+                            {{$product->description}}
+                        </p></div>
                 </div>
             </div>
             <div class="row" id="customer">
@@ -176,7 +182,6 @@
 
 
                             </li>
-                            <li>Description: {{$product->description}}</li>
                         </ul>
                     </div>
                 </div>

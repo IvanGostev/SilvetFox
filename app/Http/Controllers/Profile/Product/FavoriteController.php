@@ -1,39 +1,46 @@
 <?php
 
-namespace App\Http\Controllers\Market\Store;
+namespace App\Http\Controllers\Profile\Product;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Models\Store;
+use App\Models\ProductFavorite;
 use Illuminate\Http\Request;
 
-class IndexAllController extends Controller
+class FavoriteController extends Controller
 {
     public function __invoke()
     {
-        $stores = Store::where('status', 2)->where('active', 1)->paginate(12);
+        $products_favorite = ProductFavorite::where('user_id', auth()->user()->id)->get();
+        $products = [];
+        foreach ($products_favorite as $favorite) {
+            $products[] = Product::where('id', $favorite->product_id)->first();
+        }
 
-        foreach ($stores as $store) {
+        $categories = ProductCategory::all();
+        $banners = Banner::where('status', 2)->inRandomOrder()->limit(10)->get();
+        foreach ($categories as $category) {
+            $category['count'] = Product::where('active', 1)->where('status', 2)->where('category_id', $category->id)->count();
+        }
+        foreach ($products as $product) {
+            $product['regions'] = explode(',', $product->regions);
+
+
             $star5 = 0;
             $star4 = 0;
             $star3 = 0;
             $star2 = 0;
             $star1 = 0;
-            $count = 0;
-            $products = Product::where('store_id', $store->id)->get();
-            foreach ($products as $product) {
-
-                foreach ($product->comments as $comment) {
-                    $comment->rating == 5 ? $star5++ : 0;
-                    $comment->rating == 4 ? $star4++ : 0;
-                    $comment->rating == 3 ? $star3++ : 0;
-                    $comment->rating == 2 ? $star2++ : 0;
-                    $comment->rating == 1 ? $star1++ : 0;
-                }
-                $count += count($product->comments);
-
+            foreach ($product->comments as $comment) {
+                $comment->rating == 5 ? $star5++ : 0;
+                $comment->rating == 4 ? $star4++ : 0;
+                $comment->rating == 3 ? $star3++ : 0;
+                $comment->rating == 2 ? $star2++ : 0;
+                $comment->rating == 1 ? $star1++ : 0;
             }
+            $count = count($product->comments);
 
 
             $rating = rating(['5' => $star5, '4' => $star4, '3' => $star3, '2' => $star2, '1' => $star1], $count);
@@ -71,9 +78,8 @@ class IndexAllController extends Controller
 
                             </div>';
             }
-            $store['rating'] = $rating;
+            $product['rating'] = $rating;
         }
-
-        return view('market.store.index', compact('stores'));
+        return view('profile.product.favorite', compact('products', 'categories', 'banners'));
     }
 }

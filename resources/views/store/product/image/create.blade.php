@@ -22,6 +22,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title" style="color: black!important;">Add image</h4>
+                            <p>The image should be a square. Minimum size 200x200</p>
                             <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data"
                                   action="{{ route('store.product.image.store') }}">
                                 @csrf

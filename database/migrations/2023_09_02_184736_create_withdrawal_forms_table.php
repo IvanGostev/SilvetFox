@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('answer')->nullable();
             $table->smallInteger('status')->default('1');
             $table->timestamps();
+            $table->softDeletes();
             $table->index('user_id', 'withdrawal_form_user_idx');
             $table->foreign('user_id', 'withdrawal_form_user_fk')->on('users')->references('id');
         });

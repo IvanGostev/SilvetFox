@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="col-md-12 m-0  m-top-45" style="word-break: break-all!important;">
                     <span class="round-shape"></span>
-                    <h2 class="banner-title">1XMR = {{$main->rate_dollars}}$ To top up your balance, send money to the
-                        specified xmr account : {{$main->score}}</h2>
+                    <h5 class="banner-title" style="font-size: 14px">1XMR = {{$main->rate_dollars}}$ <br> To top up your balance, send money to the
+                        specified xmr account : <br> {{$main->score}}</h5>
                     <div class="bread-crumb"><a href="/">Home / Balance</a></div>
                     <br>
                     <p style="color: yellow;  font-size: 20px">After you have sent the money to the specified account, in

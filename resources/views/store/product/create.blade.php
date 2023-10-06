@@ -22,7 +22,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title" style="color: #000!important;">Create product</h4>
-                            <p style="text-transform: uppercase; color: red" >All fields are required!</p>
+                            <p style="text-transform: uppercase; color: red" >All fields are required!</p> <p>The image should be a square. Minimum size 200x200</p>
                             <form class="needs-validation" novalidate="" method="post" enctype="multipart/form-data"
                                   action="{{ route('store.product.store') }}">
                                 @csrf

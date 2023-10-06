@@ -15025,7 +15025,8 @@ label.i_arrow_down > select::-ms-expand {
 
 @media only screen and (max-width: 1030px) {
     .tile__item.panel > a {
-        padding: 20px
+        padding: 20px;
+        overflow: hidden;
     }
 }
 

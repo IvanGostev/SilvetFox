@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('second_user_id');
             $table->text('message');
             $table->timestamps();
-
+            $table->softDeletes();
             $table->index('first_user_id', 'message_first_user_idx');
             $table->foreign('first_user_id', 'message_first_user_fk')->on('users')->references('id');
 

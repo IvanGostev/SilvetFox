@@ -38,6 +38,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::group(['namespace' => 'App\Http\Controllers\Market', 'prefix' => 'market'], function () {
     Route::group(['namespace' => 'Product', 'prefix' => 'products'], function () {
         Route::get('/', 'IndexController')->name('market.product.index');
+        Route::get('/{product}/favorite', 'FavoriteController')->name('market.product.favorite');
         Route::get('/{product}', 'ShowController')->name('market.product.show')->middleware('auth');
         Route::group(['namespace' => 'Comment', 'prefix' => 'comment', 'middleware' => 'auth'], function () {
             Route::post('/', 'StoreController')->name('market.product.comment.store');
@@ -180,6 +181,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Profile', 'prefix' => 'profil
         Route::get('/{user}/show', 'ShowController')->name('profile.main.show');
         Route::get('/edit', 'EditController')->name('profile.main.edit');
         Route::patch('/update', 'UpdateController')->name('profile.main.update');
+    });
+    Route::group(['namespace' => 'Product', 'prefix' => 'favorite'], function () {
+        Route::get('/', 'FavoriteController')->name('profile.product.favorite');
     });
     Route::group(['namespace' => 'Chat', 'prefix' => 'chats'], function () {
         Route::get('/', 'IndexController')->name('profile.chat.index');

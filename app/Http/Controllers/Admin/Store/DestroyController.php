@@ -11,7 +11,7 @@ class DestroyController extends Controller
 {
     public function __invoke(Store $store)
     {
-        dd(1);
+
         if (Product::where('store_id', $store->id)->count() > 0) {
             $products = Product::where('store_id', $store->id)->get();
             foreach ($products as $product) {

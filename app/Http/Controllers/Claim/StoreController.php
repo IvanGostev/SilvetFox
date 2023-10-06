@@ -18,6 +18,6 @@ class StoreController extends Controller
         $data = $request->validated();
         $data['user_id'] = auth()->user()->id;
         Claim::create($data);
-        return redirect()->route('profile.balance.index');
+        return redirect()->route('claim.index');
     }
 }

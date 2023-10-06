@@ -1,7 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" style="direction: ltr;">
 <head>
+    <style>
 
+        @media (max-width: 992px) {
+            .vertical-menu {
+                display: block!important;
+            }
+
+            .main-content {
+              padding-left:  20%;
+                font-size: 12px!important;
+                width: 80%!important;
+            }
+
+
+            .vertical-menu {
+                display: block;
+                width: 20%!important;
+                overflow: scroll;
+            }
+        }
+
+
+    </style>
     <meta charset="utf-8">
     <title>SILVERFOX - Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

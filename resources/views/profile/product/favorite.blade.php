@@ -6,14 +6,27 @@
         }
     </style>
     <link rel="stylesheet" href="{{ asset('css/new.css') }}">
+    <section class="page-banner  m-0" style="background-color: rgb(49,96,216); padding: 93px 0 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 m-0  m-top-45" style="word-break: break-all!important;">
+                    <span class="round-shape"></span>
+                    <h5 class="banner-title" >Saved products</h5>
+                    <div class="bread-crumb"><a href="/">Home / Products</a></div>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="shop-left-sidebar"
-             style="background-color: #2d3037;">
+             style="background-color: #2d3037; padding-top: 0px!important" >
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-2">
                     <div class="shop-sidebar">
                         <aside class="widget widget-categories">
-                            <h3 class="widget-title">Categories</h3>
+                            <h3 class="widget-title">Categories all products</h3>
                             <ul>
                                 @foreach($categories as $category)
                                     <li>
@@ -131,19 +144,7 @@
                         {{--                            </div>--}}
                         {{--                        @endforeach--}}
                     </div>
-                    <div class="row">
-                        <div class="mx-auto">      {{$products->links()}}</div>
 
-                        {{--                                                <div class="col-lg-10 offset-lg-1 col-md-12 mt-20">--}}
-                        {{--              --}}
-                        {{--                                                    <div class="goru-pagination text-center clearfix">--}}
-
-                        {{--                                                        <a class="prev" href="{{$paginator->previousCursor()}}"><i class="twi-long-arrow-alt-left"></i></a>--}}
-                        {{--                                                        <span class="current">1</span>--}}
-                        {{--                                                        <a href="#">2</a>--}}
-                        {{--                                                        <a class="next" href="{{$paginator->nextCursor()}}"><i class="twi-long-arrow-alt-right"></i></a>--}}
-                        {{--                                                    </div>--}}
-                    </div>
                 </div>
             </div>
         </div>

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('post_id');
             $table->text('message');
+            $table->softDeletes();
             $table->index('user_id', 'post_comment_user_idx');
             $table->foreign('user_id', 'post_comment_user_fk')->on('users')->references('id');
             $table->index('post_id', 'post_comment_post_idx');

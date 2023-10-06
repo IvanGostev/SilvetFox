@@ -93,14 +93,7 @@
                                 </button>
                             </form>
                         </li>
-                        <li>
-                            <form action="{{ route('news.main.index') }}">
-                                <button type="submit" class="btn"
-                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
-                                        href="{{ route('market.product.index') }}">News
-                                </button>
-                            </form>
-                        </li>
+
                         <li>
                             <form action="{{ route('order.main.index') }}">
                                 <button type="submit" class="btn"
@@ -118,14 +111,6 @@
                             </form>
                         </li>
                         <li>
-                            <form action="{{ route('claim.index') }}">
-                                <button type="submit" class="btn"
-                                        style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
-                                >Complaints
-                                </button>
-                            </form>
-                        </li>
-                        <li>
                             <form action="{{ route('main.rules') }}">
                                 <button type="submit" class="btn"
                                         style="color: #fff;   background: -webkit-linear-gradient(90deg, #f08323,#e86028); background: linear-gradient(90deg, #f08323,#e86028); "
@@ -133,6 +118,7 @@
                                 </button>
                             </form>
                         </li>
+
                         {{--                        <li><a href="{{ route('market.product.index') }}">Products</a></li>--}}
                         {{--                        <li><a href="{{ route('market.stores.index') }}">Stores</a></li>--}}
                         {{--                        <li><a href="{{ route('news.main.index') }}">News</a></li>--}}
@@ -151,24 +137,35 @@
                                             class="badge rounded-pill badge-notification bg-danger">{{countNewMessages()}}</span>
                                     </a></li>
                             @endif
-                            @auth()
-                                @if(auth()->user()->role > 0)
-                                    @if(newOrders())
-                                        <a href="{{route('store.order.index')}}"><span
-                                                class="badge bg-danger">New Orders</span></a>
-                                    @endif
-                                @endif
-                            @endauth
-                            <a class="select-currency" href="{{ route('profile.balance.index') }}">Your
-                                balance&nbsp;{{auth()->user()->balance}}&nbsp;XMR</a>
+                            <a class="select-currency" href="{{ route('profile.balance.index') }}">
+                                <a class="select-currency" href="{{ route('profile.balance.index') }}">
+                                    balance&nbsp; <span style=" color: #f08323;">{{auth()->user()->balance}}</span>  &nbsp;XMR</a>
                             <li class="menu-item-has-children">
+                                @auth()
+                                    @if(auth()->user()->role > 0)
+                                        @if(newOrders())
+                                            <span class="round-shape" style="background: red!important;"></span>
+                                        @endif
+                                    @endif
+                                @endauth
+                                @auth()
+                                    @if(newOrderNotifications())
+                                        <span class="round-shape" style="background: red!important;"></span>
+                                    @endif
+                                @endauth
                                 <a class="user-login" href="{{ route('profile.main.show', auth()->user()->id) }}"><i
-                                        class="twi-user-circle"></i><span>Account</span></a>
+                                        class="twi-user-circle"></i>
+                                    <span>Account</span></a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ route('profile.main.edit') }}">Edit profile</a></li>
-                                    <li><a href="{{ route('order.main.index') }}">Orders</a></li>
+                                    <li>@if(newOrderNotifications())
+                                            <span class="badge bg-danger">New</span>
+                                        @endif <a href="{{ route('order.main.index') }}">Orders</a></li>
                                     <li><a href="{{ route('profile.balance.index') }}">Balance history</a></li>
+                                    <li><a href="{{ route('news.main.index') }}">News</a></li>
+                                    <li><a href="{{ route('claim.index') }}">Complaints</a></li>
                                     <li><a href="{{ route('banner.create') }}">Banners</a></li>
+                                    <li><a href="{{ route('profile.product.favorite') }}">Saved goods</a></li>
                                     <li><a href="{{ route('store.main.start') }}">My store</a></li>
                                     @if(auth()->user()->role == 1)
                                         <li> @if(newOrders())

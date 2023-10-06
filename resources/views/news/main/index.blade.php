@@ -50,7 +50,7 @@
                                                 </a>
                                                 <div class="news-item-content">
                                                     <div class="name">
-                                                        <a href="http://qsw7iurcrdwyml5kg4oxbmtqrcnpxiag3iumdarefzeunnyc2dnyljad.onion/news/8">{{$post->title}}</a>
+                                                        <a href="{{route('news.main.show', $post->id)}}">{{$post->title}}</a>
                                                     </div>
                                                     <div class="description" style="max-height: 300px;
 
