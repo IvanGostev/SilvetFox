@@ -254,7 +254,7 @@
             </div>
             {{--            <div class="col-lg-3 col-md-6 col-custome-4">--}}
             {{--                <aside class="widget">--}}
-            {{--                    <h3 class="widget-title">Subscribe</h3>--}}
+            {{--                     <h3 class="widget-title">Subscribe</h3>--}}
             {{--                    <form class="subscribe-form" action="#" method="post">--}}
             {{--                        <input type="email" name="email" placeholder="admin@mail.com">--}}
             {{--                        <button type="submit">Subscribe<i class="twi-long-arrow-alt-right"></i></button>--}}

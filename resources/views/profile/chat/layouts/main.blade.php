@@ -137,7 +137,7 @@
                                             class="badge rounded-pill badge-notification bg-danger">{{countNewMessages()}}</span>
                                     </a></li>
                             @endif
-                                @if(auth()->user()->role != 2)
+                                @if(auth()->user()->role != 2 )
                                 <a class="select-currency" href="{{ route('profile.balance.index') }}">
                                     balance&nbsp; <span style=" color: #f08323;">{{auth()->user()->balance}}</span>  &nbsp;XMR</a>@endif
                             <li class="menu-item-has-children">

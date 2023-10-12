@@ -114,7 +114,7 @@
                 <div class="col-lg-12">
 
                     <div class="divider">
-                        <h6 style="padding-top: 20px">Description</h6>
+                        <h6 style="padding-top: 20px ">Description</h6>
                         <p >
                             {{$product->description}}
                         </p></div>
@@ -243,81 +243,81 @@
 {{--                </div>--}}
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12" >
                     <div class="related-product-area">
                         <h3  style="font-size: 25px">Related Products</h3>
                         <div class="related-slider owl-carousel owl-loaded owl-drag">
 
 
                             <div class="owl-stage-outer">
-                                <div class="owl-stage"
+                                <div class="owl-stage " style="padding-bottom: -200px"
                                      style="transform: translate3d(-1170px, 0px, 0px); transition: all 0.7s ease 0s; width: 2340px;">
-                                    <div class="owl-item" style="width: 360px; margin-right: 30px;">
-                                        <div class="single-shop-product">
-                                            <div class="sp-thumb">
-                                                <img src="{{ asset('assets/images/shop/5.jpg')}}" alt="" class="">
-                                                <div class="pro-badge">
-                                                    <p class="sale">Sale</p>
-                                                </div>
-                                            </div>
-                                            <div class="sp-details">
-                                                <h4>VRBOX Gaming</h4>
-                                                <div class="product-price clearfix">
-                                            <span class="price">
-                                                <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
-                                                <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
-                                            </span>
-                                                </div>
-                                                <div class="sp-details-hover">
-                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
-                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 360px; margin-right: 30px;">
-                                        <div class="single-shop-product">
-                                            <div class="sp-thumb">
-                                                <img src="{{ asset('assets/images/shop/1.jpg')}}" alt="" class="">
-                                                <div class="pro-badge">
-                                                    <p class="hot">Hot</p>
-                                                </div>
-                                            </div>
-                                            <div class="sp-details">
-                                                <h4>Gaming Mouse</h4>
-                                                <div class="product-price clearfix">
-                                            <span class="price">
-                                                <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
-                                                <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
-                                            </span>
-                                                </div>
-                                                <div class="sp-details-hover">
-                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
-                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 360px; margin-right: 30px;">
-                                        <div class="single-shop-product">
-                                            <div class="sp-thumb">
-                                                <img src="{{ asset('assets/images/shop/8.jpg')}}" alt="" class="">
-                                            </div>
-                                            <div class="sp-details">
-                                                <h4>Wirless Headset</h4>
-                                                <div class="product-price clearfix">
-                                            <span class="price" style="font-size: 20px">
-                                                <span><span
-                                                        class="woocommerce-Price-currencySymbol">$</span>122.00</span>
-                                            </span>
-                                                </div>
-                                                <div class="sp-details-hover">
-                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
-                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="owl-item" style="width: 360px; margin-right: 30px;">--}}
+{{--                                        <div class="single-shop-product">--}}
+{{--                                            <div class="sp-thumb">--}}
+{{--                                                <img src="{{ asset('assets/images/shop/5.jpg')}}" alt="" class="">--}}
+{{--                                                <div class="pro-badge">--}}
+{{--                                                    <p class="sale">Sale</p>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="sp-details">--}}
+{{--                                                <h4>VRBOX Gaming</h4>--}}
+{{--                                                <div class="product-price clearfix">--}}
+{{--                                            <span class="price">--}}
+{{--                                                <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>--}}
+{{--                                                <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>--}}
+{{--                                            </span>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="sp-details-hover">--}}
+{{--                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>--}}
+{{--                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="owl-item" style="width: 360px; margin-right: 30px;">--}}
+{{--                                        <div class="single-shop-product">--}}
+{{--                                            <div class="sp-thumb">--}}
+{{--                                                <img src="{{ asset('assets/images/shop/1.jpg')}}" alt="" class="">--}}
+{{--                                                <div class="pro-badge">--}}
+{{--                                                    <p class="hot">Hot</p>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="sp-details">--}}
+{{--                                                <h4>Gaming Mouse</h4>--}}
+{{--                                                <div class="product-price clearfix">--}}
+{{--                                            <span class="price">--}}
+{{--                                                <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>--}}
+{{--                                                <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>--}}
+{{--                                            </span>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="sp-details-hover">--}}
+{{--                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>--}}
+{{--                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="owl-item" style="width: 360px; margin-right: 30px;">--}}
+{{--                                        <div class="single-shop-product">--}}
+{{--                                            <div class="sp-thumb">--}}
+{{--                                                <img src="{{ asset('assets/images/shop/8.jpg')}}" alt="" class="">--}}
+{{--                                            </div>--}}
+{{--                                            <div class="sp-details">--}}
+{{--                                                <h4>Wirless Headset</h4>--}}
+{{--                                                <div class="product-price clearfix">--}}
+{{--                                            <span class="price" style="font-size: 20px">--}}
+{{--                                                <span><span--}}
+{{--                                                        class="woocommerce-Price-currencySymbol">$</span>122.00</span>--}}
+{{--                                            </span>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="sp-details-hover">--}}
+{{--                                                    <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>--}}
+{{--                                                    <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     @foreach($products as $productR)
                                         <div class="owl-item active" style="width: 180px; margin-right: 30px;">
                                             <div class="single-shop-product">

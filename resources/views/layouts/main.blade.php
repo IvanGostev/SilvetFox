@@ -273,7 +273,7 @@
 <!-- Footer Ened -->
 
 <!-- Coryight Start -->
-<section class="copyright-section" style="background-color: #2d3037;">
+<section class="copyright-section" style="background-color: #2d3037; ">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 col-md-5">
