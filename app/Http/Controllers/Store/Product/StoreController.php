@@ -65,6 +65,7 @@ class StoreController extends Controller
 
                 }
                 $data['regions'] = implode(',', $categories );
+                $data = nl2br($data);
                 Product::create($data);
                 DB::commit();
             } catch (Exception $exception) {

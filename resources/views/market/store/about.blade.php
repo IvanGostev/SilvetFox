@@ -80,7 +80,8 @@
 
                         <div class="wrp">
                             <h3 class="title">About Store</h3>
-                            {{$store->description}}
+                        <p style="
+                        white-space: pre-line;">{{$store->description}}</p>
                         </div>
                     </div>
                 </div>

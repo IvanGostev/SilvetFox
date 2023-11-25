@@ -21,7 +21,7 @@
                 <div class="col-lg-12">
                     <h3 class="sec-title">Rules</h3>
                     <p>
-                        {{$main->rules}}
+                        {!!  $main->rules !!}
                     </p>
                 </div>
 

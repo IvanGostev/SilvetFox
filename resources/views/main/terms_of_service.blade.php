@@ -21,7 +21,7 @@
                 <div class="col-lg-12">
                     <h3 class="sec-title">Terms of Service</h3>
                     <p>
-                        {{$main->terms_of_service}}
+                        {!! $main->terms_of_service !!}
                     </p>
                 </div>
 

@@ -21,7 +21,7 @@
                 <div class="col-lg-12">
                     <h3 class="sec-title">Escrow</h3>
                     <p>
-                        {{$main->escrow}}
+                        {!! $main->escrow !!}}
                     </p>
                 </div>
 

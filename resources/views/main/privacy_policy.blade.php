@@ -21,7 +21,7 @@
                 <div class="col-lg-12">
                     <h3 class="sec-title">Privacy Policy</h3>
                     <p>
-                        {{$main->privacy_policy}}
+                        {!!  $main->privacy_policy !!}
                     </p>
                 </div>
 

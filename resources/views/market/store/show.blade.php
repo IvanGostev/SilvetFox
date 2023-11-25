@@ -145,7 +145,8 @@
                         <div class="tileitems__box">
                             <div class="wrp">
                                 <div class="static">
-                                    {{$store->description}}
+                                    <p style="
+                        white-space: pre-line;">{{$store->description}}</p>
                                 </div>
                             </div>
                         </div>

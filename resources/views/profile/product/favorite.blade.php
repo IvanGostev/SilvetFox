@@ -77,7 +77,7 @@
                                                 <i class="i_crown"></i>
                                                 <a href="{{ route('market.product.show', $product->id) }}"> {{$product->store->title}}</a>
                                             </div>
-                                            <div class="text"  style="max-height: 40px; overflow: hidden">{{$product->description}}
+                                            <div class="text"  style="max-height: 40px; overflow: hidden">{!! $product->description !!}}
                                             </div>
                                             <div class="info">
                                                 <ul class="text-muted">

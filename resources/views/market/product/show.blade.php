@@ -115,7 +115,8 @@
 
                     <div class="divider">
                         <h6 style="padding-top: 20px ">Description</h6>
-                        <p >
+                        <p style="
+                        white-space: pre-line;">
                             {{$product->description}}
                         </p></div>
                 </div>
